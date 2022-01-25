@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticleController@index')->name('index');
+
+Route::get('/register','UserController@create')->name('register');
+Route::post('/register','UserController@store');
+//登録完了画面
+Route::get('register/popup','UserController@getPopup')->name('popup');
+//Route::get('register/mypage','UserController@mypage')->name('mypage');
+
+

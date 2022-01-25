@@ -1,1 +1,1655 @@
 //
+
+
+/*=============================================================================
+# mixin
+=============================================================================*/
+$breakpoints: (
+    'sp': 'screen and (max-width: 767px)', //767px以下（スマホ）用の表示
+    'md': 'screen and (min-width: 768px)' //768px以上（PC）用の表示
+  ) !default;
+@mixin mq ($breakpoint:sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+      @content;
+    }
+  }
+
+/*=============================================================================
+# color
+=============================================================================*/
+$primary-color:#f6f0cc;
+$font-color:#2D2D32;
+$sub-color:#fecf8d;
+/*=============================================================================
+# common 全体に共通するスタイル
+=============================================================================*/
+// PCの時のみ表示
+@include mq (sp) {
+     .is-pc {
+         display: none;
+        }
+     }
+// SPの時のみ表示
+@include mq (md) {
+    .is-sp {
+        display: none;
+       }
+    }
+    body {
+      background-color: rgb(243,243,243);
+      color: $font-color;
+      width: 100%;
+      margin: auto;
+    }
+    .container {
+      width: 95%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    .title {
+      text-align: center;
+      padding-top: 140px;
+      font-size: 25px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left:50%;
+        top: 105%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: $sub-color;
+      }
+      @include mq (sp) {
+      padding-top: 100px;
+      }
+    }
+
+    .btn {
+      -webkit-appearance: none;
+      background-color: $sub-color;
+      background-image: none;
+      border: none;
+      border-radius: 0;
+      color: #FFFF;
+      cursor: pointer;
+      display: block;
+      margin: 0 0 1em;
+      padding: 0.6em 2em;
+      text-decoration: none;
+      width: 137px;
+      height: 46px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 600;
+      box-shadow: 0px 3px 5px #60606029;
+    }
+    
+    .btn:focus{
+      outline: none;
+    }
+    .btn::-moz-foucus-inner {
+      border: none;
+      padding: 0;
+    }
+    
+    .validation-alert {
+      color: crimson;
+      font-size: 12px;
+      margin-top: 10px;
+      text-align: left;
+      @include mq (sp) {
+        margin-left:30px;
+      }
+    }
+/*==================================================================
+# Form
+==================================================================*/
+/*==================================================================
+# form-item-title
+==================================================================*/
+    .form_item-title {
+      background-color: $sub-color;
+      color: #FFFF;
+      position: relative;
+      border: none;
+      text-align: center;
+      padding: 15px;
+      z-index: 5;
+      font-size: 13px;
+      line-height: 20px;
+      width: 150px;
+      height: 50px;
+    
+      @include mq (sp) {
+        display: block;
+        margin-left: 5%;
+        margin-right: auto;
+        padding: 8px;
+        line-height: 25px;
+        height: 40px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -8px;
+        border-left: $sub-color solid 8px;
+        border-top: solid 25px transparent;
+        border-bottom: solid 25px transparent;
+        @include mq (sp) {
+        display: none;
+        }
+      }
+    }
+
+.form_input {
+  margin-bottom: 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #FFFF;
+  background-image: none;
+  border: none;
+  border-radius: 2px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0.8em;
+  box-shadow: 5px 6px 15px #60606029;
+  width: 320px;
+  height: 40px;
+  &:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: 5px 6px 15px #60606029;
+    outline: none;
+  }
+  @include mq (sp) {
+    width: 90%;
+  }
+}
+
+.is-validated {
+  background-color: #e5b7be;
+  border-color: red;
+}
+/*==================================================================
+#〜area部分
+==================================================================*/
+.form_area {
+  display: flex;
+  margin-top: 30px;
+  @include mq (sp) {
+  display: block;
+  }
+}
+
+/*==================================================================
+#form_area-wrapper部分
+==================================================================*/
+.form_area-wrapper {
+  margin-left: 40px;
+  @include mq (sp) {
+  margin-left: 0px;
+ }
+}
+
+/*==================================================================
+# header
+==================================================================*/
+.header{
+  height: auto;
+  width: 100%;
+  background-color: rgb(243, 243, 243);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 20;
+  @include mq (sp) {
+    height: auto;
+  }
+}
+.header-logo{
+  background-image: url(/img/logo.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 280px;
+  height: 80px;
+  margin: 10px;
+  @include mq (sp) {
+    width: 100px;
+    height: 40px;
+  }
+}
+.header-wrapper {
+  display: flex;
+}
+.header-items-wrapper{
+  display: flex;
+  margin-right: 50px;
+  margin-left: auto;
+}
+.nav-wrapper{
+  margin: auto;
+ }
+
+ .nav-list {
+   display: none;
+   position: absolute;
+   top: 100;
+
+ }
+ .ac-btn {
+   margin-top: 0;
+   position: relative;
+ }
+ .ac-btn,.header-nav{
+   font-size: 14px;
+  width: 120px;
+  height: 40px;
+  background-color: $sub-color;
+  color: #FFF;
+  text-align: center;
+  margin-left: 20px;
+  padding-top: 12px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  display: block;
+  a {
+    color: #FFFF;
+  }
+ }
+ .header-active{
+   display: none;
+ }
+ 
+ .header-btn{
+   width: 120px;
+   height: 40px;
+   background-color: $sub-color;
+   color: #FFF;
+   text-align: center;
+   margin: auto;
+   padding-top: 12px;
+   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2)
+ }
+/*==================================================================
+# ドロワー
+==================================================================*/
+
+.drawer-icon {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 300;
+  display: none;
+  transition: transform 0.5s ease 0.3s;
+  @include mq (sp) {
+    display: block;
+  }
+  &.active_icon {
+      transform: translateX(-180px);
+    .drawer_icon-bar1 {
+      transform: rotate(-45deg);
+      top: 8px;
+      background-color: $sub-color;
+    }
+    .drawer_icon-bar2 {
+      display: none;
+    }
+    .drawer_icon-bar3 {
+      transform: rotate(45deg);
+      top: 8px;
+      background-color: $sub-color;
+
+    }
+  }
+}
+.drawer_icon-bars {
+  width: 30px;
+  height: 20px;
+  display: block;
+  position: relative;
+}
+.drawer_icon-bar1,.drawer_icon-bar2,.drawer_icon-bar3 {
+  position: absolute;
+  width: 26px;
+  height: 4px;
+  background-color: $sub-color;
+  top: 0;
+  left: 0;
+  border-radius: 4px;
+}
+.drawer_icon-bar1 {
+  top: 0;
+}
+.drawer_icon-bar2 {
+  top: 8px;
+}
+.drawer_icon-bar3 {
+  top: 16px;
+}
+.drawer-content {
+  width: 180px;
+  height: 100%;
+  position: fixed;
+  z-index: 301;
+  right: 0;
+  top: 0;
+  background-color: $sub-color;
+  transform: translateX(105%);
+  transition: transform 0.5s ease 0s;
+  &.active_icon{
+  transform: translateX(0);
+  }
+}
+.drawer-content_items {
+margin-top: 129px;
+
+}
+// .drawer-content_item {
+// }
+.drawer-nav {
+  display: block;
+  color: #FFFF;
+  height: 22px;
+  font-size: 16px;
+  line-height: 22px;
+  display: block;
+  margin-top: 32px;
+  text-align: center;
+}
+.drawer-back-ground {
+  background-color: rgba(62, 62, 62, 1);
+  opacity: 0.7;
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  display: none;
+  &.active_icon{
+    display: block;
+    }
+}
+
+/*==================================================================
+# footer
+==================================================================*/
+.copyright {
+    margin-top: 100px;
+    height: 50px;
+    background-color: $sub-color;
+    padding: 30px;
+    color: #FFFF;
+    text-align: right;
+  }
+
+  
+/*==================================================================
+# index
+==================================================================*/
+  /*==================================================================
+  # top
+  ==================================================================*/
+  .top {
+    padding-top: 150px;
+    @include mq (sp) {
+    padding-top: 50px;
+    }
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  /* Fix of Webkit flickering */
+  z-index: 1;
+  @include mq (sp) {
+    width: 100%;
+  }
+  }
+  .swiper-slide {
+    text-align: center;
+    line-height: 1;
+    align-items: flex-start; //画像の高さを統一させない
+    justify-content: center; //左右の中央揃え
+  }
+
+  .swiper-img {
+    max-width: 600px;
+    height: auto;
+    padding-left: auto;
+    padding-right: auto;
+    @include mq (sp) {
+    max-width: 100%;
+    max-height: 437px;
+    }
+
+  }
+
+  .swiper-container,.swiper-initialized,.swiper-horizontal,.swiper-pointer-events {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-item {
+    padding: 15px;
+    width: 77%;
+    height: 100px;
+    line-height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq (sp) {
+      font-size: 12px;
+      height: auto;
+    }
+  }
+
+/*==================================================================
+#search
+==================================================================*/
+  .search {
+    margin-top: 50px;
+    background-color: $sub-color;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq (sp) {
+    max-width: 400px;
+    }
+  }
+  .search-items {
+    padding: 0.8em;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+
+  }
+  .search-items-wrapper {
+    display: flex;
+    justify-content: space-around;
+    @include mq (sp) {
+      display:block;
+      max-width: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .keyword,.category {
+    @include mq (sp) {
+      max-width:160px;
+      margin-right:auto;
+      margin-left:auto;
+    }
+  }
+
+  .keyword-title,.category-title {
+    margin-bottom: 5px;
+    color: #FFFF;
+    font-size: 13px;
+  }
+  .category-title {
+    @include mq (sp) {
+      margin-top: 5px;
+    }
+  }
+
+
+  .keyword-box {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #FFFF;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.8em;
+    width: 100%;
+    height: 30px;
+  }
+
+  .category-select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent url(https://haniwaman.com/cms/wp-content/uploads/2018/12/form-css-arrow.png) no-repeat center right 8px/16px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    background-color: #FFFF;
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.8em;
+    width: 9em;
+    height: 30px;
+    @include mq (sp) {
+      width:100%;
+    }
+  }
+
+  .category-select::-ms-expand {
+    display: none;
+  }
+
+  .category-select:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: none;
+    outline: none;
+  }
+
+  .search-btn {
+    -webkit-appearance: none;
+	background-color: $primary-color;
+	background-image: none;
+	border: none;
+	border-radius: 0;
+	color: $font-color;
+	cursor: pointer;
+	display: block;
+	font-size: 1em;
+	margin: 0.8em 0 0.3em;
+	padding: 0.1em 2em;
+	text-decoration: none;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+  @include mq (sp) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  }
+
+  .search-btn:hover,
+  .search-btn:focus {
+    outline: none;
+  }
+
+  .search-btn::-moz-focus-inner {
+    border: none;
+    padding: 0;
+  }
+
+
+  /*==================================================================
+  # article
+  ==================================================================*/
+  .article {
+    margin-top: 50px;
+  background-color: rgb(243, 243, 243);
+  }
+
+  .article-container_1,.article-container_2 {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 98%;
+    justify-content: space-around;
+    @include mq (sp) {
+    display: block;
+      max-width: 330px;
+    }
+  }
+
+  .article-body {
+    background:  linear-gradient(125deg,$sub-color,#fae7cd);
+    padding: 20px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+    @include mq (sp) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .article-wrapper {
+    max-width: 330px;
+    width: 90%;
+    margin:0px 8px 15px 8px;
+    @include mq (sp) {
+    width: 100%;
+    margin:0px 0px 15px 0px;
+    }
+  }
+  .article-img {
+    max-width: 330px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    img {
+      max-width: 330px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+.recipe-title {
+  font-size: 20px;
+  @include mq (sp) {
+    margin-left: 10px;
+  }
+}
+
+.article-items {
+  display: flex;
+  @include mq (sp) {
+    margin-left: 10px;
+  }
+}
+
+.article-item-category,.article-item-keyword {
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px;
+  width: auto;
+  height: auto;
+  background-color: #FFAA3B;
+  box-shadow: 0px 3px 5px #3E3E3E33;
+  border-radius: 10px;
+  font-size: 10px;
+  color: #FFF;
+  padding: 8px 8px;
+  display: block;
+}
+.article-item-category {
+  margin-right: 15px;
+}
+
+.article-text {
+  margin-top: 15px;
+  max-width: 330px;
+  height: 80px;
+  padding: 12px;
+  background-color: rgb(243,243,243);
+  border-radius: 10px;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  max-height: 100px;
+  overflow: scroll;
+  box-shadow: 0px 3px 5px #3E3E3E33;
+  margin-right: auto;
+  margin-left: auto;
+  @include mq (sp) {
+    width:90%;
+  }
+}
+
+.article-user-name-title {
+  margin-top: 18px;
+  font-size: 13px;
+}
+
+.article-footer {
+  width: 100%;
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-left: auto;
+  @include mq (sp) {
+    width: 90%;
+    margin-left:15px;
+  }
+}
+
+.article-footer-item{
+  margin-right: 0px;
+  margin-left: auto;
+  margin-top: 5px;
+  width: 70%;
+  text-align: right;
+}
+
+.edit-item,.delete-item {
+    font-size: 13px;
+    margin-left: 15px;
+    margin-right: 0px;
+}
+
+.page-nation {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.nation-wrapper {
+  width: auto;
+  a {
+    margin-right: 15px;
+    background-color: $sub-color;
+    color: #FFFF;
+    padding: 0.5em;
+  }
+}
+
+
+/*==================================================================
+#create
+==================================================================*/
+.create-title {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left:50%;
+      top: 180px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $sub-color;
+    }
+  }
+  
+  .create-form-wrapper {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    .alert {
+      color: #E7728E;
+      font-size: 20px;
+      position: absolute;
+      top: 7;
+    }
+  }
+  
+  .create-alert {
+    margin-bottom: 50px;
+    font-size: 12px;
+  }
+  
+  /*以下form部分*/
+  /*==================================================================
+  #〜area-wrapper部分
+  ==================================================================*/
+  .create-form_category-area-wrapper,.create-radio_wrapper{
+    margin-left: 40px;
+    @include mq (sp) {
+    margin-left: 0px;
+    }
+  }
+  .create-form_reaction-area-wrapper {
+    margin-top: 10px;
+    text-align: left;
+    margin-left: -10px;
+    @include mq (sp) {
+    display: block;
+    }
+  }
+  
+  /*==================================================================
+  #テキストエリア
+  ==================================================================*/
+  .create-form_summary {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color:#FFFF;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    height: 100px;
+    padding: 0.4em 0.8em;
+    width: 320px;
+    @include mq (sp) {
+      width: 90%;
+    }
+  }
+  
+  .create-form_summary:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: none;
+    outline: none;
+  }
+  /*==================================================================
+  # バリデーション（記入前）
+  ==================================================================*/
+  .create-form-item {
+    text-align: left;
+    font-size: 11px;
+    @include mq (sp) {
+      margin-left: 5%;
+    }
+  }
+  
+  /*==================================================================
+  # ラジオボタン
+  ==================================================================*/
+  .radio_item-wrapper {
+    justify-content: space-around;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .create-radio_wrapper{
+      text-align: left;
+      font-size: 14px;
+      label {
+        width: 50%;
+      }
+      @include mq (sp) {
+        label {
+        font-size: 14px;
+       margin-left:5%;
+        }
+      }
+  }
+  
+  .form_select,.form_reaction-select {
+      display: none;
+    }
+  
+  .form_select + span,.form_reaction-select+ span {
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 0.2em 0;
+      position: relative;
+    padding: 0 0 0 1.2em;
+  }
+  
+  .form_select + span::before {
+      -webkit-transform: translateY(-50%);
+      background: #FFFF;
+      border: 1px solid #FFFF;
+      border-radius: 2px;
+      content: "";
+      display: block;
+      height: 1em;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1em;
+    @include mq (sp) {
+      width:0.5em;
+      height:0.5em;
+    }
+  }
+  
+  .form_select + span::after {
+      -webkit-transform: translateY(-50%) rotate(-45deg);
+      border-bottom: 3px solid $sub-color;
+      border-left: 3px solid $sub-color;
+      content: "";
+      display: block;
+      height: 0.6em;
+      left: 0;
+      margin-top: -0.2em;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      transition: all 0.3s ease 0s;
+      width: 1em;
+  }
+  
+  .form_reaction-select + span::after {
+      border-bottom: 3px solid $sub-color;
+      content: "";
+      display: block;
+      height: 0.5em;
+      left: 20px;
+      margin-top: -0.2em;
+      opacity: 0;
+      position: absolute;
+      top: 90%;
+      transition: all 0.2s ease 0s;
+      width: 85%;
+  }
+  
+  .form_select:checked + span::after,.form_reaction-select:checked + span::after {
+      opacity: 1;
+  }
+  
+  .reaction-icon::before {
+    font-size: 1.8em;
+    margin-left: -15px;
+    padding-right: 10px;
+    @include mq (sp) {
+    font-size: 1.5em;
+    }
+  }
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .create-form_sent-area-wrapper {
+    margin-top: 50px;
+  }
+  .create-form_back {
+    margin-top: 30px;
+  }
+
+  
+/*==================================================================
+# useredit
+==================================================================*/
+
+.useredit-form-wrapper {
+    max-width: 500px;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .useredit-pass-item {
+    margin-left: 0px;
+    margin-top: 15px;
+    @include mq (sp) {
+      margin-top:20px;
+    }
+  }
+  
+  
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .useredit-form_sent-area {
+    margin-top: 50px;
+    width: auto;
+    display: block;
+  }
+  
+  .useredit-btn-wrapper {
+   display: flex;
+   max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq (sp) {
+      display: block;
+      }
+  }
+  
+  .useredit-form_sent {
+    -webkit-appearance: none;
+    background-color: $sub-color;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    color: #FFFF;
+    cursor: pointer;
+    display: block;
+    margin: 0 0 1em;
+    padding: 0.6em 2em;
+    text-decoration: none;
+    width: 137px;
+    height: 46px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    box-shadow: 0px 3px 5px #60606029;
+  }
+  .useredit-form_sent:focus{
+    outline: none;
+  }
+  .useredit-form_sent::-moz-foucus-inner {
+    border: none;
+    padding: 0;
+  }
+  .useredit-btn-area {
+    margin-top: 50px;
+    margin-left: 30px;
+    display: block;
+    @include mq (sp) {
+    margin-left: 0px;
+    margin-top: 30px;
+    }
+  }
+  .useredit-back-btn {
+    -webkit-appearance: none;
+    background-color: $sub-color;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    color: #FFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    padding: 0.8em 2em;
+    text-decoration: none;
+    width: 137px;
+    height: 46px;
+    font-weight: 600;
+    box-shadow: 0px 3px 5px #60606029;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  
+/*==================================================================
+#edit
+==================================================================*/
+.edit-title {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left:50%;
+      top: 180px;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $sub-color;
+    }
+  }
+  
+  .edit-form-wrapper {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    .alert {
+      color: #E7728E;
+      font-size: 20px;
+      position: absolute;
+      top: 7;
+    }
+  }
+  
+  .edit-alert {
+    margin-bottom: 50px;
+  }
+  
+  /*以下form部分*/
+  /*==================================================================
+  #〜area-wrapper部分
+  ==================================================================*/
+  .edit-form_article-keyword-area-wrapper,.edit-radio_wrapper{
+    margin-left: 40px;
+    @include mq (sp) {
+      margin-left: 0px;
+      }
+  }
+  .edit-form_reaction-area-wrapper {
+    margin-top: 10px;
+    text-align: left;
+    margin-left: -10px;
+    @include mq (sp) {
+    display: block;
+    }
+  }
+  
+  
+  
+  /*==================================================================
+  #テキストエリア
+  ==================================================================*/
+  .edit-form_summary {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color:#FFFF;
+    background-image: none;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    height: 100px;
+    padding: 0.4em 0.8em;
+    width: 320px;
+    @include mq (sp) {
+      width: 90%;
+    }
+  }
+  
+  .edit-form_summary:focus {
+    border: 1px solid rgba(0, 0, 0, 0.32);
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /*==================================================================
+  # バリデーション（記入前）
+  ==================================================================*/
+  
+  .edit-form-item {
+    text-align: left;
+    font-size: 11px;
+    @include mq (sp) {
+      margin-left: 5%;
+    }
+  }
+  /*==================================================================
+  # ラジオボタン
+  ==================================================================*/
+  .radio_item-wrapper {
+    justify-content: space-around;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .edit-radio_wrapper{
+    text-align: left;
+    font-size: 14px;
+    label {
+      width: 50%;
+    }
+    @include mq (sp) {
+      label {
+      font-size: 14px;
+      margin-left:5%;
+  
+      }
+    }
+  }
+  
+  .form_select,.form_reaction-select {
+      display: none;
+  }
+  
+  .form_select + span,.form_reaction-select+ span {
+      cursor: pointer;
+      display: inline-block;
+      margin: 0 0.2em 0;
+      position: relative;
+    padding: 0 0 0 1.2em;
+  }
+  
+  .form_select + span::before {
+      -webkit-transform: translateY(-50%);
+      background: #FFFF;
+      border: 1px solid #FFFF;
+      border-radius: 2px;
+      content: "";
+      display: block;
+      height: 1em;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1em;
+    @include mq (sp) {
+      width:0.5em;
+      height:0.5em;
+    }
+  }
+  
+  .form_select + span::after {
+      -webkit-transform: translateY(-50%) rotate(-45deg);
+      border-bottom: 3px solid $sub-color;
+      border-left: 3px solid $sub-color;
+      content: "";
+      display: block;
+      height: 0.6em;
+      left: 0;
+      margin-top: -0.2em;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      transition: all 0.3s ease 0s;
+      width: 1em;
+  }
+  
+  .form_reaction-select + span::after {
+      border-bottom: 3px solid $sub-color;
+      content: "";
+      display: block;
+      height: 0.5em;
+      left: 20px;
+      margin-top: -0.2em;
+      opacity: 0;
+      position: absolute;
+      top: 90%;
+      transition: all 0.2s ease 0s;
+      width: 85%;
+  }
+  
+  .form_select:checked + span::after,.form_reaction-select:checked + span::after {
+      opacity: 1;
+  }
+  
+  .reaction-icon::before {
+    font-size: 1.8em;
+    margin-left: -15px;
+    padding-right: 10px;
+    @include mq (sp) {
+    font-size: 1.5em;
+    }
+  }
+  
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .edit-form_sent-area-wrapper {
+    margin-top: 50px;
+  }
+  
+  .edit-form_back {
+    margin-top: 30px;
+  }
+  
+/*==================================================================
+# login
+==================================================================*/
+.login-form-wrapper {
+    max-width: 500px;
+    width: 80%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    span {
+      color: #E7728E;
+      font-size: 20px;
+      position: absolute;
+      top: 7;
+    }
+  }
+  
+  /*=========================================================
+  フォーム
+  =========================================================*/
+  .login-form_email,.login-form_pass {
+    margin-left:40px;
+    @include mq (sp) {
+      margin-left: 0;
+    }
+  }
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .login-form_sent-area {
+    margin-top: 80px;
+  }
+  
+/*==================================================================
+# mypage
+==================================================================*/
+/*=========================================================
+item
+=========================================================*/
+.mypage-item-wrapper {
+    width: auto;
+    max-width: 80%;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq (sp) {
+    max-width: 80%;
+    margin-top: 50px;
+    }
+  }
+  
+  .mypage_item-title {
+    background-color: $sub-color;
+    color: #FFFF;
+    position: relative;
+    border: none;
+    text-align: center;
+    padding: 15px;
+    z-index: 5;
+    font-size: 13px;
+    line-height: 20px;
+    width: 150px;
+    height: 50px;
+    @include mq (sp) {
+      display: block;
+      padding: 8px;
+      line-height: 25px;
+      height: 40px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -8px;
+      border-left: $sub-color solid 8px;
+      border-top: solid 25px transparent;
+      border-bottom: solid 25px transparent;
+      @include mq (sp) {
+      display: none;
+      }
+    }
+  }
+  
+  .mypage_name-area,.mypage_email-area {
+    display: flex;
+    margin-top: 30px;
+    max-width: 500px;
+    margin-left: 25%;
+    margin-right: auto;
+    @include mq (sp) {
+    display: block;
+    margin-left: auto;
+    }
+  }
+  
+  .mypage_name,.mypage_email {
+    margin-left: 30px;
+    margin-top: 10px;
+    @include mq (sp) {
+    margin-left: 0;
+    text-align: center;
+    }
+  }
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .mypage_btn-area {
+    margin-top: 100px;
+    width: 50%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  .mypage-back-btn,.mypage-edit-btn {
+    -webkit-appearance: none;
+    background-color: $sub-color;
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    color: #FFFF;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    margin: 0 0 1em;
+    padding: 0.8em 2em;
+    text-decoration: none;
+    width: 137px;
+    height: 46px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    box-shadow: 0px 3px 5px #60606029;
+    text-align: center;
+  }
+  
+  .mypage-edit-btn {
+    margin-left: 10px;
+  }
+
+/*==================================================================
+#register
+==================================================================*/
+.register-alert {
+    font-size: 12px;
+    margin-bottom: 50px;
+  }
+  
+  .register-form-wrapper {
+    max-width: 500px;
+    width: 80%;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    position: relative;
+    span {
+      color: #E7728E;
+      font-size: 20px;
+      position: absolute;
+      top: 7;
+    }
+  }
+  
+  /*=========================================================
+  送信ボタン
+  =========================================================*/
+  .register-form_sent-area {
+    margin-top: 80px;
+  }
+
+/*==================================================================
+# show
+==================================================================*/
+
+.show-title {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 25px;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      left:50%;
+      top: 105%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $sub-color;
+    }
+    @include mq (sp) {
+    padding-top: 100px;
+    }
+  }
+  
+  .show-wrapper {
+    margin-top: 70px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq (sp) {
+    width: 90%;
+    margin-top: 50px;
+    }
+  }
+  .show_article-name-wrapper {
+    display: flex;
+    font-size: 30px;
+    margin-left: auto;
+    margin-right: auto;
+  @include mq (sp) {
+    font-size:20px;
+  }
+    .show_article-name-title {
+      margin-left: auto;
+    }
+    .show_article-name {
+      margin-right: auto;
+    }
+  }
+  
+  .show_article-item-wrapper {
+    display: flex;
+    margin-top: 30px;
+    margin-left: 7%;
+    width: 80%;
+    @include mq (sp) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 12px;
+    }
+  }
+  
+  .show_article-category-wrapper {
+    display: flex;
+    margin-left: auto;
+    margin-top: 20px;
+  
+  }
+  
+  .show_article-keyword-wrapper {
+    display: flex;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-left: 30px;
+    @include mq (sp) {
+    margin-left: 10px;
+      
+    }
+    .sikiri {
+      margin-right: 30px;
+      @include mq (sp) {
+      margin-right: 10px;
+      }
+    }
+  }
+  
+  .show_article-reaction-wrapper {
+    display: flex;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: 20%;
+    margin-top: 10px;
+    @include mq (sp) {
+      font-size: 14px;
+      margin-right: auto;
+      
+    }
+    .show_article-reaction-title {
+      margin-left: auto;
+      margin-top: 3px;
+    }
+    .show_article-reaction {
+      margin-right: auto;
+      margin-left: 10px;
+      @include mq (sp) {
+      margin-top: 4px;
+      }
+    }
+  
+  }
+  
+  .show_article-img-wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 500px;
+    height: auto;
+    @include mq (sp) {
+      max-width: 300px;
+    }
+    img{
+      width: 500px;
+      height: auto;
+      @include mq (sp) {
+      width: 300px;
+        
+      }
+    }
+  }
+  
+  .show_article-username-wrapper {
+    display: flex;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: 22%;
+    margin-top: 10px;
+    position: relative;
+    @include mq (sp) {
+      font-size:13px;
+      margin-right: auto;
+      width: 140px;
+    }
+  
+    .show_article-username-title {
+      margin-left: auto;
+      border-bottom: $sub-color 5px solid;
+      @include mq (sp) {
+      margin-left: 0;
+      }
+    }
+    .show_article-username {
+      margin-right: 0;
+      border-bottom: $sub-color 5px solid;
+    }
+  }
+  .show_article-memo-wrapper {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    @include mq (sp) {
+    margin-top: 30px;
+      
+    }
+    .show_article-memo-title {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .show_article-memo {
+      margin-top: 20px;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: #FFFF;
+      background-image: none;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      border-radius: 10px;
+      color: inherit;
+      font-family: inherit;
+      font-size: 1em;
+      height: 100px;
+      padding: 0.4em 0.8em;
+      width: 70%;
+      max-width: 500px;
+  
+      height: 150px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      @include mq (sp) {
+        width:70%;
+      }
+    }
+    
+    .show_article-memo:focus {
+      border: 1px solid rgba(0, 0, 0, 0.32);
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  .show_article-btn-wrapper {
+    margin-top: 60px;
+    display: flex;
+  
+    .show_article-btn-back {
+      padding: 15px;
+      background-color: $sub-color;
+      color: #FFFF;
+      border-radius: 10px;
+      display: block;
+      width: 100px;
+      text-align: center;
+      margin-left: auto;
+    }
+  
+    .show_article-btn-edit {
+      padding: 15px;
+      background-color: $sub-color;
+      color: #FFFF;
+      border-radius: 10px;
+      display: block;
+      width: 100px;
+      text-align: center;
+      margin-right: auto;
+      margin-left: 50px;
+    }
+  
+  }  
