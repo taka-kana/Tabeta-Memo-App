@@ -28,19 +28,26 @@
     <header class="header">
         <div class="container">
             <div class="header-wrapper">
-                <div class="header-logo"></div>
+                    <a href="{{ route('index') }}">
+                        <div class="header-logo"></div>
+                    </a>
                 <div class="header-items-wrapper">
+                    @if(Auth::check())
                     <a href="#" class="header-btn is-pc">投稿する</a>
                     <nav class="nav-wrapper is-pc">
                         <a href="" class="ac-btn">
                             メニュー
                         </a>
                             <ul class="nav-list">
-                                <li class="header-nav"><a href="#">マイページ</a></li>
+                                <li class="header-nav"><a href="{{ route('mypage') }}">マイページ</a></li>
                                 <li class="header-nav"><a href="#">マイレシピ</a></li>
-                                <li class="header-nav"><a href="#">ログアウト</a></li>
+                                <li class="header-nav"><a href="{{ route('logout') }}">ログアウト</a></li>
                             </ul>
                     </nav>
+                    @else
+                    <a class="header-btn" href="{{ route('getLogin') }}">ログイン</a>
+                    <a class="header-btn" style="margin-left:30px;" href="{{ route('register') }}">新規登録</a>
+                    @endif
                 </div>
                 <!-- ドロワーメニュー -->
 <div class="drawer-icon is-sp">
@@ -52,7 +59,7 @@
 </div>
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
-        <div class="drawer-content_item"><a href="#" class="drawer-nav">マイページ</a></div>
+        <div class="drawer-content_item"><a href="{{ route('mypage') }}" class="drawer-nav">マイページ</a></div>
         <div class="drawer-content_item"><a href="#" class="drawer-nav">マイレシピ</a></div>
         <div class="drawer-content_item"><a href="#" class="drawer-nav">ログアウト</a></div>
     </div>
