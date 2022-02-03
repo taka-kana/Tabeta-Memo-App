@@ -76,6 +76,7 @@
 </section>
 <!-- /.search -->
 
+@if(!empty($articles))
 <section class="article">
     <div class="container">
         <div class="article-container_1 wow fadeInDown">
@@ -106,11 +107,12 @@
         </div>
         <div class="page-nation">
             <div class="nation-wrapper">
-                {{ $articles->links() }}
+                {{ $articles->appends(request()->input())->links() }}
             </div>
         </div>
     </div>
 </section>
+@endif
 <!-- /.article -->
 
 @endsection

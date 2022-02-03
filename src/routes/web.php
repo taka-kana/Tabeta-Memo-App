@@ -12,7 +12,7 @@
 */
 //トップ画面
 Route::get('/', 'ArticleController@index')->name('index');
-Route::get('/search', 'ArticleController@search')->name('search');
+Route::get('/index/search', 'ArticleController@search')->name('search');
 
 //認証関連
 Route::group(['middleware' => 'auth'],function()

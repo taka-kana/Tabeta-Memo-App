@@ -11,6 +11,12 @@ class Category extends Model
         'name'
     ];
 
+    public function getLists()
+    {
+        $categories = Category::orderBy('id','asc')->pluck('name', 'id');
+        return $categories;
+    }
+
     public function articles()
     {
      return $this->hasMany('App\Article');
