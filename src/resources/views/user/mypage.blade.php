@@ -8,16 +8,16 @@
             <!-- 名前 -->
             <div class="mypage_name-area wow fadeInDown">
                 <div class="mypage_item-title">ユーザー名</div>
-                <div class="mypage_name">{{ $user->name }}</div>
+                <div class="mypage_name">{{ Auth::user()->name }}</div>
             </div>
             <!-- メールアドレス -->
             <div class="mypage_email-area wow fadeInDown">
                 <div class="mypage_item-title">メールアドレス</div>
-                <div class="mypage_email">{{ $user->email }}</div>
+                <div class="mypage_email">{{ Auth::user()->email }}</div>
             </div>
             <!-- 送信 -->
             <div class="mypage_btn-area wow fadeInDown">
-                <a href="" class="mypage-back-btn">戻る</a>
+                <a href="{{ route('index') }}" class="mypage-back-btn">戻る</a>
                 <a href="" class="mypage-edit-btn">編集</a>
                 
             </div>
