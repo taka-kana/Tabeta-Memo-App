@@ -4,81 +4,132 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use App\Keyword;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
-    public function index(Request $request)
-    {
-        $articles = Article::with('user')->get();
-        $keyword = new Keyword;
-        $category = new Category;
-        $categories = $category->getLists();
-        $keywords = $keyword->getLists();
-        $categoryId = $request->input('categoryId');
-        $searchWord = $request->input('searchWord');
 
-        if (!is_null($categoryId)) {
-            $article = Article::where('category_id', $categoryId)->orderBy('created_at', 'desc')->paginate(6);
-        } else {
-            $article = Article::orderBy('created_at', 'desc')->paginate(6);
-        }
-        return view('articles.index',[
-            'articles' => $articles,
-            'categories' => $categories,
-            'categoryId' => $categoryId,
-            'searchWord' => $searchWord,
+/*==========================================================================
+投稿一覧
+==========================================================================*/
+public function index(Request $request)
+{
+    $articles = Article::with('user')
+    ->orderBy('created_at','desc')
+    ->paginate(5);
+    $keyword = new Keyword;
+    $category = new Category;
+    $categories = $category->getLists();
+    $keywords = $keyword->getLists();
+    $categoryId = $request->input('categoryId');
+    $searchWord = $request->input('searchWord');
+    return view('articles.index',[
+        'articles' => $articles,
+        'categories' => $categories,
+        'categoryId' => $categoryId,
+        'searchWord' => $searchWord,
         ]);
     }
-    public function search(Request $request)
+
+/*==========================================================================
+検索機能
+==========================================================================*/
+public function search(Request $request)
+{
+    $searchWord = $request->input('searchWord');
+    $categoryId = $request->input('categoryId');
+    $category = new Category;
+    $categories = $category->getLists();
+    $query = Article::query();
+    if(!empty($request->get('searchWord')))
     {
-        $searchWord = $request->input('searchWord');
-        $categoryId = $request->input('categoryId');
-        $category = new Category;
-        $categories = $category->getLists();
-        $query = Article::query();
-        if(!empty($request->get('searchWord')))
-        {
-            $keyword = Keyword::where('name', 'like', '%' .$searchWord. '%')->first();
+        $keyword = Keyword::where('name', 'like', '%' .$searchWord. '%')->first();
             if(!empty($keyword)){
-                $keyword = $keyword->id;
-                $query = Article::query();
-                $query->where('keyword_id', $keyword)->get();
-            }else{
-                return view('articles.search',[
-                    'categoryId' => $categoryId,
-                    'searchWord' => $searchWord,
-                    'categories' => $categories,
-                ]);
-            }
+            $keyword = $keyword->id;
+            $query = Article::query();
+            $query->where('keyword_id', $keyword)->get();
+        }else{
+            return view('articles.search',[
+                'categoryId' => $categoryId,
+                'searchWord' => $searchWord,
+                'categories' => $categories,
+            ]);
         }
-            if(isset($categoryId))
-            {
-                $query->where('category_id', $categoryId);
-            }
-
-            if(empty($keyword) && empty($category)){
-                return view('articles.search',[
-                    'categoryId' => $categoryId,
-                    'searchWord' => $searchWord,
-                    'categories' => $categories,
-                ]);
-            }
-
-        $articles = $query->get();
-        $articles = $query->orderBy('category_id', 'asc')->paginate(6);
-
-        return view('articles.search',[
-            'articles' => $articles,
-            'categoryId' => $categoryId,
-            'searchWord' => $searchWord,
-            'categories' => $categories,
-        ]);
+    }
+        if(isset($categoryId))
+        {
+            $query->where('category_id', $categoryId);
+        }
+        if(empty($keyword) && empty($category)){
+            return view('articles.search',[
+                'categoryId' => $categoryId,
+                'searchWord' => $searchWord,
+                'categories' => $categories,
+            ]);
+        }
+    $articles = $query->get();
+    $articles = $query->orderBy('category_id', 'asc')->paginate(6);
+    return view('articles.search',[
+        'articles' => $articles,
+        'categoryId' => $categoryId,
+        'searchWord' => $searchWord,
+        'categories' => $categories,
+    ]);
     }
 
-    public static function escapeLike($str)
+public static function escapeLike($str)
+{
+    return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
+}
+
+/*==========================================================================
+記事投稿機能
+==========================================================================*/
+public function getCreate(Request $request)
+{
+    return view('articles.create');
+}
+
+public function postCreate(ArticleRequest $request)
+{
+    //imageの保存処理
+    if($file = $request->image) {
+        $fileName = time() . $file->getClientOriginalName();
+        $target_path = public_path('uploads/');
+        $file->move($target_path, $fileName);
+    } else {
+        $fileName = "";
+    }
+    
+    //キーワード処理
+    preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
+    $keywords = [];
+    foreach($match[1] as $keyword)
     {
-        return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $str);
+        $record = Keyword::firstOrCreate(['name' => $keyword]);
+        array_push($keywords, $record);
     }
+    
+    $keyword_id = [];
+    foreach ($keywords as $keyword)
+    {
+        array_push($keyword_id, $keyword['id']);
+    }
+    
+    $article = new Article();
+    $article->title = $request->title;
+    $article->summary = $request->summary;
+    $article->image = $fileName;
+    $article->category_id = $request->category_id;
+    $article->revue_id = $request->revue_id;
+    $article->keyword_id = $keyword['id'];
+    $article->user_id = Auth::id();
+    $article->save();
+    
+    return redirect()->route('index');
+}
+
 }

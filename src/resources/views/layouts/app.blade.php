@@ -32,8 +32,9 @@
                         <div class="header-logo"></div>
                     </a>
                 <div class="header-items-wrapper">
+                    <!-- ログイン後 -->
                     @if(Auth::check())
-                    <a href="#" class="header-btn is-pc">投稿する</a>
+                    <a href="{{ route('getCreate') }}" class="header-btn is-pc">投稿する</a>
                     <nav class="nav-wrapper is-pc">
                         <a href="" class="ac-btn">
                             メニュー
@@ -44,6 +45,7 @@
                                 <li class="header-nav"><a href="{{ route('logout') }}">ログアウト</a></li>
                             </ul>
                     </nav>
+                    <!-- ログイン前 -->
                     @else
                     <a class="header-btn" href="{{ route('getLogin') }}">ログイン</a>
                     <a class="header-btn" style="margin-left:30px;" href="{{ route('register') }}">新規登録</a>

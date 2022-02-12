@@ -1,27 +1,29 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 //トップ画面
 Route::get('/', 'ArticleController@index')->name('index');
 Route::get('/index/search', 'ArticleController@search')->name('search');
 
-//認証関連
+
+/*==========================================================================
+|ログイン後のみアクセス可能
+==========================================================================*/
 Route::group(['middleware' => 'auth'],function()
 {
     //マイページ
     Route::get('/mypage','UserController@mypage')->name('mypage');
+    //記事投稿画面
+    Route::get('/create', 'ArticleController@getCreate')->name('getCreate');
+    Route::post('/create', 'ArticleController@postCreate')->name('postCreate');
+
     //ログアウト
     Route::get('/logout','USerController@getLogout')->name('logout');
 });
+
+/*==========================================================================
+|Auth関連
+==========================================================================*/
+
 //ユーザー登録機能
 Route::get('/register','UserController@create')->name('register');
 Route::post('/register','UserController@store');
