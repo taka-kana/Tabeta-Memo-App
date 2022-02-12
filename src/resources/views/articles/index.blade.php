@@ -81,26 +81,28 @@
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             <!-- 記事始まり -->
-            <div class="article-wrapper">
-                <div class="article-img">
-                    <img src="/img/sample-img.jpg" alt="">
-                </div>
-                <div class="article-body">
-                    <h3 class="recipe-title">{{ $article->title }}</h3>
-                    <div class="article-items">
-                        <p class="article-item-category">{{ $article->category->name }}</p>
-                        <p class="article-item-keyword">{{ $article->keyword->name }}</p>
+                <div class="article-wrapper">
+                    <div class="article-img-wrapper">
+                        <div class="article-img">
+                            <img src="../../../../uploads/{{ $article->image }}">
+                        </div>
                     </div>
-                    <p class="article-text">{{ $article->summary }}</p>
-                    <div class="article-footer">
-                        <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
-                        <div class="article-footer-item">
-                            <a href="" class="edit-item"><i class="fas fa-edit"></i>編集</a>
-                            <a href="" class="delete-item"><i class="far fa-trash-alt"></i>削除</a>
+                    <div class="article-body">
+                        <h3 class="recipe-title">{{ $article->title }}</h3>
+                        <div class="article-items">
+                            <p class="article-item-category">{{ $article->category->name }}</p>
+                            <p class="article-item-keyword">{{ $article->keyword->name }}</p>
+                        </div>
+                        <p class="article-text">{{ $article->summary }}</p>
+                        <div class="article-footer">
+                            <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
+                            <div class="article-footer-item">
+                                <a href="" class="edit-item"><i class="fas fa-edit"></i>編集</a>
+                                <a href="" class="delete-item"><i class="far fa-trash-alt"></i>削除</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- 記事終わり -->
             @endforeach
         </div>

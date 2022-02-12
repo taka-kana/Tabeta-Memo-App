@@ -1,5 +1,8 @@
 {
     "require-dev": {
         "laravel/ui": "1.x"
+    },
+    "require": {
+        "intervention/image": "^2.7"
     }
 }

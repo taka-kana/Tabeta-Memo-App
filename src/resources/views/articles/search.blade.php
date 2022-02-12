@@ -84,7 +84,7 @@
             <!-- 記事始まり -->
             <div class="article-wrapper">
                 <div class="article-img">
-                    <img src="/img/sample-img.jpg" alt="">
+                    <img src="../../../../uploads/{{ $article->image }}" alt="">
                 </div>
                 <div class="article-body">
                     <h3 class="recipe-title">{{ $article->title }}</h3>
