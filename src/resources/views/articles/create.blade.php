@@ -25,7 +25,7 @@
 
                 <!-- 画像 -->
                 <div class="form_area wow fadeInDown">
-                    <div class="form_item-title">画像<span class="alert">&nbsp;*</span></div>
+                    <div class="form_item-title">画像</div>
                     <div class="form_area-wrapper">
                         <input type="file" name="image" class="form_input">
                         <p class="create-form-item">PNG/JPEG/JPG/GIFのみアップロード可能です。</p>

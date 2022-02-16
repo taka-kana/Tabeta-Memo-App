@@ -84,7 +84,11 @@
             <!-- 記事始まり -->
             <div class="article-wrapper">
                 <div class="article-img">
-                    <img src="../../../../uploads/{{ $article->image }}" alt="">
+                    @if ( $article->image !=='')
+                    <img src="{{ \Storage::url($article->image) }}">
+                    @else
+                    <img src="{{ \Storage::url('items/no_image.jpeg') }}">
+                    @endif
                 </div>
                 <div class="article-body">
                     <h3 class="recipe-title">{{ $article->title }}</h3>

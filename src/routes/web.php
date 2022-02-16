@@ -15,6 +15,9 @@ Route::group(['middleware' => 'auth'],function()
     //記事投稿画面
     Route::get('/create', 'ArticleController@getCreate')->name('getCreate');
     Route::post('/create', 'ArticleController@postCreate')->name('postCreate');
+    //記事編集機能
+    Route::get('/articles/{id}/edit', 'ArticleController@edit')->name('edit');
+    Route::post('/articles/{id}', 'ArticleController@update')->name('update');
 
     //ログアウト
     Route::get('/logout','USerController@getLogout')->name('logout');

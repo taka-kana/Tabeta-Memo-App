@@ -96,13 +96,8 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
-    if($file = $request->image) {
-        $fileName = time() . $file->getClientOriginalName();
-        $target_path = public_path('uploads/');
-        $file->move($target_path, $fileName);
-    } else {
-        $fileName = "";
-    }
+    $image = $request->file('image');
+    $path = isset($image) ? $image->store('items', 'public') : '';
     
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
@@ -122,7 +117,7 @@ public function postCreate(ArticleRequest $request)
     $article = new Article();
     $article->title = $request->title;
     $article->summary = $request->summary;
-    $article->image = $fileName;
+    $article->image = $path;
     $article->category_id = $request->category_id;
     $article->revue_id = $request->revue_id;
     $article->keyword_id = $keyword['id'];
@@ -131,5 +126,74 @@ public function postCreate(ArticleRequest $request)
     
     return redirect()->route('index');
 }
+
+/*==========================================================================
+記事編集機能
+==========================================================================*/
+public function edit($id,Request $request)
+{
+    $article = Article::findOrFail($id);
+    if($article->user_id !== Auth::id()){
+        return redirect('/');
+    }
+    return view('articles.edit',
+    [
+        'article' => $article,
+        'user' => Auth::user(),
+    ]);
+    }
+
+public function update(ArticleRequest $request, $id)
+{
+    $article = Article::findOrFail($id);
+    if($article->user_id !== Auth::id())
+    {
+        return redirect('/');
+    }
+
+    //画像処理
+    $image = $request->file('image');
+    $path = $article->image;
+    if (isset($image))
+    {
+        \Storage::disk('public')->delete($path);
+        $path = $image->store('items', 'public');
+    }
+    //画像が選択されていないとき
+    if (empty($image)){
+        \Storage::disk('public')->delete($path);
+        $path = ("");
+    }
+    
+    //キーワード処理
+    preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
+    $keywords = [];
+    foreach($match[1] as $keyword)
+    {
+        $record = Keyword::firstOrCreate(['name' => $keyword]);
+        array_push($keywords, $record);
+    }
+    
+    $keyword_id = [];
+    foreach ($keywords as $keyword)
+    {
+        array_push($keyword_id, $keyword['id']);
+    }
+
+    $article->title = $request->title;
+    $article->summary = $request->summary;
+    $article->image = $path;
+    $article->category_id = $request->category_id;
+    $article->revue_id = $request->revue_id;
+    $article->keyword_id = $keyword['id'];
+    $article->user_id = Auth::id();
+    $article->save();
+
+    return redirect()->route('index');
+}
+
+
+
+
 
 }
