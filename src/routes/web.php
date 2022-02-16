@@ -18,6 +18,8 @@ Route::group(['middleware' => 'auth'],function()
     //記事編集機能
     Route::get('/articles/{id}/edit', 'ArticleController@edit')->name('edit');
     Route::post('/articles/{id}', 'ArticleController@update')->name('update');
+    //記事削除機能
+    Route::delete('/articles/{id}', 'ArticleController@destroy')->name('destroy');
 
     //ログアウト
     Route::get('/logout','USerController@getLogout')->name('logout');

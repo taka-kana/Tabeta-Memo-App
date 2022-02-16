@@ -90,6 +90,11 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
 .validation-alert {
   color: crimson;
   font-size: 12px;
@@ -831,6 +836,8 @@ body {
   font-size: 13px;
   margin-left: 15px;
   margin-right: 0px;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
 }
 
 .page-nation {

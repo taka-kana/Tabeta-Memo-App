@@ -100,8 +100,10 @@
                     <div class="article-footer">
                         <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                         <div class="article-footer-item">
-                            <a href="" class="edit-item"><i class="fas fa-edit"></i>編集</a>
-                            <a href="" class="delete-item"><i class="far fa-trash-alt"></i>削除</a>
+                            @if ($article->user_id === Auth::id())
+                                <a href="{{ route('edit', ['id' => $article->id]) }}" class="edit-item"><i class="fas fa-edit"></i>編集</a>
+                                <a href="{{ route('destroy' ['id' => $article->id]) }}" class="delete-item"><i class="far fa-trash-alt"></i>削除</a>
+                                @endif
                         </div>
                     </div>
                 </div>
