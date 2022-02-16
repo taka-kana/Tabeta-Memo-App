@@ -25,7 +25,7 @@ class ArticleRequest extends FormRequest
     {
         return [
                 'title' => ['required', 'string', 'max:50'],
-                'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif','file'],
+                'image' => ['image', 'mimes:jpeg,png,jpg,gif','file'],
                 'summary' => ['required', 'string', 'min:30'],
                 'category_id' => ['required'],
                 'keywords' => ['required', 'string', 'max:8'],
@@ -38,12 +38,11 @@ class ArticleRequest extends FormRequest
         return [
             'title.required' => 'タイトルを入力してください。',
             'title.max' => 'タイトルは50文字以内で入力してください。',
-            'image.required' => '写真ファイルを選択してください。',
             'image.image' => '指定されたファイルは画像ファイルではありません。',
             'image.mines' => '指定された拡張子（PNG/JPG/GIF）ではありません。',
-            'summary.required' => 'メモを記入してください。',
+            'summary.required' => 'メモが記載されていません。',
             'summary.min' => '30字以上で入力してください。',
-            'category_id.min' => 'カテゴリーが選択されていません。',
+            'category_id.required' => 'カテゴリーが選択されていません。',
             'keywords.min' => 'キーワードは8文字以内で入力してください。',
             'keywords.required' => 'キーワードが入力されていません。',
             'revue_id.required' => 'キーワードが入力されていません。',
