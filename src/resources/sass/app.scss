@@ -94,6 +94,10 @@ $sub-color:#fecf8d;
       border: none;
       padding: 0;
     }
+    a {
+      text-decoration: none;
+      color: #000000;
+    }
     
     .validation-alert {
       color: crimson;
@@ -720,6 +724,8 @@ margin-top: 129px;
     font-size: 13px;
     margin-left: 15px;
     margin-right: 0px;
+    background: rgba(0,0,0,0);
+    cursor: pointer;
 }
 
 .page-nation {

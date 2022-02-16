@@ -19,7 +19,7 @@ public function index(Request $request)
 {
     $articles = Article::with('user')
     ->orderBy('created_at','desc')
-    ->paginate(5);
+    ->paginate(6);
     $keyword = new Keyword;
     $category = new Category;
     $categories = $category->getLists();
@@ -192,8 +192,25 @@ public function update(ArticleRequest $request, $id)
     return redirect()->route('index');
 }
 
-
-
+/*==========================================================================
+記事削除機能
+==========================================================================*/
+public function destroy(article $article,$id)
+{
+    $article = Article::findOrFail($id);
+    if($article->user_id !== Auth::id())
+    {
+        return redirect('/');
+    }
+    //画像削除の処理
+    $path = $article->image;
+    if($path !== '')
+    {
+        \Storage::disk('public')->delete($path);
+    }
+    $article->delete();
+    return redirect()->route('index');
+}
 
 
 }
