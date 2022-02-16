@@ -6,12 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 
 
 class UserController extends Controller
 {
-//ユーザー登録
+/*==========================================================================
+//ユーザー登録機能
+==========================================================================*/
+
 public function create() {
     return view('auth.register');
 }
@@ -27,8 +31,9 @@ public function getPopup()
 {
     return view('auth.popup');
 }
-
-//ログイン
+/*==========================================================================
+//ログイン機能
+==========================================================================*/
 public function getLogin()
 {
     return view('user.login');
@@ -44,20 +49,50 @@ public function postLogin(Request $request)
     }
     return redirect()->back();
 }
-//ログアウト
+/*==========================================================================
+//ログアウト機能
+==========================================================================*/
 public function getLogout()
 {
     Auth::logout();
     return redirect()->route('getLogin');
 }
-
-//マイページ
+/*==========================================================================
+//マイページ表示
+==========================================================================*/
 public function mypage()
 {
     return view('user.mypage');
 }
+/*==========================================================================
+//マイページ編集機能
+==========================================================================*/
+public function edit($id)
+{
+    $user = User::FindOrFail($id);
+    if($user->id !== Auth::id()){
+        return redirect('getLogin');
+    }
 
-    //public function mypage() {
-        //return view('auth.mypage', compact('user'));
-    //}
+    return view('user.useredit',['user' => $user]);
+}
+
+public function update(Request $request, $id)
+{
+    $user = User::FindOrFail($id);
+    if($user->id !== Auth::id()){
+        return redirect('getLogin');
+    }
+    $validated = $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],//バリデーションから除外
+    ]);
+
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->save();
+
+    return redirect('mypage');
+}
+
 }

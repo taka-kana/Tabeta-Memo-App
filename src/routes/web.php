@@ -12,6 +12,10 @@ Route::group(['middleware' => 'auth'],function()
 {
     //マイページ
     Route::get('/mypage','UserController@mypage')->name('mypage');
+    //マイページ編集機能
+    Route::get('/mypage/{id}/edit','UserController@edit')->name('user.edit');
+    Route::put('/mypage/{id}','UserController@update')->name('user.update');
+
     //記事投稿画面
     Route::get('/create', 'ArticleController@getCreate')->name('getCreate');
     Route::post('/create', 'ArticleController@postCreate')->name('postCreate');
@@ -28,7 +32,6 @@ Route::group(['middleware' => 'auth'],function()
 /*==========================================================================
 |Auth関連
 ==========================================================================*/
-
 //ユーザー登録機能
 Route::get('/register','UserController@create')->name('register');
 Route::post('/register','UserController@store');
