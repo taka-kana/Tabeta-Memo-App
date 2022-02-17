@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\Category;
 use App\Keyword;
+use App\Revue;
 use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -125,6 +126,15 @@ public function postCreate(ArticleRequest $request)
     $article->save();
     
     return redirect()->route('index');
+}
+
+/*==========================================================================
+記事詳細機能
+==========================================================================*/
+public function show($id)
+{
+    $article = Article::findOrFail($id);
+    return view('articles.show', ['article' => $article,]);
 }
 
 /*==========================================================================

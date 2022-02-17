@@ -81,7 +81,8 @@
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             <!-- 記事始まり -->
-                <div class="article-wrapper">
+            <div class="article-wrapper">
+                    <a href="{{ route('show', ['id' => $article->id]) }}">
                     <div class="article-img-wrapper">
                         <div class="article-img">
                             @if ( $article->image !=='')
@@ -113,6 +114,7 @@
                             </div>
                         </div>
                     </div>
+                </a>
                 </div>
             <!-- 記事終わり -->
             @endforeach

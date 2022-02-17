@@ -102,7 +102,12 @@
                         <div class="article-footer-item">
                             @if ($article->user_id === Auth::id())
                                 <a href="{{ route('edit', ['id' => $article->id]) }}" class="edit-item"><i class="fas fa-edit"></i>編集</a>
-                                <a href="{{ route('destroy' ['id' => $article->id]) }}" class="delete-item"><i class="far fa-trash-alt"></i>削除</a>
+                                <form action="{{ route('destroy', ['id' => $article->id]) }}" method="POST" style="
+                                    display: inline-block;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="delete-item"><i class="far fa-trash-alt"></i>削除</button>
+                                </form>
                                 @endif
                         </div>
                     </div>
