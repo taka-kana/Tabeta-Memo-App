@@ -3,6 +3,7 @@
 //トップ画面
 Route::get('/', 'ArticleController@index')->name('index');
 Route::get('/index/search', 'ArticleController@search')->name('search');
+Route::get('articles/{id}','ArticleController@show')->name('show');
 
 
 /*==========================================================================
