@@ -397,7 +397,7 @@ margin-top: 129px;
   # top
   ==================================================================*/
   .top {
-    padding-top: 150px;
+    padding-top: 100px;
     @include mq (sp) {
     padding-top: 50px;
     }
@@ -465,17 +465,17 @@ margin-top: 129px;
     margin-left: auto;
     margin-right: auto;
     @include mq (sp) {
-    max-width: 400px;
+    max-width: 300px;
     }
   }
   .search-items {
-    padding: 0.8em;
+    padding: 1em;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
-
   }
   .search-items-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: auto;
     @include mq (sp) {
       display:block;
       max-width: 200px;
@@ -591,6 +591,7 @@ margin-top: 129px;
   background-color: rgb(243, 243, 243);
   }
 
+  
   .article-container_1,.article-container_2 {
     display: flex;
     margin-left: auto;
@@ -599,49 +600,76 @@ margin-top: 129px;
     max-width: 1000px;
     justify-content: space-around;
     @include mq (sp) {
-    display: block;
+      display: block;
       max-width: 330px;
     }
   }
-
+  
+  .article-wrapper {
+    width: 30%;
+    margin:0px 8px 15px 8px;
+    position: relative;
+    @include mq (sp) {
+      width: 100%;
+      margin:0px 0px 15px 0px;
+      display: flex;
+    }
+  }
+  .linkshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    @include mq (sp) {
+      bottom: 30px;
+    }
+  }
   .article-body {
-    background:  linear-gradient(125deg,$sub-color,#fae7cd);
+    background-color: rgb(240, 240, 227);
     padding: 20px;
     padding-bottom: 10px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+    height: 250px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
     @include mq (sp) {
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 0px;
+      margin-right: 0;
+      height: 170px;
+      padding: 20px 5px 0px 5px;
+      min-width: 100px;
     }
   }
-  .article-wrapper {
-    width: 30%;
-    margin:0px 8px 15px 8px;
-    @include mq (sp) {
-    width: 100%;
-    margin:0px 0px 15px 0px;
-    }
-  }
-
-
 
   .article-img-wrapper {
     align-items: flex-end;
     height: 230px;
     width: 100%;
     display: inline-flex;
-    
+    @include mq (sp) {
+      height: 170px;
+      max-width: 230px;
+    }
   }
   .article-img {
     width: 100%;
-    background-color: #8888;
+    background-color: rgb(240, 240, 227);
+    @include mq (sp) {
+      margin-right: 0;
+      box-shadow: 0px 10px 10px #3E3E3E33;
+    }
     img {
       max-width: 330px;
       width: 100%;
       height: 200px;
       object-fit: contain;
+      @include mq (sp) {
+        max-height:170px;
+        width:auto;
+        max-width: 230px;
+      }
     }
   }
 
@@ -649,13 +677,14 @@ margin-top: 129px;
   font-size: 20px;
   @include mq (sp) {
     margin-left: 10px;
+    font-size: 14px;
   }
 }
 
 .article-items {
   display: flex;
   @include mq (sp) {
-    margin-left: 10px;
+    display: block;
   }
 }
 
@@ -666,15 +695,23 @@ margin-top: 129px;
   width: auto;
   height: auto;
   background-color: #FFAA3B;
-  box-shadow: 0px 3px 5px #3E3E3E33;
   border-radius: 10px;
   font-size: 10px;
   color: #FFF;
   padding: 8px 8px;
   display: block;
+  @include mq (sp) {
+    font-size: 8px;
+    align-items: center;
+    text-align: center;
+    padding: 8px 5px;
+  }
 }
 .article-item-category {
   margin-right: 15px;
+  @include mq (sp) {
+    margin-right: 0px;
+  }
 }
 
 .article-text {
@@ -697,18 +734,26 @@ margin-top: 129px;
 }
 
 .article-user-name-title {
-  margin-top: 18px;
+  margin-top: 10px;
   font-size: 13px;
+  @include mq (sp) {
+    font-size: 8px;
+  }
 }
-
+.article-datetime-title,.article-datetime-name {
+  margin-top: 2px;
+  font-size: 12px;
+  @include mq (sp) {
+    font-size: 5px;
+  }
+}
 .article-footer {
   width: 100%;
   margin-top: 5px;
   margin-right: 0px;
   margin-left: auto;
   @include mq (sp) {
-    width: 90%;
-    margin-left:15px;
+    margin-right: auto;
   }
 }
 
@@ -718,15 +763,41 @@ margin-top: 129px;
   margin-top: 5px;
   width: 70%;
   text-align: right;
+  position: relative;
+  @include mq (sp) {
+    display: flex;
+    width: 100%;
+    }
 }
 
 .edit-item,.delete-item {
     font-size: 13px;
-    margin-left: 15px;
-    margin-right: 0px;
     background: rgba(0,0,0,0);
     cursor: pointer;
+    position: absolute;
+    z-index: 25;
+    @include mq (sp) {
+      font-size: 8px;
+      margin-top: 11px;
+      margin-left: 2px;
+      }
 }
+
+.edit-item{
+  right:55px;
+  @include mq (sp) {
+  right:50px;
+    }
+}
+.delete-item{
+  right:5px;
+  top: 0px;
+  @include mq (sp) {
+  right:10px;
+      }
+}
+
+
 
 .page-nation {
   margin-top: 80px;
