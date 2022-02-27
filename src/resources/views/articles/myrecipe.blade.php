@@ -41,7 +41,7 @@
             @foreach ($articles as $article)
             <!-- 記事始まり -->
             <div class="article-wrapper">
-                <a href="{{ route('show', ['id' => $article->id]) }}"></a>
+                <a class="linkshow" href="{{ route('show', ['id' => $article->id]) }}"></a>
                     <div class="article-img-wrapper">
                         <div class="article-img">
                             @if ( $article->image !=='')
