@@ -120,19 +120,19 @@
                     <div class="rating-graph_wrapper">
                         <div class="rating-graph_axis">
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="0%"><span class="rating-graph_scale_item">0%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="0%" <?php if($article->rating == "0%") {print "checked";}?>><span class="rating-graph_scale_item">0%</span>
                             </label>
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="25%"><span class="rating-graph_scale_item">25%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="25%" <?php if($article->rating == "25%") {print "checked";}?>><span class="rating-graph_scale_item">25%</span>
                             </label>
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="50%"><span class="rating-graph_scale_item">50%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="50%" <?php if($article->rating == "50%") {print "checked";}?>><span class="rating-graph_scale_item">50%</span>
                             </label>
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="75%"><span class="rating-graph_scale_item">75%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="75%" <?php if($article->rating == "75%") {print "checked";}?>><span class="rating-graph_scale_item">75%</span>
                             </label>
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="100%"><span class="rating-graph_scale_item">100%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="100%" <?php if($article->rating == "100%") {print "checked";}?>><span class="rating-graph_scale_item">100%</span>
                             </label>
                         </div>
                         <div class="rating-graph_basis">完食</div>
@@ -144,10 +144,10 @@
                 <div class="create-radio_wrapper">
                     <div class="radio_item-wrapper">
                         <label>
-                            <input type="radio" name="release" value="公開する" class="form_select"><span>公開する</span>
+                            <input type="radio" name="release" value="公開する" class="form_select" <?php if($article->release == "公開する") {print "checked";}?>><span>公開する</span>
                         </label>
                         <label>
-                            <input type="radio" name="release" value="公開しない" class="form_select"><span>公開しない</span>
+                            <input type="radio" name="release" value="公開しない" class="form_select" <?php if($article->release == "公開しない") {print "checked";}?>><span>公開しない</span>
                         </label>
                         <p class="create-form-item" style="margin-top: 10px"><span class="alert">&nbsp;*</span>&nbsp;&nbsp;&nbsp;&nbsp;公開にすると みんなの記録 に表示されます。</p>
                         @error('release')

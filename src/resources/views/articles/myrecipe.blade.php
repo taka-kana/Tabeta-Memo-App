@@ -3,14 +3,14 @@
 @section('content')
 <section class="top">
     <div class="container">
-            <div class="title my_recipe-title" >マイレシピ</div>
+            <div class="title my_recipe-title" >My-Memo</div>
     </div>
 </section>
 <!-- /.top -->
 
 <section class="search wow fadeInDown">
     <div class="container ">
-        <form method="GET" action="{{ route('search') }}">
+        <form method="GET" action="{{ route('myRecipeSearch') }}">
 
         <div class="search-items">
             <div class="search-items-wrapper">
