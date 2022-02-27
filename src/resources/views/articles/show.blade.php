@@ -21,20 +21,28 @@
                     <div class="show_article-keyword">{{ $article->keyword->name }}</div>
                 </div>
             </div>
-            <div class="show_article-reaction-wrapper wow fadeInDown">
-                <div class="show_article-reaction-title">我が家のレビュー&nbsp;:&nbsp;</div>
-                <div class="show_article-reaction">
-                    @if($article->revue_id =='1')
-                    <i class="far fa-grimace"></i>
+            <div class="show_article-item-wrapper_under">
+                <div class="show_article-reaction-wrapper wow fadeInDown">
+                    <div class="show_article-reaction-title">我が家のレビュー&nbsp;:&nbsp;</div>
+                    <div class="show_article-reaction">
+                        @if($article->revue_id =='1')
+                        <i class="far fa-grimace"></i>
+                        @endif
+                        @if($article->revue_id =='2')
+                        <i class="far fa-smile"></i>
+                        @endif
+                        @if($article->revue_id =='3')
+                        <i class="far fa-kiss-wink-heart"></i>
+                        @endif
+                        {{ $article->revue->name }}</div>
+                    </div>
+                    @if ($article->user_id == Auth::id())
+                    <div class="sikiri is-pc wow fadeInDown">|</div>
+                    <div class="rating_item_wrapper wow fadeInDown">
+                        <div class="rating_item">完食度&nbsp;:&nbsp;{{ $article->rating }}</div>
+                    </div>
                     @endif
-                    @if($article->revue_id =='2')
-                    <i class="far fa-smile"></i>
-                    @endif
-                    @if($article->revue_id =='3')
-                    <i class="far fa-kiss-wink-heart"></i>
-                    @endif
-                    {{ $article->revue->name }}</div>
-            </div>
+                </div>
             <div class="show_article-img-wrapper wow fadeInDown">
                 <div class="show_article-img">
                     @if ( $article->image !=='')
@@ -52,6 +60,12 @@
                 <div class="show_article-memo-title">memo</div>
                 <textarea class="show_article-memo" name="" id="" cols="30" rows="10">{{ $article->summary }}</textarea>
             </div>
+            
+            @if ($article->user_id == Auth::id())
+            <div class="release_item_wrapper">
+                <div class="release_item">公開設定&nbsp;:&nbsp;{{ $article->release }}</div>
+            </div>
+            @endif
             <div class="show_article-btn-wrapper wow fadeInDown">
 
                 <a href="{{ route('index') }}" class="show_article-btn-back">戻る</a>

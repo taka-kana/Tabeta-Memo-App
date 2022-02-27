@@ -122,6 +122,8 @@ public function postCreate(ArticleRequest $request)
     $article->category_id = $request->category_id;
     $article->revue_id = $request->revue_id;
     $article->keyword_id = $keyword['id'];
+    $article->rating = $request->rating;
+    $article->release = $request->release;
     $article->user_id = Auth::id();
     $article->save();
     
@@ -196,6 +198,8 @@ public function update(ArticleRequest $request, $id)
     $article->category_id = $request->category_id;
     $article->revue_id = $request->revue_id;
     $article->keyword_id = $keyword['id'];
+    $article->rating = $request->rating;
+    $article->release = $request->release;
     $article->user_id = Auth::id();
     $article->save();
 
@@ -221,6 +225,27 @@ public function destroy(article $article,$id)
     $article->delete();
     return redirect()->route('index');
 }
+/*==========================================================================
+マイレシピ
+==========================================================================*/
+public function myRecipe(Request $request)
+{
+    $articles = \Auth::user()->articles()
+    ->orderBy('created_at','desc')
+    ->paginate(6);
+    $keyword = new Keyword;
+    $category = new Category;
+    $categories = $category->getLists();
+    $keywords = $keyword->getLists();
+    $categoryId = $request->input('categoryId');
+    $searchWord = $request->input('searchWord');
+    return view('articles.myrecipe',[
+        'articles' => $articles,
+        'categories' => $categories,
+        'categoryId' => $categoryId,
+        'searchWord' => $searchWord,
+        ]);
+    }
 
 
 }

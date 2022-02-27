@@ -111,7 +111,48 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- 完食度 -->
+                <div class="form_area wow fadeInDown">
+                    <div class="form_item-title ">完食度</div>
+                    <div class="rating-graph_wrapper">
+                        <div class="rating-graph_axis">
+                            <label>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="0%"><span class="rating-graph_scale_item">0%</span>
+                            </label>
+                            <label>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="25%"><span class="rating-graph_scale_item">25%</span>
+                            </label>
+                            <label>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="50%"><span class="rating-graph_scale_item">50%</span>
+                            </label>
+                            <label>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="75%"><span class="rating-graph_scale_item">75%</span>
+                            </label>
+                            <label>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="100%"><span class="rating-graph_scale_item">100%</span>
+                            </label>
+                        </div>
+                        <div class="rating-graph_basis">完食</div>
+                    </div>
+                </div>
+                    <!-- 公開非公開 -->
+                <div class="form_area wow fadeInDown">
+                    <div class="form_item-title ">公開・非公開<span class="alert">&nbsp;*</span></div>
+                <div class="create-radio_wrapper">
+                    <div class="radio_item-wrapper">
+                        <label>
+                            <input type="radio" name="release" value="公開する" class="form_select"><span>公開する</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="release" value="公開しない" class="form_select"><span>公開しない</span>
+                        </label>
+                        <p class="create-form-item" style="margin-top: 10px"><span class="alert">&nbsp;*</span>&nbsp;&nbsp;&nbsp;&nbsp;公開にすると みんなの記録 に表示されます。</p>
+                        @error('release')
+                        <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+               </div>
                 <!-- 送信 -->
                 <div class="create-form_sent-area-wrapper wow fadeInDown">
                     <input type="submit" value="投稿する" class="btn" id="js-submit" >

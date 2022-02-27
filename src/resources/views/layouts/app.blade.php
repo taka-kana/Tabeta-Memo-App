@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Tabeta-Memo-App</title>
-    <link rel="icon" href="{{ asset('/favicon.ico') }}">
+    <link rel="icon" href="{{ asset('../../../public/favcon.ico') }}">
     <meta name="description" content="サイトの概要文">
 
 <!-- google font -->
@@ -40,8 +40,8 @@
                             メニュー
                         </a>
                             <ul class="nav-list">
-                                <li class="header-nav"><a href="{{ route('mypage') }}">マイページ</a></li>
-                                <li class="header-nav"><a href="#">マイレシピ</a></li>
+                                <li class="header-nav"><a href="{{ route('mypage') }}">ユーザー</a></li>
+                                <li class="header-nav"><a href="{{ route('myrecipe') }}">マイレシピ</a></li>
                                 <li class="header-nav"><a href="{{ route('logout') }}">ログアウト</a></li>
                             </ul>
                     </nav>

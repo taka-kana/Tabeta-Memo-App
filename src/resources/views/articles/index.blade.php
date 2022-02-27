@@ -45,6 +45,7 @@
             <div class="swiper-button-prev is-pc"></div>
             <div class="swiper-button-next is-pc"></div>
         </div>
+        <div class="title" style="margin-bottom:20px ">みんなの記録</div>
     </div>
 </section>
 <!-- /.top -->
@@ -80,27 +81,28 @@
     <div class="container">
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
+            @if($article->release == '公開する')
             <!-- 記事始まり -->
             <div class="article-wrapper">
-                    <a href="{{ route('show', ['id' => $article->id]) }}">
-                    <div class="article-img-wrapper">
-                        <div class="article-img">
-                            @if ( $article->image !=='')
-                            <img src="{{ \Storage::url($article->image) }}">
-                            @else
-                            <img src="{{ \Storage::url('items/no_image.jpeg') }}">
-                            @endif
-                        </div>
+                <a class="linkshow" href="{{ route('show', ['id' => $article->id]) }}"></a>
+                <div class="article-img-wrapper">
+                    <div class="article-img">
+                        @if ( $article->image !=='')
+                        <img src="{{ \Storage::url($article->image) }}">
+                        @else
+                        <img src="{{ \Storage::url('items/no_image.jpeg') }}">
+                        @endif
                     </div>
-                    <div class="article-body">
-                        <h3 class="recipe-title">{{ $article->title }}</h3>
-                        <div class="article-items">
-                            <p class="article-item-category">{{ $article->category->name }}</p>
-                            <p class="article-item-keyword">{{ $article->keyword->name }}</p>
-                        </div>
-                        <p class="article-text">{{ $article->summary }}</p>
-                        <div class="article-footer">
-                            <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
+                </div>
+                <div class="article-body">
+                    <h3 class="recipe-title">{{ $article->title }}</h3>
+                    <div class="article-items">
+                        <p class="article-item-category">{{ $article->category->name }}</p>
+                        <p class="article-item-keyword">{{ $article->keyword->name }}</p>
+                    </div>
+                    <p class="article-text is-pc">{{ $article->summary }}</p>
+                    <div class="article-footer">
+                        <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                             <div class="article-footer-item">
                                 @if ($article->user_id === Auth::id())
                                 <a href="{{ route('edit', ['id' => $article->id]) }}" class="edit-item"><i class="fas fa-edit"></i>編集</a>
@@ -114,14 +116,14 @@
                             </div>
                         </div>
                     </div>
-                </a>
-                </div>
-            <!-- 記事終わり -->
-            @endforeach
-        </div>
-        <div class="page-nation">
-            <div class="nation-wrapper">
-                {{ $articles->links() }}
+                <!-- 記事終わり -->
+            </div>
+            @endif
+                @endforeach
+            </div>
+            <div class="page-nation">
+                <div class="nation-wrapper">
+                    {{ $articles->links() }}
             </div>
         </div>
     </div>
