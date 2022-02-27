@@ -25,8 +25,10 @@ class ArticleRequest extends FormRequest
     {
         return [
                 'title' => ['required', 'string', 'max:50'],
-                'image' => ['image', 'mimes:jpeg,png,jpg,gif','file'],
                 'summary' => ['required', 'string', 'min:30'],
+                'image' => ['image', 'mimes:jpeg,png,jpg,gif','file'],
+                'rating' => ['string'],
+                'release' => ['required'],
                 'category_id' => ['required'],
                 'keywords' => ['required', 'string', 'max:8'],
                 'revue_id' => ['required'],
@@ -42,6 +44,7 @@ class ArticleRequest extends FormRequest
             'image.mines' => '指定された拡張子（PNG/JPG/GIF）ではありません。',
             'summary.required' => 'メモが記載されていません。',
             'summary.min' => '30字以上で入力してください。',
+            'release' => '公開・非公開設定が選択されていません。',
             'category_id.required' => 'カテゴリーが選択されていません。',
             'keywords.min' => 'キーワードは8文字以内で入力してください。',
             'keywords.required' => 'キーワードが入力されていません。',

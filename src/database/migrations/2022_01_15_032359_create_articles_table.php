@@ -22,6 +22,8 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('keyword_id');
             $table->unsignedBigInteger('revue_id');
+            $table->string('rating');
+            $table->string('release');
             $table->timestamps();
             $table->dateTime('deleted_at')->nullable();
 

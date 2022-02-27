@@ -3,48 +3,7 @@
 @section('content')
 <section class="top">
     <div class="container">
-            <!-- Slider main container -->
-            <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide"><img src="/img/普段メニュー.jpg" alt="" class="swiper-img">
-            <div class="swiper-item">
-                <p>普段メニューから特別な日のメニューまで<br class="is-pc">様々な家族の反応を残すことができます。</p>
-            </div>
-            </div>
-                <div class="swiper-slide"><img src="/img/子供OK.jpg" alt="" class="swiper-img">
-                <div class="swiper-item">
-                    <p>家族の反応は<br class="is-pc">3段階で記録できます。</p>
-                </div>
-            </div>
-                <div class="swiper-slide"><img src="/img/スイーツ.jpg" alt="" class="swiper-img">
-                <div class="swiper-item">
-                    <p>料理のカテゴリーは6つに分かれており<br class="is-pc">検索可能です。</p>
-                </div>
-            </div>
-                <div class="swiper-slide"><img src="/img/離乳食.jpg" alt="" class="swiper-img">
-                <div class="swiper-item">
-                    <p>離乳食の記録やお子様の<br class="is-pc">食べた反応の記録に役立ちます。</p>
-                </div>
-            </div>
-            <div class="swiper-slide"><img src="/img/お弁当.jpg" alt="" class="swiper-img">
-                <div class="swiper-item">
-                    <p>普段メニューから特別な日のメニューまで<br class="is-pc">様々な家族の反応を記録できます。</p>
-                </div>
-            </div>
-                <div class="swiper-slide"><img src="/img/特別.jpg" alt="" class="swiper-img">
-                <div class="swiper-item">
-                    <p>普段メニューから特別な日のメニューまで<br class="is-pc">様々な家族の反応を記録できます。</p>
-                </div>
-                </div>
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev is-pc"></div>
-            <div class="swiper-button-next is-pc"></div>
-        </div>
+            <div class="title my_recipe-title" >マイレシピ</div>
     </div>
 </section>
 <!-- /.top -->
@@ -97,8 +56,9 @@
                         <div class="article-items">
                             <p class="article-item-category">{{ $article->category->name }}</p>
                             <p class="article-item-keyword">{{ $article->keyword->name }}</p>
+                            
                         </div>
-                        <p class="article-text">{{ $article->summary }}</p>
+                        <p class="article-text is-pc">{{ $article->summary }}</p>
                         <div class="article-footer">
                             <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                             <div class="article-datetime-title">投稿日&nbsp;:&nbsp;<span class="article-datetime-name">{{ $article->created_at->format('Y-m-d') }}</span></div>

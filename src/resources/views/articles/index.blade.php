@@ -45,6 +45,7 @@
             <div class="swiper-button-prev is-pc"></div>
             <div class="swiper-button-next is-pc"></div>
         </div>
+        <div class="title" style="margin-bottom:20px ">みんなの記録</div>
     </div>
 </section>
 <!-- /.top -->
@@ -80,6 +81,7 @@
     <div class="container">
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
+            @if($article->release == '公開する')
             <!-- 記事始まり -->
             <div class="article-wrapper">
                 <a class="linkshow" href="{{ route('show', ['id' => $article->id]) }}"></a>
@@ -116,6 +118,7 @@
                     </div>
                 <!-- 記事終わり -->
             </div>
+            @endif
                 @endforeach
             </div>
             <div class="page-nation">

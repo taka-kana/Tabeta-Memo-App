@@ -252,8 +252,8 @@ a {
 
 @media screen and (max-width: 767px) {
   .header-logo {
-    width: 100px;
-    height: 40px;
+    width: 120px;
+    height: 50px;
   }
 }
 
@@ -739,8 +739,8 @@ a {
     margin-left: 0px;
     margin-right: 0;
     height: 170px;
-    padding: 20px 5px 0px 5px;
-    min-width: 100px;
+    padding: 8px 5px 0px 5px;
+    min-width: 110px;
   }
 }
 
@@ -885,6 +885,7 @@ a {
   .article-datetime-title,
   .article-datetime-name {
     font-size: 5px;
+    line-height: 10px;
   }
 }
 
@@ -1210,6 +1211,132 @@ a {
   .reaction-icon::before {
     font-size: 1.5em;
   }
+}
+
+/*=========================================================
+評価グラフ
+=========================================================*/
+
+.rating-graph_wrapper {
+  margin-left: 30px;
+  margin-top: 15px;
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_wrapper {
+    margin-top: 25px;
+    max-width: 80%;
+  }
+}
+
+.rating-graph_axis {
+  position: relative;
+  margin-left: -20px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_axis {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+.rating-graph_axis:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 5px;
+  margin-left: 23px;
+  background-color: #fecf8d;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_axis:after {
+    margin-left: 10px;
+    width: 80%;
+  }
+}
+
+.rating-graph_scale {
+  display: none;
+}
+
+.rating-graph_scale + span {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 0.2em 0;
+  position: relative;
+  padding: 0 0 0 1.2em;
+}
+
+.rating-graph_scale + span:before {
+  content: "";
+  border-radius: 50%;
+  background-color: #fecf8d;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_scale + span:before {
+    width: 15px;
+    height: 15px;
+    bottom: 20px;
+    left: 15px;
+  }
+}
+
+.rating-graph_scale + span:after {
+  content: "";
+  border-radius: 50%;
+  background-color: #f6f0cc;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  bottom: 25px;
+  left: 33px;
+  opacity: 0;
+  z-index: 20;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_scale + span:after {
+    width: 10px;
+    height: 10px;
+    bottom: 22px;
+    left: 17.5px;
+  }
+}
+
+.rating-graph_scale:checked + span::after {
+  opacity: 1;
+}
+
+.rating-graph_scale_item {
+  position: absolute;
+  top: 55%;
+  right: 5%;
+  width: 3.5em;
+}
+
+@media screen and (max-width: 767px) {
+  .rating-graph_scale_item {
+    width: 2.6em;
+    font-size: 13px;
+    top: 80%;
+    right: 10%;
+  }
+}
+
+.rating-graph_basis {
+  margin-left: 10px;
 }
 
 /*=========================================================
@@ -1721,10 +1848,16 @@ item
 
 .mypage_btn-area {
   margin-top: 100px;
-  width: 50%;
   display: flex;
   margin-left: auto;
   margin-right: auto;
+  max-width: 300px;
+}
+
+@media screen and (max-width: 767px) {
+  .mypage_btn-area {
+    margin-top: 70px;
+  }
 }
 
 .mypage-back-btn,
@@ -1738,20 +1871,35 @@ item
   cursor: pointer;
   display: block;
   font-size: 1em;
-  margin: 0 0 1em;
   padding: 0.8em 2em;
   text-decoration: none;
   width: 137px;
   height: 46px;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
   font-weight: 600;
   box-shadow: 0px 3px 5px #60606029;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .mypage-back-btn,
+  .mypage-edit-btn {
+    font-size: 0.8em;
+    padding: 1.1em 1.5em;
+    width: 100px;
+    height: 40px;
+  }
 }
 
 .mypage-edit-btn {
-  margin-left: 10px;
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .mypage-edit-btn {
+    margin-left: 30px;
+  }
 }
 
 /*==================================================================
@@ -1851,20 +1999,33 @@ item
   margin-right: auto;
 }
 
-.show_article-item-wrapper {
+.show_article-item-wrapper,
+.show_article-item-wrapper_under {
   display: flex;
   margin-top: 30px;
-  margin-left: 7%;
-  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
 }
 
 @media screen and (max-width: 767px) {
-  .show_article-item-wrapper {
+  .show_article-item-wrapper,
+  .show_article-item-wrapper_under {
     margin-left: 0;
     margin-right: 0;
     margin-top: 10px;
     width: 100%;
     font-size: 12px;
+  }
+}
+
+.show_article-item-wrapper_under {
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .show_article-item-wrapper_under {
+    display: block;
   }
 }
 
@@ -1901,8 +2062,7 @@ item
   display: flex;
   font-size: 18px;
   margin-left: auto;
-  margin-right: 20%;
-  margin-top: 10px;
+  margin-right: auto;
 }
 
 @media screen and (max-width: 767px) {
@@ -1914,18 +2074,11 @@ item
 
 .show_article-reaction-wrapper .show_article-reaction-title {
   margin-left: auto;
-  margin-top: 3px;
 }
 
 .show_article-reaction-wrapper .show_article-reaction {
   margin-right: auto;
   margin-left: 10px;
-}
-
-@media screen and (max-width: 767px) {
-  .show_article-reaction-wrapper .show_article-reaction {
-    margin-top: 4px;
-  }
 }
 
 .show_article-img-wrapper {
@@ -2030,6 +2183,7 @@ item
 @media screen and (max-width: 767px) {
   .show_article-memo-wrapper .show_article-memo {
     width: 70%;
+    font-size: 14px;
   }
 }
 
@@ -2042,6 +2196,9 @@ item
 .show_article-btn-wrapper {
   margin-top: 60px;
   display: flex;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .show_article-btn-wrapper .show_article-btn-back {
@@ -2053,6 +2210,7 @@ item
   width: 100px;
   text-align: center;
   margin-left: auto;
+  margin-right: auto;
 }
 
 .show_article-btn-wrapper .show_article-btn-edit {
@@ -2064,6 +2222,44 @@ item
   width: 100px;
   text-align: center;
   margin-right: auto;
-  margin-left: 50px;
+  margin-left: auto;
+}
+
+.my_recipe-title {
+  margin-top: -80px;
+  margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+  .my_recipe-title {
+    margin-top: -30px;
+  }
+}
+
+.release_item_wrapper {
+  margin-top: 20px;
+  width: auto;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .release_item_wrapper {
+    font-size: 14px;
+  }
+}
+
+.rating_item_wrapper {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .rating_item_wrapper {
+    font-size: 14px;
+    margin-top: 10px;
+  }
 }
 

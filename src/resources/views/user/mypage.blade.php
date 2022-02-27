@@ -3,7 +3,7 @@
 @section('content')
 <section class="mypage">
     <div class="container">
-        <h3 class="mypage-title title">マイページ</h3>
+        <h3 class="mypage-title title">ユーザー</h3>
         <div class="mypage-item-wrapper">
             <!-- 名前 -->
             <div class="mypage_name-area wow fadeInDown">
