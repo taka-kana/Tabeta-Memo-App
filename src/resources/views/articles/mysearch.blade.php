@@ -3,7 +3,7 @@
 @section('content')
 <section class="top">
     <div class="container">
-            <div class="title my_recipe-title" >My-Memo</div>
+        <div class="title my_recipe-title" >My-Memo</div>
     </div>
 </section>
 <!-- /.top -->
@@ -35,59 +35,55 @@
 </section>
 <!-- /.search -->
 
+
+@if(!empty($articles))
 <section class="article">
     <div class="container">
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
+            @if ($article->user_id === Auth::id())
             <!-- 記事始まり -->
             <div class="article-wrapper">
                 <a class="linkshow" href="{{ route('show', ['id' => $article->id]) }}"></a>
-                    <div class="article-img-wrapper">
-                        <div class="article-img">
-                            @if ( $article->image !=='')
-                            <img src="{{ \Storage::url($article->image) }}">
-                            @else
-                            <img src="{{ \Storage::url('items/no_image.jpeg') }}">
-                            @endif
-                        </div>
+                <div class="article-img">
+                    @if ( $article->image !=='')
+                    <img src="{{ \Storage::url($article->image) }}">
+                    @else
+                    <img src="{{ \Storage::url('items/no_image.jpeg') }}">
+                    @endif
+                </div>
+                <div class="article-body">
+                    <h3 class="recipe-title">{{ $article->title }}</h3>
+                    <div class="article-items">
+                        <p class="article-item-category">{{ $article->category->name }}</p>
+                        <p class="article-item-keyword">{{ $article->keyword->name }}</p>
                     </div>
-                    <div class="article-body">
-                        <h3 class="recipe-title">{{ $article->title }}</h3>
-                        <div class="article-items">
-                            <p class="article-item-category">{{ $article->category->name }}</p>
-                            <p class="article-item-keyword">{{ $article->keyword->name }}</p>
-                            
-                        </div>
-                        <p class="article-text is-pc">{{ $article->summary }}</p>
-                        <div class="article-footer">
-                            <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
-                            <div class="article-datetime-title">投稿日&nbsp;:&nbsp;<span class="article-datetime-name">{{ $article->created_at->format('Y-m-d') }}</span></div>
-                            <div class="article-footer-item">
-                                @if ($article->user_id === Auth::id())
+                    <p class="article-text">{{ $article->summary }}</p>
+                    <div class="article-footer">
+                        <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
+                        <div class="article-footer-item">
                                 <a href="{{ route('edit', ['id' => $article->id]) }}" class="edit-item"><i class="fas fa-edit"></i>編集</a>
-                                <form action="{{ route('destroy', ['id' => $article->id]) }}" method="POST" style="
-                                    display: inline-block;">
+                                <form action="{{ route('destroy', ['id' => $article->id]) }}" method="POST" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="delete-item"><i class="far fa-trash-alt"></i>削除</button>
                                 </form>
-                                @endif
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
             <!-- 記事終わり -->
+            @endif
             @endforeach
         </div>
         <div class="page-nation">
             <div class="nation-wrapper">
-                {{ $articles->links() }}
+                {{ $articles->appends(request()->input())->links() }}
             </div>
         </div>
     </div>
 </section>
+@endif
 <!-- /.article -->
-
 @endsection
-
 

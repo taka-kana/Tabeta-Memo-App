@@ -187,6 +187,28 @@ a {
   }
 }
 
+.form_img_input {
+  margin-bottom: 10px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: none;
+  border: none;
+  border-radius: 2px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  padding: 0.4em 0;
+  width: 320px;
+  height: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .form_img_input {
+    width: 90%;
+  }
+}
+
 .is-validated {
   background-color: #e5b7be;
   border-color: red;
@@ -231,7 +253,7 @@ a {
   background-color: #f3f3f3;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
   position: fixed;
-  z-index: 20;
+  z-index: 200;
 }
 
 @media screen and (max-width: 767px) {
@@ -532,7 +554,6 @@ a {
 
 .search {
   margin-top: 50px;
-  background-color: #fecf8d;
   max-width: 550px;
   margin-left: auto;
   margin-right: auto;
@@ -546,6 +567,7 @@ a {
 
 .search-items {
   padding: 1em;
+  background-color: #fecf8d;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
@@ -739,7 +761,7 @@ a {
     margin-left: 0px;
     margin-right: 0;
     height: 170px;
-    padding: 8px 5px 0px 5px;
+    padding: 10px 5px 10px 5px;
     min-width: 110px;
   }
 }
@@ -793,7 +815,7 @@ a {
 @media screen and (max-width: 767px) {
   .recipe-title {
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 11px;
   }
 }
 
@@ -1025,8 +1047,6 @@ a {
   font-size: 12px;
 }
 
-/*以下form部分*/
-
 /*==================================================================
 #〜area-wrapper部分
 ==================================================================*/
@@ -1088,7 +1108,7 @@ a {
 }
 
 /*==================================================================
-# バリデーション（記入前）
+# バリデーション
 ==================================================================*/
 
 .create-form-item {
@@ -1566,7 +1586,7 @@ a {
 }
 
 /*==================================================================
-# バリデーション（記入前）
+# バリデーション
 ==================================================================*/
 
 .edit-form-item {

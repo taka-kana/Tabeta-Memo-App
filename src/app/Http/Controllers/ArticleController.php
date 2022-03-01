@@ -18,7 +18,7 @@ class ArticleController extends Controller
 ==========================================================================*/
 public function index(Request $request)
 {
-    $articles = Article::with('user')
+    $articles = Article::with('user','category','keyword','revue')
     ->orderBy('created_at','desc')
     ->paginate(6);
     $keyword = new Keyword;
@@ -230,6 +230,7 @@ public function destroy(article $article,$id)
 ==========================================================================*/
 public function myRecipe(Request $request)
 {
+    $articles = Article::with('user','category','keyword','revue');
     $articles = \Auth::user()->articles()
     ->orderBy('created_at','desc')
     ->paginate(6);
@@ -245,6 +246,52 @@ public function myRecipe(Request $request)
         'categoryId' => $categoryId,
         'searchWord' => $searchWord,
         ]);
+    }
+/*==========================================================================
+マイレシピ内検索機能
+==========================================================================*/
+public function myRecipeSearch(Request $request)
+{
+    $searchWord = $request->input('searchWord');
+    $categoryId = $request->input('categoryId');
+    $category = new Category;
+    $categories = $category->getLists();
+    $articles = \Auth::user()->articles();
+    $query = Article::query();
+    if(!empty($request->get('searchWord')))
+    {
+        $keyword = Keyword::where('name', 'like', '%' .$searchWord. '%')->first();
+            if(!empty($keyword)){
+            $keyword = $keyword->id;
+            $query = Article::query();
+            $query->where('keyword_id', $keyword)->get();
+        }else{
+            return view('articles.mysearch',[
+                'categoryId' => $categoryId,
+                'searchWord' => $searchWord,
+                'categories' => $categories,
+            ]);
+        }
+    }
+        if(isset($categoryId))
+        {
+            $query->where('category_id', $categoryId);
+        }
+        if(empty($keyword) && empty($category)){
+            return view('articles.mysearch',[
+                'categoryId' => $categoryId,
+                'searchWord' => $searchWord,
+                'categories' => $categories,
+            ]);
+        }
+    $articles = $query->get();
+    $articles = $query->orderBy('category_id', 'asc')->paginate(6);
+    return view('articles.mysearch',[
+        'articles' => $articles,
+        'categoryId' => $categoryId,
+        'searchWord' => $searchWord,
+        'categories' => $categories,
+    ]);
     }
 
 

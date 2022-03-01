@@ -2,7 +2,9 @@
 
 //トップ画面
 Route::get('/', 'ArticleController@index')->name('index');
+//検索機能
 Route::get('/index/search', 'ArticleController@search')->name('search');
+//記事詳細
 Route::get('articles/{id}','ArticleController@show')->name('show');
 
 
@@ -16,7 +18,10 @@ Route::group(['middleware' => 'auth'],function()
     //マイページ編集機能
     Route::get('/mypage/{id}/edit','UserController@edit')->name('user.edit');
     Route::put('/mypage/{id}','UserController@update')->name('user.update');
+    // my-memo
     Route::get('/myrecipe','ArticleController@myRecipe')->name('myrecipe');
+    //検索機能
+    Route::get('/myrecipe/search', 'ArticleController@myRecipeSearch')->name('myRecipeSearch');
 
     //記事投稿画面
     Route::get('/create', 'ArticleController@getCreate')->name('getCreate');
