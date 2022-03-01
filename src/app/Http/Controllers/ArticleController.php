@@ -18,7 +18,7 @@ class ArticleController extends Controller
 ==========================================================================*/
 public function index(Request $request)
 {
-    $articles = Article::with('user')
+    $articles = Article::with('user','category','keyword','revue')
     ->orderBy('created_at','desc')
     ->paginate(6);
     $keyword = new Keyword;
@@ -230,6 +230,7 @@ public function destroy(article $article,$id)
 ==========================================================================*/
 public function myRecipe(Request $request)
 {
+    $articles = Article::with('user','category','keyword','revue');
     $articles = \Auth::user()->articles()
     ->orderBy('created_at','desc')
     ->paginate(6);

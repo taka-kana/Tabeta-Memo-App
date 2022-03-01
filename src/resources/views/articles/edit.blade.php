@@ -116,9 +116,10 @@
 
                 <!-- 完食度 -->
                 <div class="form_area wow fadeInDown">
-                    <div class="form_item-title ">完食度</div>
+                    <div class="form_item-title ">完食度<span class="alert">&nbsp;*</span></div>
                     <div class="rating-graph_wrapper">
                         <div class="rating-graph_axis">
+                            <input type="radio" name="rating" value="" <?php if($article->rating == "") {print "checked";}?> style="display: none">
                             <label>
                                 <input type="radio" class="rating-graph_scale" name="rating" value="0%" <?php if($article->rating == "0%") {print "checked";}?>><span class="rating-graph_scale_item">0%</span>
                             </label>

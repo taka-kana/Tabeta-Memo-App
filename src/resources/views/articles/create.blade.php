@@ -27,7 +27,7 @@
                 <div class="form_area wow fadeInDown">
                     <div class="form_item-title">画像</div>
                     <div class="form_area-wrapper">
-                        <input type="file" name="image" class="form_input">
+                        <input type="file" name="image" class="form_img_input">
                         <p class="create-form-item">PNG/JPEG/JPG/GIFのみアップロード可能です。</p>
                         @error('image')
                         <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
@@ -113,7 +113,7 @@
                 </div>
                 <!-- 完食度 -->
                 <div class="form_area wow fadeInDown">
-                    <div class="form_item-title ">完食度</div>
+                    <div class="form_item-title ">完食度<span class="alert">&nbsp;*</span></div>
                     <div class="rating-graph_wrapper">
                         <div class="rating-graph_axis">
                             <label>
@@ -134,6 +134,9 @@
                         </div>
                         <div class="rating-graph_basis">完食</div>
                     </div>
+                    @error('rating')
+                    <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
+                    @enderror
                 </div>
                     <!-- 公開非公開 -->
                 <div class="form_area wow fadeInDown">
@@ -158,12 +161,8 @@
                     <input type="submit" value="投稿する" class="btn" id="js-submit" >
                     <input type="submit" value="戻る" class="create-form_back btn" id="" >
                 </div>
-
             </form>
         </div>
-
-
-
     </div>
 </section>
 

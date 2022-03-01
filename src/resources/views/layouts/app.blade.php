@@ -41,7 +41,7 @@
                         </a>
                             <ul class="nav-list">
                                 <li class="header-nav"><a href="{{ route('mypage') }}">ユーザー</a></li>
-                                <li class="header-nav"><a href="{{ route('myrecipe') }}">マイレシピ</a></li>
+                                <li class="header-nav"><a href="{{ route('myrecipe') }}">my-memo</a></li>
                                 <li class="header-nav"><a href="{{ route('logout') }}">ログアウト</a></li>
                             </ul>
                     </nav>
@@ -62,7 +62,7 @@
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
         <div class="drawer-content_item"><a href="{{ route('mypage') }}" class="drawer-nav">マイページ</a></div>
-        <div class="drawer-content_item"><a href="#" class="drawer-nav">マイレシピ</a></div>
+        <div class="drawer-content_item"><a href="#" class="drawer-nav">my-memo</a></div>
         <div class="drawer-content_item"><a href="#" class="drawer-nav">ログアウト</a></div>
     </div>
 </div>
