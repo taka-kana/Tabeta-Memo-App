@@ -15,7 +15,7 @@
         @endif
 
         <div class="login-form-wrapper">
-            <form action="{{ route('postLogin') }}" method="POST" name="login-form" id="">
+            <form action="{{ route('user.postLogin') }}" method="POST" name="login-form" id="">
                 @csrf
                 <!-- メールアドレス -->
                 <div class="form_area wow fadeInDown">

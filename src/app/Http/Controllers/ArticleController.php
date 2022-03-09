@@ -132,7 +132,7 @@ public function postCreate(ArticleRequest $request)
     $article->user_id = Auth::id();
     $article->save();
     
-    return redirect()->route('index');
+    return redirect()->route('article.index');
 }
 
 /*==========================================================================
@@ -208,7 +208,7 @@ public function update(ArticleRequest $request, $id)
     $article->user_id = Auth::id();
     $article->save();
 
-    return redirect()->route('index');
+    return redirect()->route('article.index');
 }
 
 /*==========================================================================
@@ -228,12 +228,12 @@ public function destroy(article $article,$id)
         \Storage::disk('public')->delete($path);
     }
     $article->delete();
-    return redirect()->route('index');
+    return redirect()->route('article.index');
 }
 /*==========================================================================
 マイmemo
 ==========================================================================*/
-public function myRecipe(Request $request)
+public function myMemo(Request $request)
 {
     $articles = Article::with('user','category','keyword','revue');
     $articles = \Auth::user()->articles()
@@ -245,7 +245,7 @@ public function myRecipe(Request $request)
     $keywords = $keyword->getLists();
     $categoryId = $request->input('categoryId');
     $searchWord = $request->input('searchWord');
-    return view('articles.myrecipe',[
+    return view('articles.mymemo',[
         'articles' => $articles,
         'categories' => $categories,
         'categoryId' => $categoryId,
@@ -255,7 +255,7 @@ public function myRecipe(Request $request)
 /*==========================================================================
 マイレシピ内検索機能
 ==========================================================================*/
-public function myRecipeSearch(Request $request)
+public function myMemoSearch(Request $request)
 {
     $searchWord = $request->input('searchWord');
     $categoryId = $request->input('categoryId');

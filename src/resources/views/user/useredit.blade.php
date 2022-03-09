@@ -54,7 +54,7 @@
                     <div class="useredit-form_sent-area">
                         <input type="submit" value="変更する" class="useredit-form_sent" >
                     </div>
-                    <a href="{{ route('mypage') }}" class="useredit-btn-area">
+                    <a href="{{ route('user.mypage') }}" class="useredit-btn-area">
                         <div class="useredit-back-btn">戻る</div>
                     </a>
                 </div>

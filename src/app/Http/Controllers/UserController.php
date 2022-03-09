@@ -25,7 +25,7 @@ public function store(UserRequest $request) {
     $user->email = $request->email;
     $user->password = Hash::make($request->password);
     $user->save();
-    return redirect()->route('popup');
+    return redirect()->route('user.popup');
 }
 public function getPopup()
 {
@@ -45,7 +45,7 @@ public function postLogin(Request $request)
         'password' => 'required|min:8'
         ]);
     if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
-        return redirect()->route('myrecipe');
+        return redirect()->route('article.mymemo');
     }
     return redirect()->back();
 }
@@ -55,7 +55,7 @@ public function postLogin(Request $request)
 public function getLogout()
 {
     Auth::logout();
-    return redirect()->route('getLogin');
+    return redirect()->route('user.getLogin');
 }
 /*==========================================================================
 //マイページ表示
@@ -81,7 +81,7 @@ public function update(Request $request, $id)
 {
     $user = User::FindOrFail($id);
     if($user->id !== Auth::id()){
-        return redirect('getLogin');
+        return redirect('user.getLogin');
     }
     $validated = $request->validate([
         'name' => ['required', 'string', 'max:255'],
@@ -92,7 +92,7 @@ public function update(Request $request, $id)
     $user->email = $request->email;
     $user->save();
 
-    return redirect('mypage');
+    return redirect('user.mypage');
 }
 
 }
