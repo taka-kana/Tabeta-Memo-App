@@ -39,7 +39,6 @@
     <div class="container">
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
-            @if($article->release == '公開する')
             <!-- 記事始まり -->
             <div class="article-wrapper">
                 <a class="linkshow" href="{{ route('article.show', ['id' => $article->id]) }}"></a>
@@ -76,7 +75,6 @@
                     </div>
                 <!-- 記事終わり -->
             </div>
-            @endif
                 @endforeach
             </div>
             <div class="page-nation">

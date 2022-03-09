@@ -48,7 +48,7 @@
                         </a>
                             <ul class="nav-list">
                                 <a href="{{ route('user.mypage') }}"><li class="header-nav">ユーザー</li></a>
-                                <a href="{{ route('article.mymemo') }}"><li class="header-nav">自分の記録</li></a>
+                                <a href="{{ route('article.mymemo') }}"><li class="header-nav">my-memo</li></a>
                                 <a href="{{ route('article.index') }}"><li class="header-nav">みんなの記録</li></a>
                                 <a href="{{ route('user.logout') }}"><li class="header-nav">ログアウト</li></a>
                             </ul>
@@ -71,7 +71,7 @@
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
         <div class="drawer-content_item"><a href="{{ route('user.mypage') }}" class="drawer-nav">マイページ</a></div>
-        <div class="drawer-content_item"><a href="{{ route('article.mymemo') }}" class="drawer-nav">自分の記録</a></div>
+        <div class="drawer-content_item"><a href="{{ route('article.mymemo') }}" class="drawer-nav">my-memo</a></div>
         <div class="drawer-content_item"><a href="{{ route('article.index') }}" class="drawer-nav">みんなの記録</a></div>
         <div class="drawer-content_item"><a href="{{ route('user.logout') }}" class="drawer-nav">ログアウト</a></div>
     </div>
@@ -91,7 +91,7 @@
 </main>
 <!-- /.main -->
 <footer class="footer">
-    <p class="copyright">copyright ©️2021:taka </p>
+    <p class="copyright">copyright ©️2021-2022:taka </p>
 </footer>
 <!-- /.footer -->
 <!-- script -->

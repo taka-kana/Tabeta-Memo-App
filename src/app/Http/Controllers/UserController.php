@@ -92,7 +92,7 @@ public function update(Request $request, $id)
     $user->email = $request->email;
     $user->save();
 
-    return redirect('user.mypage');
+    return redirect()-> route('user.mypage');
 }
 
 }

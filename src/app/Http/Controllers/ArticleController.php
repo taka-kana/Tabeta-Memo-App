@@ -23,7 +23,8 @@ public function welcome () {
 ==========================================================================*/
 public function index(Request $request)
 {
-    $articles = Article::with('user','category','keyword','revue')
+    $articles = Article::with('user','category','keyword','revue');
+    $articles = Article::where('release', '公開する')
     ->orderBy('created_at','desc')
     ->paginate(6);
     $keyword = new Keyword;
@@ -77,6 +78,7 @@ public function search(Request $request)
             ]);
         }
     $articles = $query->get();
+    $articles = Article::where('release', '公開する');
     $articles = $query->orderBy('category_id', 'asc')->paginate(6);
     return view('articles.search',[
         'articles' => $articles,
