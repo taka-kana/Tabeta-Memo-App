@@ -7,7 +7,7 @@
         <div class="create-form-wrapper">
 
             <!--form-->
-            <form action="{{ route('postCreate') }}" method="POST" name="create-form" enctype="multipart/form-data">
+            <form action="{{ route('article.postCreate') }}" method="POST" name="create-form" enctype="multipart/form-data">
                 @csrf
                 <div class="create-alert"><span class="alert">*&nbsp;</span> &nbsp; は入力必須項目です</div>
 

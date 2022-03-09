@@ -68,9 +68,9 @@
             @endif
             <div class="show_article-btn-wrapper wow fadeInDown">
 
-                <a href="{{ route('index') }}" class="show_article-btn-back">戻る</a>
+                <a href="{{ route('article.index') }}" class="show_article-btn-back">戻る</a>
                 @if ($article->user_id == Auth::id())
-                <a href="{{ route('edit', ['id' => $article->id]) }}" class="show_article-btn-edit">編集</a>
+                <a href="{{ route('article.edit', ['id' => $article->id]) }}" class="show_article-btn-edit">編集</a>
                 @endif
 
             </div>

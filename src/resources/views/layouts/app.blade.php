@@ -29,11 +29,11 @@
         <div class="container">
             <div class="header-wrapper">
                 @if(Auth::check())
-                <a href="{{ route('myrecipe') }}">
+                <a href="{{ route('article.mymemo') }}">
                     <div class="header-logo"></div>
                 </a>
                 @else
-                <a href="{{ route('index') }}">
+                <a href="{{ route('article.index') }}">
                     <div class="header-logo"></div>
                 </a>
                 @endif
@@ -41,22 +41,22 @@
                 <div class="header-items-wrapper">
                     <!-- ログイン後 -->
                     @if(Auth::check())
-                    <a href="{{ route('getCreate') }}" class="header-btn is-pc">投稿する</a>
+                    <a href="{{ route('article.getCreate') }}" class="header-btn is-pc">投稿する</a>
                     <nav class="nav-wrapper is-pc">
                         <a href="" class="ac-btn">
                             メニュー
                         </a>
                             <ul class="nav-list">
-                                <a href="{{ route('mypage') }}"><li class="header-nav">ユーザー</li></a>
-                                <a href="{{ route('myrecipe') }}"><li class="header-nav">自分の記録</li></a>
-                                <a href="{{ route('index') }}"><li class="header-nav">みんなの記録</li></a>
-                                <a href="{{ route('logout') }}"><li class="header-nav">ログアウト</li></a>
+                                <a href="{{ route('user.mypage') }}"><li class="header-nav">ユーザー</li></a>
+                                <a href="{{ route('article.mymemo') }}"><li class="header-nav">自分の記録</li></a>
+                                <a href="{{ route('article.index') }}"><li class="header-nav">みんなの記録</li></a>
+                                <a href="{{ route('user.logout') }}"><li class="header-nav">ログアウト</li></a>
                             </ul>
                     </nav>
                     <!-- ログイン前 -->
                     @else
-                    <a class="header-btn" href="{{ route('getLogin') }}">ログイン</a>
-                    <a class="header-btn" style="margin-left:30px;" href="{{ route('register') }}">新規登録</a>
+                    <a class="header-btn" href="{{ route('user.getLogin') }}">ログイン</a>
+                    <a class="header-btn" style="margin-left:30px;" href="{{ route('user.register') }}">新規登録</a>
                     @endif
                 </div>
                 <!-- ドロワーメニュー -->
@@ -70,10 +70,10 @@
 </div>
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
-        <div class="drawer-content_item"><a href="{{ route('mypage') }}" class="drawer-nav">マイページ</a></div>
-        <div class="drawer-content_item"><a href="{{ route('myrecipe') }}" class="drawer-nav">自分の記録</a></div>
-        <div class="drawer-content_item"><a href="{{ route('index') }}" class="drawer-nav">みんなの記録</a></div>
-        <div class="drawer-content_item"><a href="{{ route('logout') }}" class="drawer-nav">ログアウト</a></div>
+        <div class="drawer-content_item"><a href="{{ route('user.mypage') }}" class="drawer-nav">マイページ</a></div>
+        <div class="drawer-content_item"><a href="{{ route('article.mymemo') }}" class="drawer-nav">自分の記録</a></div>
+        <div class="drawer-content_item"><a href="{{ route('article.index') }}" class="drawer-nav">みんなの記録</a></div>
+        <div class="drawer-content_item"><a href="{{ route('user.logout') }}" class="drawer-nav">ログアウト</a></div>
     </div>
 </div>
 <div class="drawer-back-ground is-sp"></div>

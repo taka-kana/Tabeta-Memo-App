@@ -8,7 +8,7 @@
         <div class="edit-form-wrapper">
 
             <!--form-->
-            <form action="{{ route('update', ['id' => $article->id]) }}" method="POST" name="edit-form" enctype="multipart/form-data">
+            <form action="{{ route('article.update', ['id' => $article->id]) }}" method="POST" name="edit-form" enctype="multipart/form-data">
                 @csrf
                 <div class="edit-alert"><span class="alert">*&nbsp;</span> &nbsp; は入力必須項目です</div>
 
