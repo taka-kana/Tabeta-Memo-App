@@ -50,10 +50,6 @@ class ArticleRequest extends FormRequest
             'keywords.min' => 'キーワードは8文字以内で入力してください。',
             'keywords.required' => 'キーワードが入力されていません。',
             'revue_id.required' => 'キーワードが入力されていません。',
-
-
-
-
         ];
     }
 }
