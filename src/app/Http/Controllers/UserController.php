@@ -45,7 +45,7 @@ public function postLogin(Request $request)
         'password' => 'required|min:8'
         ]);
     if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
-        return redirect()->route('index');
+        return redirect()->route('myrecipe');
     }
     return redirect()->back();
 }

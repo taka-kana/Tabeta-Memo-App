@@ -1,7 +1,8 @@
 <?php
 
+Route::get('/','ArticleController@welcome')->name('welcome');
 //トップ画面
-Route::get('/', 'ArticleController@index')->name('index');
+Route::get('/index', 'ArticleController@index')->name('index');
 //検索機能
 Route::get('/index/search', 'ArticleController@search')->name('search');
 //記事詳細
@@ -19,9 +20,9 @@ Route::group(['middleware' => 'auth'],function()
     Route::get('/mypage/{id}/edit','UserController@edit')->name('user.edit');
     Route::put('/mypage/{id}','UserController@update')->name('user.update');
     // my-memo
-    Route::get('/myrecipe','ArticleController@myRecipe')->name('myrecipe');
+    Route::get('/mymemo','ArticleController@myRecipe')->name('myrecipe');
     //検索機能
-    Route::get('/myrecipe/search', 'ArticleController@myRecipeSearch')->name('myRecipeSearch');
+    Route::get('/mymemo/search', 'ArticleController@myRecipeSearch')->name('myRecipeSearch');
 
     //記事投稿画面
     Route::get('/create', 'ArticleController@getCreate')->name('getCreate');

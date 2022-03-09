@@ -28,9 +28,16 @@
     <header class="header">
         <div class="container">
             <div class="header-wrapper">
-                    <a href="{{ route('index') }}">
-                        <div class="header-logo"></div>
-                    </a>
+                @if(Auth::check())
+                <a href="{{ route('myrecipe') }}">
+                    <div class="header-logo"></div>
+                </a>
+                @else
+                <a href="{{ route('index') }}">
+                    <div class="header-logo"></div>
+                </a>
+                @endif
+
                 <div class="header-items-wrapper">
                     <!-- ログイン後 -->
                     @if(Auth::check())
@@ -40,9 +47,10 @@
                             メニュー
                         </a>
                             <ul class="nav-list">
-                                <li class="header-nav"><a href="{{ route('mypage') }}">ユーザー</a></li>
-                                <li class="header-nav"><a href="{{ route('myrecipe') }}">my-memo</a></li>
-                                <li class="header-nav"><a href="{{ route('logout') }}">ログアウト</a></li>
+                                <a href="{{ route('mypage') }}"><li class="header-nav">ユーザー</li></a>
+                                <a href="{{ route('myrecipe') }}"><li class="header-nav">自分の記録</li></a>
+                                <a href="{{ route('index') }}"><li class="header-nav">みんなの記録</li></a>
+                                <a href="{{ route('logout') }}"><li class="header-nav">ログアウト</li></a>
                             </ul>
                     </nav>
                     <!-- ログイン前 -->
@@ -52,6 +60,7 @@
                     @endif
                 </div>
                 <!-- ドロワーメニュー -->
+@if(Auth::check())
 <div class="drawer-icon is-sp">
     <div class="drawer_icon-bars">
         <div class="drawer_icon-bar1"></div>
@@ -62,11 +71,13 @@
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
         <div class="drawer-content_item"><a href="{{ route('mypage') }}" class="drawer-nav">マイページ</a></div>
-        <div class="drawer-content_item"><a href="#" class="drawer-nav">my-memo</a></div>
-        <div class="drawer-content_item"><a href="#" class="drawer-nav">ログアウト</a></div>
+        <div class="drawer-content_item"><a href="{{ route('myrecipe') }}" class="drawer-nav">自分の記録</a></div>
+        <div class="drawer-content_item"><a href="{{ route('index') }}" class="drawer-nav">みんなの記録</a></div>
+        <div class="drawer-content_item"><a href="{{ route('logout') }}" class="drawer-nav">ログアウト</a></div>
     </div>
 </div>
 <div class="drawer-back-ground is-sp"></div>
+@endif
 
 <!-- ドロワーメニュー終わり -->
             </div>

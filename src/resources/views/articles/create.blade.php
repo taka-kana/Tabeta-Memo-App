@@ -3,7 +3,7 @@
 @section('content')
 <section class="create">
     <div class="container">
-        <h3 class="create-title ">レシピ投稿</h3>
+        <h3 class="create-title ">Memo投稿</h3>
         <div class="create-form-wrapper">
 
             <!--form-->
@@ -123,7 +123,7 @@
                                 <input type="radio" class="rating-graph_scale" name="rating" value="25%"><span class="rating-graph_scale_item">25%</span>
                             </label>
                             <label>
-                                <input type="radio" class="rating-graph_scale" name="rating" value="50%"><span class="rating-graph_scale_item">50%</span>
+                                <input type="radio" class="rating-graph_scale" name="rating" value="50%" checked><span class="rating-graph_scale_item">50%</span>
                             </label>
                             <label>
                                 <input type="radio" class="rating-graph_scale" name="rating" value="75%"><span class="rating-graph_scale_item">75%</span>
@@ -134,9 +134,6 @@
                         </div>
                         <div class="rating-graph_basis">完食</div>
                     </div>
-                    @error('rating')
-                    <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
-                    @enderror
                 </div>
                     <!-- 公開非公開 -->
                 <div class="form_area wow fadeInDown">
@@ -147,7 +144,7 @@
                             <input type="radio" name="release" value="公開する" class="form_select"><span>公開する</span>
                         </label>
                         <label>
-                            <input type="radio" name="release" value="公開しない" class="form_select"><span>公開しない</span>
+                            <input type="radio" name="release" value="公開しない" class="form_select" checked><span>公開しない</span>
                         </label>
                         <p class="create-form-item" style="margin-top: 10px"><span class="alert">&nbsp;*</span>&nbsp;&nbsp;&nbsp;&nbsp;公開にすると みんなの記録 に表示されます。</p>
                         @error('release')
