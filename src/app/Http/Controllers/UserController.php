@@ -90,7 +90,10 @@ public function update(Request $request, $id)
 
     $user->name = $request->name;
     $user->email = $request->email;
-    $user->save();
+    if(Auth::id() !== 1)
+    {
+        $user->save();
+    }
 
     return redirect()-> route('user.mypage');
 }

@@ -32,7 +32,6 @@ Route::group(['middleware' => 'auth'],function()
     Route::post('/articles/{id}', 'ArticleController@update')->name('article.update');
     //記事削除機能
     Route::delete('/articles/{id}', 'ArticleController@destroy')->name('article.destroy');
-
     //ログアウト
     Route::get('/logout','USerController@getLogout')->name('user.logout');
 });
@@ -48,6 +47,7 @@ Route::get('register/popup','UserController@getPopup')->name('user.popup');
 //ログイン
 Route::get('/login','UserController@getLogin')->name('user.getLogin');
 Route::post('/login','UserController@postLogin')->name('user.postLogin');
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 
 
