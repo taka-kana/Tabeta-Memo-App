@@ -41,6 +41,9 @@
                 <div class="header-items-wrapper">
                     <!-- ログイン後 -->
                     @if(Auth::check())
+                    <div class="user-namespace">
+                        こんにちは {{ Auth::user()->name }} さん
+                    </div>
                     <a href="{{ route('article.getCreate') }}" class="header-btn is-pc">投稿する</a>
                     <nav class="nav-wrapper is-pc">
                         <a href="" class="ac-btn">
@@ -56,7 +59,8 @@
                     <!-- ログイン前 -->
                     @else
                     <a class="header-btn" href="{{ route('user.getLogin') }}">ログイン</a>
-                    <a class="header-btn" style="margin-left:30px;" href="{{ route('user.register') }}">新規登録</a>
+                    <a class="header-btn" style="margin-left:20px;" href="{{ route('user.register') }}">新規登録</a>
+                    <a href="{{ route('login.guest') }}" class="header-btn" style="margin-left:20px;">ゲストログイン</a>
                     @endif
                 </div>
                 <!-- ドロワーメニュー -->

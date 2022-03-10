@@ -19,7 +19,6 @@
             <div class="mypage_btn-area wow fadeInDown">
                 <a href="{{ route('article.index') }}" class="mypage-back-btn">戻る</a>
                 <a href="{{ route('user.edit', auth()->user()->id) }}" class="mypage-edit-btn">編集</a>
-                
             </div>
         </div>
     </div>

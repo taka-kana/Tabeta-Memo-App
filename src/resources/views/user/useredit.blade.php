@@ -20,10 +20,17 @@
                 @method('PUT')
                 @csrf
                 <!-- ユーザー名 -->
+                @if (Auth::id() == 1)
+                <p class="text-danger">*ゲストユーザーは変更できません</p>
+                @endif
                 <div class="form_area wow fadeInDown">
                     <div class="form_item-title">ユーザー名</div>
                     <div class="form_area-wrapper">
+                        @if (Auth::id() == 1)
+                        <input type="text" name="name" class="form_input" value="{{ $user->name }}" readonly>
+                        @else
                         <input type="text" name="name" class="form_input" value="{{ $user->name }}">
+                        @endif
                         <p class="create-form-item">50文字以内で入力してください。</p>
                         @error('name')
                         <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
@@ -34,7 +41,11 @@
                 <div class="form_area wow fadeInDown">
                     <div class="form_item-title">メールアドレス</div>
                     <div class="form_area-wrapper">
+                        @if (Auth::id() == 1)
+                        <input type="email" name="email" class="form_input" value="{{ $user->email }}" readonly>
+                        @else
                         <input type="email" name="email" class="form_input" value="{{ $user->email }}">
+                        @endif
                         <p class="create-form-item">50文字以内で入力してください。</p>
                         @error('email')
                         <p class="validation-alert"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;{{ $message }}</p>
@@ -52,7 +63,9 @@
                 <!-- 送信 -->
                 <div class="useredit-btn-wrapper wow fadeInDown">
                     <div class="useredit-form_sent-area">
+                        @if(Auth::id() !== 1)
                         <input type="submit" value="変更する" class="useredit-form_sent" >
+                        @endif
                     </div>
                     <a href="{{ route('user.mypage') }}" class="useredit-btn-area">
                         <div class="useredit-back-btn">戻る</div>
