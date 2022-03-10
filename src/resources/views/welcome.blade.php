@@ -8,7 +8,7 @@
             </h2>
             <div class="welcome__logo"></div>
             <div class="welcome__btns-wrapper">
-                <a href="{{ route('article.index') }}" class="to-index_btn"><span>ゲストで利用してみる</span></a>
+                <a href="{{ route('login.guest') }}" class="to-index_btn"><span>ゲストで利用してみる</span></a>
                 <a href="{{ route('user.register') }}" class="welcome__btn">新規登録</a>
                 <a href="{{ route('user.getLogin') }}" class="welcome__btn">ログイン</a>
             </div>
@@ -64,7 +64,7 @@
         <div class="welcome__bottom">
             <h3 class="welcome__bottom-title">Tabeta-Memoを利用する</h3>
             <div class="welcome__bottom-btn-wrapper">
-                <a href="{{ route('article.index') }}" class="to-index_btn"><span>ゲストで利用してみる</span></a>
+                <a href="{{ route('login.guest') }}" class="to-index_btn"><span>ゲストで利用してみる</span></a>
                 <a href="{{ route('user.register') }}" class="welcome__btn">新規登録</a>
                 <a href="{{ route('user.getLogin') }}" class="welcome__btn">ログイン</a>
             </div>
