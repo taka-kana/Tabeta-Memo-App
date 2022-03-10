@@ -42,25 +42,26 @@
                     <!-- ログイン後 -->
                     @if(Auth::check())
                     <div class="user-namespace">
-                        こんにちは {{ Auth::user()->name }} さん
+                        こんにちは <br><a href="{{ route('user.mypage') }}">{{ Auth::user()->name }}</a> さん
                     </div>
                     <a href="{{ route('article.getCreate') }}" class="header-btn is-pc">投稿する</a>
                     <nav class="nav-wrapper is-pc">
                         <a href="" class="ac-btn">
                             メニュー
                         </a>
-                            <ul class="nav-list">
-                                <a href="{{ route('user.mypage') }}"><li class="header-nav">ユーザー</li></a>
-                                <a href="{{ route('article.mymemo') }}"><li class="header-nav">my-memo</li></a>
-                                <a href="{{ route('article.index') }}"><li class="header-nav">みんなの記録</li></a>
-                                <a href="{{ route('user.logout') }}"><li class="header-nav">ログアウト</li></a>
-                            </ul>
+                        <ul class="nav-list">
+                            <a href="{{ route('user.mypage') }}"><li class="header-nav">ユーザー</li></a>
+                            <a href="{{ route('article.mymemo') }}"><li class="header-nav">my-memo</li></a>
+                            <a href="{{ route('article.index') }}"><li class="header-nav">みんなの記録</li></a>
+                            <a href="{{ route('user.logout') }}"><li class="header-nav">ログアウト</li></a>
+                        </ul>
                     </nav>
+
                     <!-- ログイン前 -->
                     @else
                     <a class="header-btn" href="{{ route('user.getLogin') }}">ログイン</a>
-                    <a class="header-btn" style="margin-left:20px;" href="{{ route('user.register') }}">新規登録</a>
-                    <a href="{{ route('login.guest') }}" class="header-btn" style="margin-left:20px;">ゲストログイン</a>
+                    <a class="header-btn"  href="{{ route('user.register') }}">新規登録</a>
+                    <a href="{{ route('login.guest') }}" class="header-btn guest-btn" >ゲスト<br class="is-sp">ログイン</a>
                     @endif
                 </div>
                 <!-- ドロワーメニュー -->

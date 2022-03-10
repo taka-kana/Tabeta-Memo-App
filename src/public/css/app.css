@@ -362,7 +362,7 @@ a {
 
 .header-items-wrapper {
   display: flex;
-  margin-right: 50px;
+  margin-right: 10%;
   margin-left: auto;
 }
 
@@ -384,12 +384,12 @@ a {
 .ac-btn,
 .header-nav {
   font-size: 14px;
-  width: 120px;
+  width: 110px;
   height: 40px;
   background-color: #fecf8d;
   color: #FFF;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 13px;
   padding-top: 12px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
   display: block;
@@ -410,7 +410,7 @@ a {
 }
 
 .header-btn {
-  width: 120px;
+  width: 100px;
   height: 40px;
   background-color: #fecf8d;
   color: #FFF;
@@ -418,14 +418,24 @@ a {
   margin: auto;
   padding-top: 12px;
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.header-btn:not(:first-child) {
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .header-btn:not(:first-child) {
+    margin-left: 10px;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .header-btn {
-    width: 80px;
+    width: 60px;
     height: 30px;
-    font-size: 10px;
-    padding-top: 10px;
+    font-size: 8px;
   }
 }
 
@@ -433,6 +443,30 @@ a {
   transform: translateY(4px);
   border-bottom: none;
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 767px) {
+  .guest-btn {
+    padding-top: 6px;
+  }
+}
+
+.user-namespace {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .user-namespace {
+    margin-right: 30px;
+  }
+}
+
+.user-namespace a {
+  border-bottom: #FFAA3B solid 2px;
+  font-weight: bold;
 }
 
 /*==================================================================
@@ -2495,9 +2529,9 @@ item
   cursor: pointer;
   display: block;
   margin: 0 10px 0 10px;
-  padding: 0.9em 2em;
+  padding: 0.9em 1.9em;
   text-decoration: none;
-  width: 300px;
+  width: 280px;
   height: 55px;
   border-radius: 20px;
   font-weight: 600;
@@ -2522,7 +2556,7 @@ item
 @media screen and (max-width: 767px) {
   .to-index_btn {
     font-size: 14px;
-    width: 190px;
+    width: 170px;
     padding: 0.8em 1em;
     height: 40px;
     margin-left: auto;
