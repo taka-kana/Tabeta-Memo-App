@@ -53,7 +53,7 @@ public function search(Request $request)
     $query = Article::query();
     if(!empty($request->get('searchWord')))
     {
-        $keyword = Keyword::where('name', 'like', '%' .$searchWord. '%')->first();
+        $keyword = Keyword::where('name', 'like', '%' .self::escapeLike($searchWord). '%')->first();
             if(!empty($keyword)){
             $keyword = $keyword->id;
             $query = Article::query();
@@ -133,8 +133,9 @@ public function postCreate(ArticleRequest $request)
     $article->release = $request->release;
     $article->user_id = Auth::id();
     $article->save();
-    
-    return redirect()->route('article.index');
+    $request->session()->regenerateToken();
+
+    return redirect()->route('article.mymemo');
 }
 
 /*==========================================================================
@@ -210,7 +211,7 @@ public function update(ArticleRequest $request, $id)
     $article->user_id = Auth::id();
     $article->save();
 
-    return redirect()->route('article.index');
+    return redirect()->route('article.mymemo');
 }
 
 /*==========================================================================
@@ -230,7 +231,7 @@ public function destroy(article $article,$id)
         \Storage::disk('public')->delete($path);
     }
     $article->delete();
-    return redirect()->route('article.index');
+    return redirect()->route('article.mymemo');
 }
 /*==========================================================================
 マイmemo
@@ -267,7 +268,7 @@ public function myMemoSearch(Request $request)
     $query = Article::query();
     if(!empty($request->get('searchWord')))
     {
-        $keyword = Keyword::where('name', 'like', '%' .$searchWord. '%')->first();
+        $keyword = Keyword::where('name', 'like', '%' .self::escapeLike($searchWord). '%')->first();
             if(!empty($keyword)){
             $keyword = $keyword->id;
             $query = Article::query();
