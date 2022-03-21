@@ -52,3 +52,12 @@ jQuery('.ac-btn').on('click', function () {
   $("+.nav-list" ,this).fadeToggle();
   return false;
 });
+
+/*==================================================================
+# 多重送信防止
+==================================================================*/
+$(function(){
+  $('form').submit(function(){
+    $("button[type='submit']").prop("disabled",true);
+  });
+});

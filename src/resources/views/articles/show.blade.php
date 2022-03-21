@@ -58,9 +58,8 @@
             </div>
             <div class="show_article-memo-wrapper wow fadeInDown">
                 <div class="show_article-memo-title">memo</div>
-                <textarea class="show_article-memo" name="" id="" cols="30" rows="10">{{ $article->summary }}</textarea>
+                <div class="show_article-memo">{{ $article->summary }}</div>
             </div>
-            
             @if ($article->user_id == Auth::id())
             <div class="release_item_wrapper">
                 <div class="release_item">公開設定&nbsp;:&nbsp;{{ $article->release }}</div>

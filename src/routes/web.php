@@ -24,9 +24,10 @@ Route::group(['middleware' => 'auth'],function()
     //検索機能
     Route::get('/mymemo/search', 'ArticleController@myMemoSearch')->name('article.myMemoSearch');
 
-    //記事投稿画面
+    //記事投稿
     Route::get('/create', 'ArticleController@getCreate')->name('article.getCreate');
-    Route::post('/create', 'ArticleController@postCreate')->name('article.postCreate');
+    Route::post('/create', 'ArticleController@postCreate')->name('article.postCreate')
+    ->middleware('throttle:3,1');
     //記事編集機能
     Route::get('/articles/{id}/edit', 'ArticleController@edit')->name('article.edit');
     Route::post('/articles/{id}', 'ArticleController@update')->name('article.update');
@@ -47,6 +48,7 @@ Route::get('register/popup','UserController@getPopup')->name('user.popup');
 //ログイン
 Route::get('/login','UserController@getLogin')->name('user.getLogin');
 Route::post('/login','UserController@postLogin')->name('user.postLogin');
+//ゲストログイン機能
 Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 
