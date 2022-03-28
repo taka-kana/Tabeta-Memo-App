@@ -3034,3 +3034,21 @@ item
   }
 }
 
+.to-top {
+  content: "";
+  background: url(/images/totop.svg?93d3ba83ba26a808a18df1bb99b16d5a) no-repeat center center/contain;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 300;
+}
+
+@media screen and (max-width: 767px) {
+  .to-top {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
