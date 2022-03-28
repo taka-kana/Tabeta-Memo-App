@@ -2500,3 +2500,17 @@ item
   }
 }
 
+.to-top {
+  content: "";
+  background: url(../../storage/app/public/items/totop.svg) no-repeat center center / contain;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 300;
+  @include mq (sp) {
+    right:16px;
+    bottom:16px;
+  }
+}
