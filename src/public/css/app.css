@@ -2281,16 +2281,15 @@ item
   display: flex;
   font-size: 18px;
   margin-left: auto;
-  margin-right: 22%;
-  margin-top: 10px;
+  margin-right: auto;
+  margin-top: 30px;
   position: relative;
 }
 
 @media screen and (max-width: 767px) {
   .show_article-username-wrapper {
     font-size: 13px;
-    margin-right: auto;
-    width: 140px;
+    margin-top: 10px;
   }
 }
 
@@ -2299,14 +2298,8 @@ item
   border-bottom: #fecf8d 5px solid;
 }
 
-@media screen and (max-width: 767px) {
-  .show_article-username-wrapper .show_article-username-title {
-    margin-left: 0;
-  }
-}
-
 .show_article-username-wrapper .show_article-username {
-  margin-right: 0;
+  margin-right: auto;
   border-bottom: #fecf8d 5px solid;
 }
 
@@ -2349,6 +2342,7 @@ item
   margin-left: auto;
   margin-right: auto;
   display: block;
+  word-break: break-all;
 }
 
 @media screen and (max-width: 767px) {
