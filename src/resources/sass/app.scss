@@ -1865,24 +1865,20 @@ item
     display: flex;
     font-size: 18px;
     margin-left: auto;
-    margin-right: 22%;
-    margin-top: 10px;
+    margin-right: auto;
+    margin-top: 30px;
     position: relative;
     @include mq (sp) {
       font-size:13px;
-      margin-right: auto;
-      width: 140px;
+      margin-top: 10px;
     }
   
     .show_article-username-title {
       margin-left: auto;
       border-bottom: $sub-color 5px solid;
-      @include mq (sp) {
-      margin-left: 0;
-      }
     }
     .show_article-username {
-      margin-right: 0;
+      margin-right: auto;
       border-bottom: $sub-color 5px solid;
     }
   }
@@ -1916,11 +1912,11 @@ item
       padding: 0.4em 0.8em;
       width: 70%;
       max-width: 500px;
-  
       height: 150px;
       margin-left: auto;
       margin-right: auto;
       display: block;
+      word-break: break-all;
       @include mq (sp) {
         width:70%;
         font-size: 14px;
