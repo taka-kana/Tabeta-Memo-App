@@ -29,7 +29,7 @@ public function store(UserRequest $request) {
 }
 public function getPopup()
 {
-    return view('auth.popup');
+    return view('auth.popup')->with('flash_message', '登録しました');
 }
 /*==========================================================================
 //ログイン機能
@@ -47,7 +47,7 @@ public function postLogin(Request $request)
     if(Auth::attempt(['email' => $request->input('email'),'password' => $request->input('password')])){
         return redirect()->route('article.mymemo');
     }
-    return redirect()->back();
+    return redirect()->back()->with('flash_message', 'ログインしました');
 }
 /*==========================================================================
 //ログアウト機能
@@ -55,7 +55,7 @@ public function postLogin(Request $request)
 public function getLogout()
 {
     Auth::logout();
-    return redirect()->route('user.getLogin');
+    return redirect()->route('user.getLogin')->with('flash_message', 'ログアウトしました');
 }
 /*==========================================================================
 //マイページ表示
@@ -95,7 +95,7 @@ public function update(Request $request, $id)
         $user->save();
     }
 
-    return redirect()-> route('user.mypage');
+    return redirect()-> route('user.mypage')->with('flash_message', '編集しました');
 }
 
 }
