@@ -135,7 +135,7 @@ public function postCreate(ArticleRequest $request)
     $article->save();
     $request->session()->regenerateToken();
 
-    return redirect()->route('article.mymemo');
+    return redirect()->route('article.mymemo')->with('flash_message', '投稿が完了しました');
 }
 
 /*==========================================================================
@@ -211,7 +211,7 @@ public function update(ArticleRequest $request, $id)
     $article->user_id = Auth::id();
     $article->save();
 
-    return redirect()->route('article.mymemo');
+    return redirect()->route('article.mymemo')->with('flash_message', '編集しました');
 }
 
 /*==========================================================================
@@ -231,7 +231,7 @@ public function destroy(article $article,$id)
         \Storage::disk('public')->delete($path);
     }
     $article->delete();
-    return redirect()->route('article.mymemo');
+    return redirect()->route('article.mymemo')->with('flash_message', '記事を削除しました');
 }
 /*==========================================================================
 マイmemo

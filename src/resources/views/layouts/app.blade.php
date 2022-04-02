@@ -21,6 +21,7 @@
 <script src="https://kit.fontawesome.com/4d09afe394.js" crossorigin="anonymous"></script>
 <!-- swipe -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 <!-- スタイルCSS -->
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 </head>
@@ -64,8 +65,15 @@
                     <a href="{{ route('login.guest') }}" class="header-btn guest-btn" >ゲスト<br class="is-sp">ログイン</a>
                     @endif
                 </div>
+                
+                    @if (session('flash_message'))
+                        <div class="flash_message">
+                            {{ session('flash_message') }}
+                        </div>
+                    @endif
+                
                 <!-- ドロワーメニュー -->
-@if(Auth::check())
+                    @if(Auth::check())
 <div class="drawer-icon is-sp">
     <div class="drawer_icon-bars">
         <div class="drawer_icon-bar1"></div>

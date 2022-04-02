@@ -2510,3 +2510,16 @@ item
     bottom:16px;
   }
 }
+
+.flash_message {
+  background-color: #FFAA3B;
+  opacity: 0.8;
+  color: #FFF;
+  width: 140px;
+  height: 35px;
+  font-size: 13px;
+  position: absolute;
+  top: 80px;
+  right: 100px;
+  padding: 0.8em 0.8em ;
+}
