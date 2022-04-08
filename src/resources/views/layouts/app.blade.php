@@ -12,7 +12,11 @@
 <!-- 使用するフォント -->
 
 <!-- resetCSS -->
+@if(config('app.env') === 'production')
+<link href="{{ secure_asset('/css/reset.css') }}" rel="stylesheet">
+@else
 <link href="{{ asset('/css/reset.css') }}" rel="stylesheet">
+@endif
 <!-- WOW_animateCSS -->
     <link rel="stylesheet" href="/css/animate.css">
 <!-- jquery -->
@@ -23,7 +27,12 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
 <!-- スタイルCSS -->
+@if(config('app.env') === 'production')
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+@else
+<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+@endif
+
 </head>
 <body>
     <header class="header">
