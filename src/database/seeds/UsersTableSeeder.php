@@ -19,23 +19,7 @@ class UsersTableSeeder extends Seeder
                 'password' => bcrypt('guest123456789'),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'id' => '2',
-                'name' => 'test222',
-                'email' => 'test2@test.com',
-                'password' => bcrypt('test2'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
-            [
-                'id' => '3',
-                'name' => 'test3',
-                'email' => 'test3@test.com',
-                'password' => bcrypt('test3'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-            ],
+            ]
         ]);
     }
 }
