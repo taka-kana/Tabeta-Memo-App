@@ -9,6 +9,7 @@ use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ArticleController extends Controller
 {
@@ -105,7 +106,12 @@ public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
     $image = $request->file('image');
-    $path = isset($image) ? $image->store('items', 'public') : '';
+    $image = Image::make($image)
+     ->resize(500, null, function($constraint) {
+          $constraint->aspectRatio();
+     });
+    $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
+    $path = Storage::disk('s3')->url($upload_info);
     
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
@@ -176,15 +182,20 @@ public function update(ArticleRequest $request, $id)
     $path = $article->image;
     if (isset($image))
     {
-        \Storage::disk('public')->delete($path);
-        $path = $image->store('items', 'public');
+        \Storage::disk('s3')->delete($path);
+        $image = Image::make($image)
+         ->resize(500, null, function($constraint) {
+              $constraint->aspectRatio();
+         });
+        $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
+        $path = Storage::disk('s3')->url($upload_info);
     }
     //画像が選択されていないとき
     if (empty($image)){
-        \Storage::disk('public')->delete($path);
+        \Storage::disk('s3')->delete($path);
         $path = ("");
     }
-    
+
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
     $keywords = [];
@@ -228,7 +239,7 @@ public function destroy(article $article,$id)
     $path = $article->image;
     if($path !== '')
     {
-        \Storage::disk('public')->delete($path);
+        \Storage::disk('s3')->delete($path);
     }
     $article->delete();
     return redirect()->route('article.mymemo')->with('flash_message', '記事を削除しました');

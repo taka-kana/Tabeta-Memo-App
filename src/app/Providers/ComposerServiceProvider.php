@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Support\Facades\view;
+use Illuminate\Support\Facades\View;
 use App\User;
 use Illuminate\Support\ServiceProvider;
 
