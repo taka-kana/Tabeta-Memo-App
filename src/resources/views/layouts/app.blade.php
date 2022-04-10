@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Tabeta-Memo-App</title>
-    <link rel="icon" href="{{ asset('../../../public/favcon.ico') }}">
+    <title> tabeta-memo.com</title>
+    @if(config('app.env') === 'production')
+    <link rel="icon" href="{{ secure_asset('../../../public/images/favcon.ico') }}">
+    @else
+    <link rel="icon" href="{{ asset('../../../public/images/favcon.ico') }}">
+    @endif
     <meta name="description" content="サイトの概要文">
 
 <!-- google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <!-- 使用するフォント -->
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <!-- resetCSS -->
 @if(config('app.env') === 'production')
 <link href="{{ secure_asset('/css/reset.css') }}" rel="stylesheet">
