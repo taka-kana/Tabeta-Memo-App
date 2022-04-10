@@ -96,6 +96,7 @@
 </div>
 <div class="drawer-content is-sp">
     <div class="drawer-content_items">
+        <div class="drawer-content_item"><a href="{{ route('article.getCreate') }}" class="drawer-nav">投稿する</a></div>
         <div class="drawer-content_item"><a href="{{ route('article.mymemo') }}" class="drawer-nav">my-memo</a></div>
         <div class="drawer-content_item"><a href="{{ route('article.index') }}" class="drawer-nav">みんなの記録</a></div>
         <div class="drawer-content_item"><a href="{{ route('user.mypage') }}" class="drawer-nav">マイページ</a></div>

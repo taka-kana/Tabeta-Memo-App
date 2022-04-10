@@ -58,7 +58,7 @@
                         <p class="article-item-category">{{ $article->category->name }}</p>
                         <p class="article-item-keyword">{{ $article->keyword->name }}</p>
                     </div>
-                    <p class="article-text">{{ $article->summary }}</p>
+                    <p class="article-text is-pc">{{ $article->summary }}</p>
                     <div class="article-footer">
                         <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                         <div class="article-footer-item">
