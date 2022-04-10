@@ -14,6 +14,14 @@ $breakpoints: (
     }
   }
 
+
+
+/*=============================================================================
+# font
+=============================================================================*/
+$font-ja:'Noto Sans JP',"游ゴシック体", "Yu Gothic" , "游ゴシック", sans-serif;
+$font-en:'Roboto','Montserrat', sans-serif;
+
 /*=============================================================================
 # color
 =============================================================================*/
@@ -40,6 +48,7 @@ $sub-color:#fecf8d;
       color: $font-color;
       width: 100%;
       margin: auto;
+      font-family:$font-ja;
     }
     .container {
       width: 95%;
@@ -466,6 +475,7 @@ margin-top: 129px;
     padding: 30px;
     color: #FFFF;
     text-align: right;
+    font-family:$font-en;
   }
 
   
