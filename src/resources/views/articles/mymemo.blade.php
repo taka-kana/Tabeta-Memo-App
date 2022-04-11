@@ -45,7 +45,7 @@
                     <div class="article-img-wrapper">
                         <div class="article-img">
                             @if ( $article->image !=='')
-                            <img src="{{ \Storage::url($article->image) }}">
+                            <img src="{{ \Storage::disk('s3')->url("images/$article->image") }}">
                             @else
                             <img src="{{ \Storage::url('items/no_image.jpeg') }}">
                             @endif
