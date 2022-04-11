@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'],function()
     //記事削除機能
     Route::delete('/articles/{id}', 'ArticleController@destroy')->name('article.destroy');
     //ログアウト
-    Route::get('/logout','USerController@getLogout')->name('user.logout');
+    Route::get('/logout','UserController@getLogout')->name('user.logout');
 });
 
 /*==========================================================================
