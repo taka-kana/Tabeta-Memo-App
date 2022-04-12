@@ -106,6 +106,8 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
+    //圧縮されなかったパターン
+    /*
     $image = $request->file('image');
     $image = Image::make($image)
      ->resize(500, null, function($constraint) {
@@ -113,7 +115,20 @@ public function postCreate(ArticleRequest $request)
      });
     $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
     $path = Storage::disk('s3')->url($upload_info);
-    
+    */
+    $image = $request->file('image');
+    $now = date_format(Carbon::now(), 'TmdHis');
+    $name = $file->getClientOriginalName();
+    $tempFile = $now . '_' . $name;
+    $tmpPath = storage_path('app/public/items/') . $tempFile;
+    $image = Image::make($image)
+        ->resize(500, null, function($constraint) {
+        $constraint->aspectRatio();
+       })->save($tempPath);
+    $upload_info = Storage::disk('s3')->putFile('images', $tempPath, 'public');
+    $path = Storage::disk('s3')->url($upload_info);
+    Storage::disk('local')->delete('app/public/items/' . $tempFile);
+
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
     $keywords = [];
