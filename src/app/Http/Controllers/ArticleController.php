@@ -119,7 +119,7 @@ public function postCreate(ArticleRequest $request)
     */
     $image = $request->file('image');
     $now = date_format(Carbon::now(), 'TmdHis');
-    $name = $file->getClientOriginalName();
+    $name = $image->getClientOriginalName();
     $tempFile = $now . '_' . $name;
     $tmpPath = storage_path('app/public/items/') . $tempFile;
     $image = Image::make($image)
