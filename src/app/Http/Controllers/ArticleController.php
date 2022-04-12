@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
-use Carbon\Carbon;
 
 class ArticleController extends Controller
 {
@@ -117,18 +116,14 @@ public function postCreate(ArticleRequest $request)
     $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
     $path = Storage::disk('s3')->url($upload_info);
     */
-    $image = $request->file('image');
-    $now = date_format(Carbon::now(), 'TmdHis');
-    $name = $image->getClientOriginalName();
-    $tempFile = $now . '_' . $name;
-    $tempPath = storage_path('app/public/items/') . $tempFile;
-    $image = Image::make($image)
+    $file = $request->file('image');
+    $name = $file->getClientOriginalName();
+    $image = Image::make($file)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
-       })->save($tempPath);
-    $upload_info = Storage::disk('s3')->putFile('images', $tempPath, 'public');
+       });
+    $upload_info = Storage::disk('s3')->putFile('images', $image, 'public');
     $path = Storage::disk('s3')->url($upload_info);
-    Storage::disk('local')->delete('app/public/items/' . $tempFile);
 
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
