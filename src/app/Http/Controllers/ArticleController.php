@@ -121,7 +121,7 @@ public function postCreate(ArticleRequest $request)
     $now = date_format(Carbon::now(), 'TmdHis');
     $name = $image->getClientOriginalName();
     $tempFile = $now . '_' . $name;
-    $tmpPath = storage_path('app/public/items/') . $tempFile;
+    $tempPath = storage_path('app/public/items/') . $tempFile;
     $image = Image::make($image)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
