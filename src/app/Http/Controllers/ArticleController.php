@@ -125,7 +125,7 @@ public function postCreate(ArticleRequest $request)
     $image = Image::make($file)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
-       })->save($tmpPath);
+       })->Storage::put('app/items/', $tmpFile);
     $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
     $path = Storage::disk('s3')->url($upload_info);
     Storage::disk('local')->delete('items/' . $tmpFile);
