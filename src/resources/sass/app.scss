@@ -319,7 +319,7 @@ $sub-color:#fecf8d;
  .header-btn{
    width: 100px;
    height: 40px;
-   background-color: $sub-color;
+   background-color: #f7ae47;
    color: #FFF;
    text-align: center;
    margin: auto;
@@ -843,7 +843,7 @@ margin-top: 129px;
   margin-top: 2px;
   font-size: 12px;
   @include mq (sp) {
-    font-size: 5px;
+    font-size: 8px;
     line-height: 10px;
   }
 }
@@ -877,7 +877,7 @@ margin-top: 129px;
     position: absolute;
     z-index: 25;
     @include mq (sp) {
-      font-size: 8px;
+      font-size: 10px;
       margin-top: 11px;
       margin-left: 2px;
       }
@@ -886,7 +886,7 @@ margin-top: 129px;
 .edit-item{
   right:55px;
   @include mq (sp) {
-  right:50px;
+  right:60px;
     }
 }
 .delete-item{
@@ -1871,27 +1871,39 @@ item
     }
   }
   
+  .name-datetime-wrapper {
+    display: flex;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    justify-content: space-around;
+    @include mq (sp) {
+      width: 280px;
+    }
+  }
+
   .show_article-username-wrapper {
     display: flex;
     font-size: 18px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    position: relative;
+    border-bottom: $sub-color 5px solid;
+
     @include mq (sp) {
       font-size:13px;
-      margin-top: 10px;
-    }
-  
-    .show_article-username-title {
-      margin-left: auto;
-      border-bottom: $sub-color 5px solid;
-    }
-    .show_article-username {
       margin-right: auto;
-      border-bottom: $sub-color 5px solid;
+      width: 140px;
     }
   }
+
+  .datetime-wrapper {
+    display: flex;
+    margin-top: 1px;
+    border-bottom: $sub-color 3.5px solid;
+    @include mq (sp) {
+      font-size: 11px;
+    }
+  }
+
   .show_article-memo-wrapper {
     font-size: 18px;
     margin-left: auto;

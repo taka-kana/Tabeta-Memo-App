@@ -108,16 +108,6 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
-    //圧縮されなかったパターン
-    /*
-    $image = $request->file('image');
-    $image = Image::make($image)
-     ->resize(500, null, function($constraint) {
-          $constraint->aspectRatio();
-     });
-    $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
-    $path = Storage::disk('s3')->url($upload_info);
-    */
     $now = date_format(Carbon::now(), 'YmdHis');
     $file = $request->file('image');
     $name = $file->getClientOriginalName();
@@ -200,13 +190,18 @@ public function update(ArticleRequest $request, $id)
     $path = $article->image;
     if (isset($image))
     {
-        \Storage::disk('s3')->delete($path);
-        $image = Image::make($image)
-         ->resize(500, null, function($constraint) {
-              $constraint->aspectRatio();
-         });
-        $upload_info = Storage::disk('s3')->putFile('images', $request->file('image'), 'public');
+        $now = date_format(Carbon::now(), 'YmdHis');
+        $file = $request->file('image');
+        $name = $file->getClientOriginalName();
+        $tmpFile = $now . '_' . $name;
+        $tmpPath = storage_path('app/public/items/') . $tmpFile;
+        $image = Image::make($file)
+            ->resize(500, null, function($constraint) {
+            $constraint->aspectRatio();
+           })->save($tmpPath);
+        $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
         $path = Storage::disk('s3')->url($upload_info);
+        Storage::disk('local')->delete('items/' . $tmpFile);
     }
     //画像が選択されていないとき
     if (empty($image)){

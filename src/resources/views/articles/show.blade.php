@@ -52,9 +52,17 @@
                     @endif
                 </div>
             </div>
-            <div class="show_article-username-wrapper wow fadeInDown">
-                <div class="show_article-username-title">投稿者&nbsp;:&nbsp;</div>
-                <div class="show_article-username ">{{ $article->user->name }}</div>
+            <div class="name-datetime-wrapper">
+                <div class="show_article-username-wrapper wow fadeInDown">
+                    <div class="show_article-username-title">投稿者&nbsp;:&nbsp;</div>
+                    <div class="show_article-username ">{{ $article->user->name }}</div>
+                </div>
+                @if ($article->user_id == Auth::id())
+                <div class="datetime-wrapper wow fadeInDown">
+                    <div class="date-time-title">投稿日&nbsp;:&nbsp;</div>
+                    <div class="date-time-name">{{ $article->created_at->format('Y-m-d') }}</div>
+                </div>
+                @endif
             </div>
             <div class="show_article-memo-wrapper wow fadeInDown">
                 <div class="show_article-memo-title">memo</div>
