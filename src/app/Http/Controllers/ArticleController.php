@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Illuminate\Http\File;
 
 class ArticleController extends Controller
 {
@@ -121,11 +122,11 @@ public function postCreate(ArticleRequest $request)
     $file = $request->file('image');
     $name = $file->getClientOriginalName();
     $tmpFile = $now . '_' . $name;
-    $tmpPath = storage_path('app/items/') . $tmpFile;
+    $tmpPath = storage_path('app/public/items/') . $tmpFile;
     $image = Image::make($file)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
-       })->Storage::put('app/items/', $tmpFile);
+       })->save($tmpPath);
     $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
     $path = Storage::disk('s3')->url($upload_info);
     Storage::disk('local')->delete('items/' . $tmpFile);

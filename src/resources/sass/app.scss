@@ -2452,7 +2452,7 @@ item
 }
 .welcome__recommendation-accent {
   position: absolute;
-  content: url(../../storage/app/public/items/back.png);
+  content: url(../../public/img/back.png);
   background:no-repeat center center / contain;
   top: 10%;
   transform: translateY(50%);
@@ -2508,7 +2508,7 @@ item
 
 .to-top {
   content: "";
-  background: url(../../storage/app/public/items/totop.svg) no-repeat center center / contain;
+  background: url(../../public/img/totop.svg) no-repeat center center / contain;
   height: 50px;
   width: 50px;
   position: fixed;

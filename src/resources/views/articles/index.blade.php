@@ -47,7 +47,7 @@
                         @if ( $article->image !=='')
                         <img src="{{ $article->image }}">
                         @else
-                        <img src="{{ \Storage::url('items/no_image.jpeg') }}">
+                        <img src="{{ asset('img/no_image.jpeg') }}">
                         @endif
                     </div>
                 </div>
