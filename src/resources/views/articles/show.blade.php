@@ -69,7 +69,7 @@
                 <div class="show_article-memo">{{ $article->summary }}</div>
             </div>
             @if ($article->user_id == Auth::id())
-            <div class="release_item_wrapper">
+            <div class="release_item_wrapper wow fadeInDown">
                 <div class="release_item">公開設定&nbsp;:&nbsp;{{ $article->release }}</div>
             </div>
             @endif
