@@ -417,7 +417,7 @@ a {
 .header-btn {
   width: 100px;
   height: 40px;
-  background-color: #fecf8d;
+  background-color: #f7ae47;
   color: #FFF;
   text-align: center;
   margin: auto;
@@ -1054,7 +1054,7 @@ a {
 @media screen and (max-width: 767px) {
   .article-datetime-title,
   .article-datetime-name {
-    font-size: 5px;
+    font-size: 8px;
     line-height: 10px;
   }
 }
@@ -1100,7 +1100,7 @@ a {
 @media screen and (max-width: 767px) {
   .edit-item,
   .delete-item {
-    font-size: 8px;
+    font-size: 10px;
     margin-top: 11px;
     margin-left: 2px;
   }
@@ -1112,7 +1112,7 @@ a {
 
 @media screen and (max-width: 767px) {
   .edit-item {
-    right: 50px;
+    right: 60px;
   }
 }
 
@@ -2283,30 +2283,45 @@ item
   }
 }
 
+.name-datetime-wrapper {
+  display: flex;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 767px) {
+  .name-datetime-wrapper {
+    width: 280px;
+  }
+}
+
 .show_article-username-wrapper {
   display: flex;
   font-size: 18px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  position: relative;
+  border-bottom: #fecf8d 5px solid;
 }
 
 @media screen and (max-width: 767px) {
   .show_article-username-wrapper {
     font-size: 13px;
-    margin-top: 10px;
+    margin-right: auto;
+    width: 140px;
   }
 }
 
-.show_article-username-wrapper .show_article-username-title {
-  margin-left: auto;
-  border-bottom: #fecf8d 5px solid;
+.datetime-wrapper {
+  display: flex;
+  margin-top: 1px;
+  border-bottom: #fecf8d 3.5px solid;
 }
 
-.show_article-username-wrapper .show_article-username {
-  margin-right: auto;
-  border-bottom: #fecf8d 5px solid;
+@media screen and (max-width: 767px) {
+  .datetime-wrapper {
+    font-size: 11px;
+  }
 }
 
 .show_article-memo-wrapper {
