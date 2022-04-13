@@ -2017,7 +2017,7 @@ item
   }
 }
 .welcome__top {
-  background:url(../../public/img/welcometop.png);
+  background:url(/img/welcometop.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2043,7 +2043,7 @@ item
 }
 
 .welcome__logo {
-  background:url(../../public/img/logo.png);
+  background:url(/img/logo.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 90%;
@@ -2153,7 +2153,7 @@ item
 }
 
 .welcome__main {
-  background:url(../../public/img/welcomemain.png);
+  background:url(/img/welcomemain.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2214,7 +2214,7 @@ item
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../../public/img/ナイフフォークのお食事アイコン.png);
+    background-image: url(/img/ナイフフォークのお食事アイコン.png);
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -2255,7 +2255,7 @@ item
 .welcome__main-item-container-top {
   position: relative;
   &:before {
-    content: url(../../public/img/iPhone.png);
+    content: url(/img/iPhone.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100px;
@@ -2304,7 +2304,7 @@ item
     display: block;
     width: 80%;
     height: 400px;
-    background-image: url(../../public/img/macbook.png);
+    background-image: url(/img/macbook.png);
     background-repeat: no-repeat;
     background-size: contain;
     @include mq (sp) {
@@ -2372,7 +2372,7 @@ item
     display: block;
     width: 100%;
     height: 200px;
-    background-image: url(../../public/img/couple.png);
+    background-image: url(/img/couple.png);
     background-repeat: no-repeat;
     background-size: contain;
     @include mq (sp) {
@@ -2407,7 +2407,7 @@ item
     display: block;
     width: 100%;
     height: 200px;
-    background-image: url(../../public/img/mother.png);
+    background-image: url(/img/mother.png);
     background-repeat: no-repeat;
     background-size: contain;
     @include mq (sp) {
@@ -2442,7 +2442,7 @@ item
     display: block;
     width: 100%;
     height: 200px;
-    background-image: url(../../public/img/father.png);
+    background-image: url(/img/father.png);
     background-repeat: no-repeat;
     background-size: contain;
     @include mq (sp) {
@@ -2452,7 +2452,7 @@ item
 }
 .welcome__recommendation-accent {
   position: absolute;
-  content: url(../../public/img/back.png);
+  content: url(/img/back.png);
   background:no-repeat center center / contain;
   top: 10%;
   transform: translateY(50%);
@@ -2508,7 +2508,7 @@ item
 
 .to-top {
   content: "";
-  background: url(../../public/img/totop.svg) no-repeat center center / contain;
+  background: url(/img/totop.svg) no-repeat center center / contain;
   height: 50px;
   width: 50px;
   position: fixed;
