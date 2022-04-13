@@ -780,8 +780,8 @@ a {
   color: inherit;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.8em;
-  padding: 0.4em 0.8em;
+  font-size: 10px;
+  padding: 0.2em 0.8em;
   width: 9em;
   height: 30px;
 }
@@ -2453,7 +2453,7 @@ item
 }
 
 .welcome__top {
-  background: url(/images/welcometop.png?9c481970c44bad4467fb2d76aa3d0e77);
+  background: url(/img/welcometop.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2482,7 +2482,7 @@ item
 }
 
 .welcome__logo {
-  background: url(/images/logo.png?7018db2a20238fc607e32e287ff25168);
+  background: url(/img/logo.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 90%;
@@ -2605,7 +2605,7 @@ item
 }
 
 .welcome__main {
-  background: url(/images/welcomemain.png?f70147f1b4f68b8b8e903359f485f59b);
+  background: url(/img/welcomemain.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2675,7 +2675,7 @@ item
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(/images/ナイフフォークのお食事アイコン.png?738da8901c544a8e55a6d25134dd475d);
+  background-image: url(/img/ナイフフォークのお食事アイコン.png);
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -2724,7 +2724,7 @@ item
 }
 
 .welcome__main-item-container-top:before {
-  content: url(/images/iPhone.png?8ac780ba544950d5afbfc34ac8467b41);
+  content: url(/img/iPhone.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100px;
@@ -2788,7 +2788,7 @@ item
   display: block;
   width: 80%;
   height: 400px;
-  background-image: url(/images/macbook.png?1aa47ad81b47a8aa7f6275383d9e52fa);
+  background-image: url(/img/macbook.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -2873,7 +2873,7 @@ item
   display: block;
   width: 100%;
   height: 200px;
-  background-image: url(/images/couple.png?12a2d95fa6c8cf2075c05a938b6835b0);
+  background-image: url(/img/couple.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -2917,7 +2917,7 @@ item
   display: block;
   width: 100%;
   height: 200px;
-  background-image: url(/images/mother.png?8c0b78daff31e4af4e015d573c907b7f);
+  background-image: url(/img/mother.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -2958,7 +2958,7 @@ item
   display: block;
   width: 100%;
   height: 200px;
-  background-image: url(/images/father.png?789bf62e03442a476a32ad68a5e7676d);
+  background-image: url(/img/father.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -2971,7 +2971,7 @@ item
 
 .welcome__recommendation-accent {
   position: absolute;
-  content: url(/images/back.png?6893989cfb2ff6f3b2ef1e9cac07eac5);
+  content: url(/img/back.png);
   background: no-repeat center center/contain;
   top: 10%;
   transform: translateY(50%);
@@ -3036,7 +3036,7 @@ item
 
 .to-top {
   content: "";
-  background: url(/images/totop.svg?93d3ba83ba26a808a18df1bb99b16d5a) no-repeat center center/contain;
+  background: url(/img/totop.svg) no-repeat center center/contain;
   height: 50px;
   width: 50px;
   position: fixed;
