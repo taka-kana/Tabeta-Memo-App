@@ -46,7 +46,7 @@
             <div class="show_article-img-wrapper wow fadeInDown">
                 <div class="show_article-img">
                     @if ( $article->image !=='')
-                    <img src="{{ $article->image }}">
+                    <img src="https://tabeta-memo-bucket.s3.ap-northeast-1.amazonaws.com/{{ $article->image }}">
                     @else
                     <img src="{{ asset('img/no_image.jpeg') }}">
                     @endif

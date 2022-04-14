@@ -117,9 +117,7 @@ public function postCreate(ArticleRequest $request)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
        })->save($tmpPath);
-    $PATH = Storage::disk('s3')->putFileAS('images', new File($tmpPath), $file, 'public');
-    //$upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
-    //$path = Storage::disk('s3')->url($upload_info);
+    $path = Storage::disk('s3')->putFile('images', $tmpPath, 'public');
     Storage::disk('local')->delete('items/' . $tmpFile);
 
     //キーワード処理
@@ -200,14 +198,12 @@ public function update(ArticleRequest $request, $id)
             ->resize(500, null, function($constraint) {
             $constraint->aspectRatio();
            })->save($tmpPath);
-        $path = Storage::disk('s3')->putFileAs('images', new File($tmpPath), $file, 'public');
-        //$upload_info = Storage::disk('s3')->putFileAs('images', new File($tmpPath), $file, 'public');
-        //$path = Storage::disk('s3')->url($upload_info);
+        $path = Storage::disk('s3')->putFile('images', $tmpPath, 'public');
         Storage::disk('local')->delete('items/' . $tmpFile);
     }
     //画像が選択されていないとき
     if (empty($image)){
-        \Storage::disk('s3')->delete($Path);
+        \Storage::disk('s3')->delete($path);
         $path = ("");
     }
 
@@ -254,7 +250,7 @@ public function destroy(article $article,$id)
     $path = $article->image;
     if($path !== '')
     {
-        \Storage::disk('s3')->delete($Path);
+        \Storage::disk('s3')->delete($path);
     }
     $article->delete();
     return redirect()->route('article.mymemo')->with('flash_message', '記事を削除しました');
