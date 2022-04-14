@@ -117,8 +117,9 @@ public function postCreate(ArticleRequest $request)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
        })->save($tmpPath);
-    $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
-    $path = Storage::disk('s3')->url($upload_info);
+    $path = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
+    //$upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
+    //$path = Storage::disk('s3')->url($upload_info);
     Storage::disk('local')->delete('items/' . $tmpFile);
 
     //キーワード処理
@@ -205,7 +206,7 @@ public function update(ArticleRequest $request, $id)
     }
     //画像が選択されていないとき
     if (empty($image)){
-        \Storage::disk('s3')->delete($tmpPath);
+        \Storage::disk('s3')->delete($Path);
         $path = ("");
     }
 
@@ -252,7 +253,7 @@ public function destroy(article $article,$id)
     $path = $article->image;
     if($path !== '')
     {
-        \Storage::disk('s3')->delete($tmpPath);
+        \Storage::disk('s3')->delete($Path);
     }
     $article->delete();
     return redirect()->route('article.mymemo')->with('flash_message', '記事を削除しました');
