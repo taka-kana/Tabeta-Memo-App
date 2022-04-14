@@ -205,7 +205,7 @@ public function update(ArticleRequest $request, $id)
     }
     //画像が選択されていないとき
     if (empty($image)){
-        \Storage::disk('s3')->delete($path);
+        \Storage::disk('s3')->delete($tmpPath);
         $path = ("");
     }
 
@@ -252,7 +252,7 @@ public function destroy(article $article,$id)
     $path = $article->image;
     if($path !== '')
     {
-        \Storage::disk('s3')->delete($path);
+        \Storage::disk('s3')->delete($tmpPath);
     }
     $article->delete();
     return redirect()->route('article.mymemo')->with('flash_message', '記事を削除しました');
