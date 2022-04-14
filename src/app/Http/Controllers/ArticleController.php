@@ -117,9 +117,8 @@ public function postCreate(ArticleRequest $request)
         ->resize(500, null, function($constraint) {
         $constraint->aspectRatio();
        })->save($tmpPath);
-    $path = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
-    //$upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
-    //$path = Storage::disk('s3')->url($upload_info);
+    $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
+    $path = Storage::disk('s3')->url($upload_info);
     Storage::disk('local')->delete('items/' . $tmpFile);
 
     //キーワード処理
@@ -200,8 +199,9 @@ public function update(ArticleRequest $request, $id)
             ->resize(500, null, function($constraint) {
             $constraint->aspectRatio();
            })->save($tmpPath);
-        $upload_info = Storage::disk('s3')->putFile('images', new File($tmpPath), 'public');
-        $path = Storage::disk('s3')->url($upload_info);
+        $path = Storage::disk('s3')->putFileAs('images', new File($tmpPath), $file, 'public');
+        //$upload_info = Storage::disk('s3')->putFileAs('images', new File($tmpPath), $file, 'public');
+        //$path = Storage::disk('s3')->url($upload_info);
         Storage::disk('local')->delete('items/' . $tmpFile);
     }
     //画像が選択されていないとき
