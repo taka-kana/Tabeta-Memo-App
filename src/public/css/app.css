@@ -693,6 +693,11 @@ a {
   }
 }
 
+.post-btn {
+  margin-top: 50px;
+  background-color: #f7ae47;
+}
+
 /*==================================================================
 #search
 ==================================================================*/
@@ -839,6 +844,29 @@ a {
 .search-btn::-moz-focus-inner {
   border: none;
   padding: 0;
+}
+
+.article_count {
+  width: 200px;
+  margin: 100px auto 100px auto;
+  font-size: 10px;
+}
+
+.article_count:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 105%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 1.5px;
+  background-color: #fecf8d;
+}
+
+@media screen and (max-width: 767px) {
+  .article_count {
+    margin: 50px auto 50px auto;
+  }
 }
 
 /*==================================================================
