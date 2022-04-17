@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> tabeta-memo.com</title>
     @if(config('app.env') === 'production')
-    <link rel="icon" href="{{ secure_asset('image/favcon.ico') }}">
+    <link rel="icon" href="{{ secure_asset('image/favcon.jpg') }}">
     @else
     <link rel="icon" href="{{ asset('../../../public/images/favcon.ico') }}">
     @endif

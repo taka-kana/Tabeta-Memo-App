@@ -36,7 +36,7 @@
 
 <!-- /.search -->
 @if(Auth::check())
-<a href="{{ route('article.getCreate') }}" class="post-btn is-sp">投稿する</a>
+<a href="{{ route('article.getCreate') }}" class="post-btn is-sp wow fadeInDown">投稿する</a>
 @endif
 
 <section class="article">
@@ -56,12 +56,12 @@
                     </div>
                 </div>
                 <div class="article-body">
-                    <h3 class="recipe-title">{{ $article->title }}</h3>
+                    <h3 class="recipe-title ">{{ $article->title }}</h3>
                     <div class="article-items">
                         <p class="article-item-category">{{ $article->category->name }}</p>
                         <p class="article-item-keyword">{{ $article->keyword->name }}</p>
                     </div>
-                    <p class="article-text is-pc">{{ $article->summary }}</p>
+                    <p class="article-text is-pc js-autolink">{{ $article->summary }}</p>
                     <div class="article-footer">
                         <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                             <div class="article-footer-item">

@@ -36,13 +36,13 @@
 <!-- /.search -->
 
 @if(Auth::check())
-<a href="{{ route('article.getCreate') }}" class="post-btn is-sp">投稿する</a>
+<a href="{{ route('article.getCreate') }}" class="post-btn is-sp wow fadeInDown">投稿する</a>
 @endif
 
 @if(!empty($articles))
 <section class="article">
     <div class="container">
-        <p class="article_count">全{{ $articles->count() }}件</p>
+        <div class="article_count wow fadeInDown">全{{ $articles->count() }}件</div>
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             <!-- 記事始まり -->
@@ -61,7 +61,7 @@
                         <p class="article-item-category">{{ $article->category->name }}</p>
                         <p class="article-item-keyword">{{ $article->keyword->name }}</p>
                     </div>
-                    <p class="article-text is-pc">{{ $article->summary }}</p>
+                    <p class="article-text is-pc js-autolink">{{ $article->summary }}</p>
                     <div class="article-footer">
                         <div class="article-user-name-title">投稿者&nbsp;:&nbsp;<span class="article-user-name">{{ $article->user->name }}</span></div>
                         <div class="article-footer-item">
