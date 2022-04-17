@@ -682,6 +682,24 @@ margin-top: 129px;
   }
 
 
+  .article_count {
+    width: 200px;
+    margin: 100px auto 100px auto;
+    font-size: 10px;
+    &:after {
+      content: "";
+      position: absolute;
+      left:50%;
+      top: 105%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 1.5px;
+      background-color: $sub-color;
+    }
+    @include mq (sp) {
+    margin: 50px auto 50px auto;
+    }
+  }
   /*==================================================================
   # article
   ==================================================================*/
