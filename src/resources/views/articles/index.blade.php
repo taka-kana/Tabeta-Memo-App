@@ -33,7 +33,11 @@
         </form>
     </div>
 </section>
+
 <!-- /.search -->
+@if(Auth::check())
+<a href="{{ route('article.getCreate') }}" class="post-btn btn is-sp">投稿する</a>
+@endif
 
 <section class="article">
     <div class="container">

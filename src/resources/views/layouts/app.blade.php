@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> tabeta-memo.com</title>
     @if(config('app.env') === 'production')
-    <link rel="icon" href="{{ secure_asset('../../../public/images/favcon.ico') }}">
+    <link rel="icon" href="{{ secure_asset('image/favcon.ico') }}">
     @else
     <link rel="icon" href="{{ asset('../../../public/images/favcon.ico') }}">
     @endif
-    <meta name="description" content="サイトの概要文">
+    <meta name="description" content="子供・家族の食事の好みや傾向を記録できる料理の記録アプリ">
 
 <!-- google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
