@@ -548,7 +548,6 @@ margin-top: 129px;
   }
 
   .post-btn {
-    margin-top: 50px;
     background-color: #f7ae47;
     -webkit-appearance: none;
     background-image: none;
@@ -557,11 +556,11 @@ margin-top: 129px;
     color: #FFFF;
     cursor: pointer;
     display: block;
-    margin: 0 0 1em;
-    padding: 0.3em 1em;
+    padding: 0.7em 1em;
     text-decoration: none;
     width: 100px;
     height: 40px;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     font-weight: 600;
@@ -707,21 +706,22 @@ margin-top: 129px;
 
 
   .article_count {
-    width: 200px;
-    margin: 100px auto 100px auto;
-    font-size: 10px;
+    width: 50px;
+    margin: 0px auto 30px auto;
+    padding: 0 3px;
+    position: relative;
     &:after {
       content: "";
       position: absolute;
       left:50%;
-      top: 105%;
+      top: 130%;
       transform: translateX(-50%);
-      width: 30%;
-      height: 1.5px;
+      width: 70%;
+      height: 3px;
       background-color: $sub-color;
     }
     @include mq (sp) {
-    margin: 50px auto 50px auto;
+    margin: 20px auto 20px auto;
     }
   }
   /*==================================================================

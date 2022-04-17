@@ -36,13 +36,13 @@
 <!-- /.search -->
 
 @if(Auth::check())
-<a href="{{ route('article.getCreate') }}" class="post-btn is-sp">投稿する</a>
+<a href="{{ route('article.getCreate') }}" class="post-btn is-sp wow fadeInDown">投稿する</a>
 @endif
 
 @if(!empty($articles))
 <section class="article">
     <div class="container">
-        <p class="article_count">全{{ $articles->count() }}件</p>
+        <p class="article_count wow fadeInDown">全{{ $articles->count() }}件</p>
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             @if ($article->user_id === Auth::id())
