@@ -513,8 +513,8 @@ margin-top: 129px;
   .swiper-slide {
     text-align: center;
     line-height: 1;
-    align-items: flex-start; //画像の高さを統一させない
-    justify-content: center; //左右の中央揃え
+    align-items: flex-start;
+    justify-content: center;
   }
 
   .swiper-img {
@@ -545,6 +545,11 @@ margin-top: 129px;
       font-size: 12px;
       height: auto;
     }
+  }
+
+  .post-btn {
+    margin-top: 50px;
+    background-color: #f7ae47;
   }
 
 /*==================================================================
