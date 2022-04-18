@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> tabeta-memo.com</title>
     @if(config('app.env') === 'production')
-    <link rel="icon" href="{{ secure_asset('image/favcon.jpg') }}">
+    <link rel="icon" href="{{ secure_asset('image/favicon.ico') }}">
     @else
-    <link rel="icon" href="{{ asset('../../../public/images/favcon.ico') }}">
+    <link rel="icon" href="{{ asset('../../../public/images/favicon.ico') }}">
     @endif
     <meta name="description" content="子供・家族の食事の好みや傾向を記録できる料理の記録アプリ">
 
-<!-- google font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<!-- 使用するフォント -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <!-- resetCSS -->
 @if(config('app.env') === 'production')
 <link href="{{ secure_asset('/css/reset.css') }}" rel="stylesheet">
@@ -27,8 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--font awesome-->
 <script src="https://kit.fontawesome.com/4d09afe394.js" crossorigin="anonymous"></script>
-<!-- swipe -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
 
 <!-- スタイルCSS -->
 @if(config('app.env') === 'production')
