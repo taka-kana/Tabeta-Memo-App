@@ -21,7 +21,6 @@ return false;
   let target = jQuery("#" == id ? "html" : id);
   // トップからの距離からヘッダー分の高さを引く
   let position = jQuery(target).offset().top - header;
-  // その分だけ移動すればヘッダーと被りません
   jQuery("html, body").animate(
     {
       scrollTop: position
@@ -74,7 +73,7 @@ jQuery('.ac-btn').on('click', function () {
 /*==================================================================
 # URL検出
 ==================================================================*/
-(function(){
+$(function(){
     $('.js-autolink').each(function(){
         $(this).html($(this).html().replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig,"<a href='$1'>$1</a>"));
     })
