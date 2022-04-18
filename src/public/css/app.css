@@ -2404,7 +2404,7 @@ item
   font-family: inherit;
   font-size: 1em;
   height: 100px;
-  padding: 0.4em 0.8em;
+  padding: 1em 1em;
   width: 70%;
   max-width: 500px;
   height: 150px;
@@ -2412,6 +2412,15 @@ item
   margin-right: auto;
   display: block;
   word-break: break-all;
+}
+
+.show_article-memo-wrapper .show_article-memo a {
+  text-decoration: underline;
+  color: #0000EE;
+}
+
+.show_article-memo-wrapper .show_article-memo a :hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
