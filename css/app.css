@@ -1,17 +1,13 @@
 @charset "UTF-8";
-
 /*=============================================================================
 # mixin
 =============================================================================*/
-
 /*=============================================================================
 # color
 =============================================================================*/
-
 /*=============================================================================
 # common 全体に共通するスタイル
 =============================================================================*/
-
 @media screen and (max-width: 767px) {
   .is-pc {
     display: none;
@@ -115,11 +111,9 @@ a {
 /*==================================================================
 # Form
 ==================================================================*/
-
 /*==================================================================
 # form-item-title
 ==================================================================*/
-
 .form_item-title {
   background-color: #fecf8d;
   color: #FFFF;
@@ -163,8 +157,6 @@ a {
 
 .form_input {
   margin-bottom: 10px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: #FFFF;
   background-image: none;
@@ -193,8 +185,6 @@ a {
 
 .form_img_input {
   margin-bottom: 10px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-image: none;
   border: none;
@@ -221,7 +211,6 @@ a {
 /*==================================================================
 #〜area部分
 ==================================================================*/
-
 .form_area {
   display: flex;
   margin-top: 30px;
@@ -236,7 +225,6 @@ a {
 /*==================================================================
 #form_area-wrapper部分
 ==================================================================*/
-
 .form_area-wrapper {
   margin-left: 40px;
 }
@@ -250,7 +238,6 @@ a {
 /*==================================================================
 # header
 ==================================================================*/
-
 .header {
   height: auto;
   width: 100%;
@@ -277,73 +264,31 @@ a {
 }
 
 .header-logo:hover {
-  -webkit-animation: shake 0.4s ease;
-          animation: shake 0.4s ease;
-}
-
-@-webkit-keyframes shake {
-  0% {
-    transform: rotate(0);
-  }
-
-  16% {
-    transform: rotate(12deg);
-  }
-
-  32% {
-    transform: rotate(-10deg);
-  }
-
-  48% {
-    transform: rotate(8deg);
-  }
-
-  64% {
-    transform: rotate(-6deg);
-  }
-
-  80% {
-    transform: rotate(4deg);
-  }
-
-  96% {
-    transform: rotate(-2deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+  animation: shake 0.4s ease;
 }
 
 @keyframes shake {
   0% {
     transform: rotate(0);
   }
-
   16% {
     transform: rotate(12deg);
   }
-
   32% {
     transform: rotate(-10deg);
   }
-
   48% {
     transform: rotate(8deg);
   }
-
   64% {
     transform: rotate(-6deg);
   }
-
   80% {
     transform: rotate(4deg);
   }
-
   96% {
     transform: rotate(-2deg);
   }
-
   100% {
     transform: rotate(0deg);
   }
@@ -381,8 +326,7 @@ a {
   position: relative;
 }
 
-.ac-btn,
-.header-nav {
+.ac-btn, .header-nav {
   font-size: 14px;
   width: 110px;
   height: 40px;
@@ -395,13 +339,11 @@ a {
   display: block;
 }
 
-.ac-btn a,
-.header-nav a {
+.ac-btn a, .header-nav a {
   color: #FFFF;
 }
 
-.ac-btn:hover,
-.header-nav:hover {
+.ac-btn:hover, .header-nav:hover {
   background-color: #FFAA3B;
 }
 
@@ -472,7 +414,6 @@ a {
 /*==================================================================
 # ドロワー
 ==================================================================*/
-
 .drawer-icon {
   position: fixed;
   top: 15px;
@@ -515,9 +456,7 @@ a {
   position: relative;
 }
 
-.drawer_icon-bar1,
-.drawer_icon-bar2,
-.drawer_icon-bar3 {
+.drawer_icon-bar1, .drawer_icon-bar2, .drawer_icon-bar3 {
   position: absolute;
   width: 26px;
   height: 4px;
@@ -591,7 +530,6 @@ a {
 /*==================================================================
 # footer
 ==================================================================*/
-
 .copyright {
   margin-top: 100px;
   height: 50px;
@@ -604,11 +542,9 @@ a {
 /*==================================================================
 # index
 ==================================================================*/
-
 /*==================================================================
-# top
-==================================================================*/
-
+  # top
+  ==================================================================*/
 .top {
   padding-top: 100px;
 }
@@ -663,10 +599,7 @@ a {
   }
 }
 
-.swiper-container,
-.swiper-initialized,
-.swiper-horizontal,
-.swiper-pointer-events {
+.swiper-container, .swiper-initialized, .swiper-horizontal, .swiper-pointer-events {
   margin-left: auto;
   margin-right: auto;
 }
@@ -714,7 +647,6 @@ a {
 /*==================================================================
 #search
 ==================================================================*/
-
 .search {
   margin-top: 50px;
   max-width: 550px;
@@ -750,16 +682,14 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  .keyword,
-  .category {
+  .keyword, .category {
     max-width: 160px;
     margin-right: auto;
     margin-left: auto;
   }
 }
 
-.keyword-title,
-.category-title {
+.keyword-title, .category-title {
   margin-bottom: 5px;
   color: #FFFF;
   font-size: 13px;
@@ -772,8 +702,6 @@ a {
 }
 
 .keyword-box {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: #FFFF;
   background-image: none;
@@ -788,8 +716,6 @@ a {
 }
 
 .category-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background: transparent url(https://haniwaman.com/cms/wp-content/uploads/2018/12/form-css-arrow.png) no-repeat center right 8px/16px 16px;
   border: 1px solid rgba(0, 0, 0, 0.16);
@@ -884,9 +810,8 @@ a {
 }
 
 /*==================================================================
-# article
-==================================================================*/
-
+  # article
+  ==================================================================*/
 .article {
   margin-top: 50px;
   background-color: #f3f3f3;
@@ -987,8 +912,7 @@ a {
   max-width: 330px;
   width: 100%;
   height: 200px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 767px) {
@@ -1019,8 +943,7 @@ a {
   }
 }
 
-.article-item-category,
-.article-item-keyword {
+.article-item-category, .article-item-keyword {
   margin-top: 10px;
   border-radius: 5px;
   border: 1px;
@@ -1035,8 +958,7 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  .article-item-category,
-  .article-item-keyword {
+  .article-item-category, .article-item-keyword {
     font-size: 8px;
     align-items: center;
     text-align: center;
@@ -1087,15 +1009,13 @@ a {
   }
 }
 
-.article-datetime-title,
-.article-datetime-name {
+.article-datetime-title, .article-datetime-name {
   margin-top: 2px;
   font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {
-  .article-datetime-title,
-  .article-datetime-name {
+  .article-datetime-title, .article-datetime-name {
     font-size: 8px;
     line-height: 10px;
   }
@@ -1130,8 +1050,7 @@ a {
   }
 }
 
-.edit-item,
-.delete-item {
+.edit-item, .delete-item {
   font-size: 13px;
   background: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -1140,8 +1059,7 @@ a {
 }
 
 @media screen and (max-width: 767px) {
-  .edit-item,
-  .delete-item {
+  .edit-item, .delete-item {
     font-size: 10px;
     margin-top: 11px;
     margin-left: 2px;
@@ -1201,7 +1119,6 @@ a {
 /*==================================================================
 #create
 ==================================================================*/
-
 .create-title {
   padding-top: 140px;
   text-align: center;
@@ -1242,17 +1159,14 @@ a {
 }
 
 /*==================================================================
-#〜area-wrapper部分
-==================================================================*/
-
-.create-form_category-area-wrapper,
-.create-radio_wrapper {
+  #〜area-wrapper部分
+  ==================================================================*/
+.create-form_category-area-wrapper, .create-radio_wrapper {
   margin-left: 40px;
 }
 
 @media screen and (max-width: 767px) {
-  .create-form_category-area-wrapper,
-  .create-radio_wrapper {
+  .create-form_category-area-wrapper, .create-radio_wrapper {
     margin-left: 0px;
   }
 }
@@ -1270,12 +1184,9 @@ a {
 }
 
 /*==================================================================
-#テキストエリア
-==================================================================*/
-
+  #テキストエリア
+  ==================================================================*/
 .create-form_summary {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: #FFFF;
   background-image: none;
@@ -1302,9 +1213,8 @@ a {
 }
 
 /*==================================================================
-# バリデーション
-==================================================================*/
-
+  # バリデーション
+  ==================================================================*/
 .create-form-item {
   text-align: left;
   font-size: 11px;
@@ -1317,9 +1227,8 @@ a {
 }
 
 /*==================================================================
-# ラジオボタン
-==================================================================*/
-
+  # ラジオボタン
+  ==================================================================*/
 .radio_item-wrapper {
   justify-content: space-around;
   text-align: left;
@@ -1343,13 +1252,11 @@ a {
   }
 }
 
-.form_select,
-.form_reaction-select {
+.form_select, .form_reaction-select {
   display: none;
 }
 
-.form_select + span,
-.form_reaction-select + span {
+.form_select + span, .form_reaction-select + span {
   cursor: pointer;
   display: inline-block;
   margin: 0 0.2em 0;
@@ -1410,8 +1317,7 @@ a {
   width: 85%;
 }
 
-.form_select:checked + span::after,
-.form_reaction-select:checked + span::after {
+.form_select:checked + span::after, .form_reaction-select:checked + span::after {
   opacity: 1;
 }
 
@@ -1430,7 +1336,6 @@ a {
 /*=========================================================
 評価グラフ
 =========================================================*/
-
 .rating-graph_wrapper {
   margin-left: 30px;
   margin-top: 15px;
@@ -1554,9 +1459,8 @@ a {
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .create-form_sent-area-wrapper {
   margin-top: 50px;
 }
@@ -1568,7 +1472,6 @@ a {
 /*==================================================================
 # useredit
 ==================================================================*/
-
 .useredit-form-wrapper {
   max-width: 500px;
   width: 80%;
@@ -1590,9 +1493,8 @@ a {
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .useredit-form_sent-area {
   margin-top: 50px;
   width: auto;
@@ -1678,7 +1580,6 @@ a {
 /*==================================================================
 #edit
 ==================================================================*/
-
 .edit-title {
   padding-top: 140px;
   text-align: center;
@@ -1718,19 +1619,15 @@ a {
 }
 
 /*以下form部分*/
-
 /*==================================================================
-#〜area-wrapper部分
-==================================================================*/
-
-.edit-form_article-keyword-area-wrapper,
-.edit-radio_wrapper {
+  #〜area-wrapper部分
+  ==================================================================*/
+.edit-form_article-keyword-area-wrapper, .edit-radio_wrapper {
   margin-left: 40px;
 }
 
 @media screen and (max-width: 767px) {
-  .edit-form_article-keyword-area-wrapper,
-  .edit-radio_wrapper {
+  .edit-form_article-keyword-area-wrapper, .edit-radio_wrapper {
     margin-left: 0px;
   }
 }
@@ -1748,12 +1645,9 @@ a {
 }
 
 /*==================================================================
-#テキストエリア
-==================================================================*/
-
+  #テキストエリア
+  ==================================================================*/
 .edit-form_summary {
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: #FFFF;
   background-image: none;
@@ -1780,9 +1674,8 @@ a {
 }
 
 /*==================================================================
-# バリデーション
-==================================================================*/
-
+  # バリデーション
+  ==================================================================*/
 .edit-form-item {
   text-align: left;
   font-size: 11px;
@@ -1795,9 +1688,8 @@ a {
 }
 
 /*==================================================================
-# ラジオボタン
-==================================================================*/
-
+  # ラジオボタン
+  ==================================================================*/
 .radio_item-wrapper {
   justify-content: space-around;
   text-align: left;
@@ -1821,13 +1713,11 @@ a {
   }
 }
 
-.form_select,
-.form_reaction-select {
+.form_select, .form_reaction-select {
   display: none;
 }
 
-.form_select + span,
-.form_reaction-select + span {
+.form_select + span, .form_reaction-select + span {
   cursor: pointer;
   display: inline-block;
   margin: 0 0.2em 0;
@@ -1888,8 +1778,7 @@ a {
   width: 85%;
 }
 
-.form_select:checked + span::after,
-.form_reaction-select:checked + span::after {
+.form_select:checked + span::after, .form_reaction-select:checked + span::after {
   opacity: 1;
 }
 
@@ -1906,9 +1795,8 @@ a {
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .edit-form_sent-area-wrapper {
   margin-top: 50px;
 }
@@ -1920,7 +1808,6 @@ a {
 /*==================================================================
 # login
 ==================================================================*/
-
 .login-form-wrapper {
   max-width: 500px;
   width: 80%;
@@ -1938,25 +1825,21 @@ a {
 }
 
 /*=========================================================
-フォーム
-=========================================================*/
-
-.login-form_email,
-.login-form_pass {
+  フォーム
+  =========================================================*/
+.login-form_email, .login-form_pass {
   margin-left: 40px;
 }
 
 @media screen and (max-width: 767px) {
-  .login-form_email,
-  .login-form_pass {
+  .login-form_email, .login-form_pass {
     margin-left: 0;
   }
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .login-form_sent-area {
   margin-top: 80px;
 }
@@ -1964,11 +1847,9 @@ a {
 /*==================================================================
 # mypage
 ==================================================================*/
-
 /*=========================================================
 item
 =========================================================*/
-
 .mypage-item-wrapper {
   width: auto;
   max-width: 80%;
@@ -2025,8 +1906,7 @@ item
   }
 }
 
-.mypage_name-area,
-.mypage_email-area {
+.mypage_name-area, .mypage_email-area {
   display: flex;
   margin-top: 30px;
   max-width: 500px;
@@ -2035,31 +1915,27 @@ item
 }
 
 @media screen and (max-width: 767px) {
-  .mypage_name-area,
-  .mypage_email-area {
+  .mypage_name-area, .mypage_email-area {
     display: block;
     margin-left: auto;
   }
 }
 
-.mypage_name,
-.mypage_email {
+.mypage_name, .mypage_email {
   margin-left: 30px;
   margin-top: 10px;
 }
 
 @media screen and (max-width: 767px) {
-  .mypage_name,
-  .mypage_email {
+  .mypage_name, .mypage_email {
     margin-left: 0;
     text-align: center;
   }
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .mypage_btn-area {
   margin-top: 100px;
   display: flex;
@@ -2074,8 +1950,7 @@ item
   }
 }
 
-.mypage-back-btn,
-.mypage-edit-btn {
+.mypage-back-btn, .mypage-edit-btn {
   -webkit-appearance: none;
   background-color: #fecf8d;
   background-image: none;
@@ -2096,14 +1971,12 @@ item
   margin-right: auto;
 }
 
-.mypage-back-btn:hover,
-.mypage-edit-btn:hover {
+.mypage-back-btn:hover, .mypage-edit-btn:hover {
   opacity: 0.7;
 }
 
 @media screen and (max-width: 767px) {
-  .mypage-back-btn,
-  .mypage-edit-btn {
+  .mypage-back-btn, .mypage-edit-btn {
     font-size: 0.8em;
     padding: 1.1em 1.5em;
     width: 100px;
@@ -2124,7 +1997,6 @@ item
 /*==================================================================
 #register
 ==================================================================*/
-
 .register-alert {
   font-size: 12px;
   margin-bottom: 50px;
@@ -2148,9 +2020,8 @@ item
 }
 
 /*=========================================================
-送信ボタン
-=========================================================*/
-
+  送信ボタン
+  =========================================================*/
 .register-form_sent-area {
   margin-top: 80px;
 }
@@ -2158,7 +2029,6 @@ item
 /*==================================================================
 # show
 ==================================================================*/
-
 .show-title {
   text-align: center;
   padding-top: 140px;
@@ -2218,8 +2088,7 @@ item
   margin-right: auto;
 }
 
-.show_article-item-wrapper,
-.show_article-item-wrapper_under {
+.show_article-item-wrapper, .show_article-item-wrapper_under {
   display: flex;
   margin-top: 30px;
   margin-left: auto;
@@ -2228,8 +2097,7 @@ item
 }
 
 @media screen and (max-width: 767px) {
-  .show_article-item-wrapper,
-  .show_article-item-wrapper_under {
+  .show_article-item-wrapper, .show_article-item-wrapper_under {
     margin-left: 0;
     margin-right: 0;
     margin-top: 10px;
@@ -2387,8 +2255,6 @@ item
 
 .show_article-memo-wrapper .show_article-memo {
   margin-top: 20px;
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
   background-color: #FFFF;
   background-image: none;
@@ -2507,7 +2373,6 @@ item
 /*==================================================================
 # welcome
 ==================================================================*/
-
 .welcome {
   padding-top: 100px;
 }
@@ -2608,7 +2473,7 @@ item
 
 .to-index_btn span {
   display: inline-block;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .to-index_btn:hover {
@@ -2651,7 +2516,7 @@ item
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-size: 20px;
-  transition: 0.5s;
+  transition: .5s;
 }
 
 .welcome__btn:hover {
@@ -2714,7 +2579,6 @@ item
   margin-right: auto;
   margin-left: auto;
   padding: 50px;
-  padding-bottom: 160px;
 }
 
 @media screen and (max-width: 767px) {
@@ -2724,10 +2588,7 @@ item
   }
 }
 
-.welcome__main-item-title1,
-.welcome__main-item-title2,
-.welcome__main-item-title3,
-.welcome__main-item-title4 {
+.welcome__main-item-title {
   font-weight: bold;
   font-size: 20px;
   position: relative;
@@ -2735,125 +2596,31 @@ item
 }
 
 @media screen and (max-width: 767px) {
-  .welcome__main-item-title1,
-  .welcome__main-item-title2,
-  .welcome__main-item-title3,
-  .welcome__main-item-title4 {
-    font-size: 14px;
+  .welcome__main-item-title {
+    font-size: 16px;
   }
 }
 
-.welcome__main-item-title1:before,
-.welcome__main-item-title2:before,
-.welcome__main-item-title3:before,
-.welcome__main-item-title4:before {
-  content: "";
+.welcome__main-item-title:before {
+  content: '';
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 40%;
+  background-size: cover;
+  background-image: url(/img/ナイフフォークのお食事アイコン.png);
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
   position: absolute;
   top: -40%;
-  left: -100px;
+  left: -60px;
 }
 
 @media screen and (max-width: 767px) {
-  .welcome__main-item-title1:before,
-  .welcome__main-item-title2:before,
-  .welcome__main-item-title3:before,
-  .welcome__main-item-title4:before {
-    width: 40px;
-    height: 30px;
-    left: -40px;
-  }
-}
-
-.welcome__main-item-title1:before {
-  background-image: url(/img/1.png);
-}
-
-.welcome__main-item-title2:before {
-  background-image: url(/img/2.png);
-}
-
-.welcome__main-item-title3:before {
-  background-image: url(/img/3.png);
-}
-
-.welcome__main-item-title4:before {
-  background-image: url(/img/4.png);
-}
-
-.revue__item {
-  position: relative;
-  margin-right: 160px;
-}
-
-@media screen and (max-width: 767px) {
-  .revue__item {
-    margin-right: 0px;
-  }
-}
-
-.revue__item:before {
-  position: absolute;
-  content: "";
-  top: 0px;
-  right: -270px;
-  display: block;
-  width: 60%;
-  height: 100px;
-  background-image: url(/img/revue.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-@media screen and (max-width: 767px) {
-  .revue__item:before {
-    display: none;
-  }
-}
-
-.koukai__item {
-  position: relative;
-  margin-right: 160px;
-}
-
-@media screen and (max-width: 767px) {
-  .koukai__item {
-    margin-right: 0px;
-  }
-}
-
-.koukai__item:before {
-  position: absolute;
-  content: "";
-  top: 130px;
-  right: -270px;
-  display: block;
-  width: 60%;
-  height: 100px;
-  background-image: url(/img/koukai.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-@media screen and (max-width: 767px) {
-  .koukai__item:before {
-    display: none;
-  }
-}
-
-.left__rf {
-  width: 430px;
-}
-
-@media screen and (max-width: 767px) {
-  .left__rf {
-    width: 100%;
+  .welcome__main-item-title:before {
+    width: 25px;
+    height: 25px;
+    left: -30px;
   }
 }
 
@@ -2905,6 +2672,7 @@ item
 }
 
 .welcome__main-item-container-bottom {
+  margin-left: 33%;
   margin-top: 60px;
 }
 
@@ -2930,7 +2698,7 @@ item
 }
 
 .macbook-rf:before {
-  content: "";
+  content: '';
   top: 10%;
   right: 107%;
   width: 80%;
@@ -2945,11 +2713,11 @@ item
 
 .macbook-rf:after {
   position: absolute;
-  content: "";
-  top: 160%;
-  right: 65%;
+  content: '';
+  top: 10%;
+  right: 107%;
   display: block;
-  width: 60%;
+  width: 80%;
   height: 400px;
   background-image: url(/img/macbook.png);
   background-repeat: no-repeat;
@@ -3003,19 +2771,6 @@ item
   }
 }
 
-.welcome__recommendation-image-wrapper2 {
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  margin-top: 50px;
-}
-
-@media screen and (max-width: 767px) {
-  .welcome__recommendation-image-wrapper2 {
-    margin-top: 0px;
-  }
-}
-
 .welcome__recommendation-image1 {
   position: relative;
   width: 230px;
@@ -3027,12 +2782,14 @@ item
   .welcome__recommendation-image1 {
     width: 100px;
     height: 100px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 10px;
   }
 }
 
 .welcome__recommendation-image1:before {
-  content: "";
+  content: '';
   top: 10%;
   right: 0%;
   width: 100%;
@@ -3041,9 +2798,9 @@ item
 
 .welcome__recommendation-image1:after {
   position: absolute;
-  content: "";
-  top: -30%;
-  right: 30%;
+  content: '';
+  top: 10%;
+  right: 0%;
   display: block;
   width: 100%;
   height: 200px;
@@ -3055,9 +2812,9 @@ item
 @media screen and (max-width: 767px) {
   .welcome__recommendation-image1:after {
     height: 100px;
-    top: 30%;
-    width: 110%;
-    right: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 150%;
   }
 }
 
@@ -3076,7 +2833,7 @@ item
 }
 
 .welcome__recommendation-image2:before {
-  content: "";
+  content: '';
   top: 10%;
   right: 0;
   width: 100%;
@@ -3085,9 +2842,9 @@ item
 
 .welcome__recommendation-image2:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 10%;
-  right: 80%;
+  right: 0;
   display: block;
   width: 100%;
   height: 200px;
@@ -3099,7 +2856,6 @@ item
 @media screen and (max-width: 767px) {
   .welcome__recommendation-image2:after {
     height: 100px;
-    right: 0%;
   }
 }
 
@@ -3118,7 +2874,7 @@ item
 }
 
 .welcome__recommendation-image3:before {
-  content: "";
+  content: '';
   top: 10%;
   left: 20%;
   width: 100%;
@@ -3127,9 +2883,9 @@ item
 
 .welcome__recommendation-image3:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 10%;
-  right: -80%;
+  left: 20%;
   display: block;
   width: 100%;
   height: 200px;
@@ -3141,100 +2897,13 @@ item
 @media screen and (max-width: 767px) {
   .welcome__recommendation-image3:after {
     height: 100px;
-    right: 0;
-  }
-}
-
-.welcome__recommendation-image4 {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  z-index: 10;
-}
-
-@media screen and (max-width: 767px) {
-  .welcome__recommendation-image4 {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.welcome__recommendation-image4:before {
-  content: "";
-  top: 10%;
-  left: 20%;
-  width: 100%;
-  display: block;
-}
-
-.welcome__recommendation-image4:after {
-  position: absolute;
-  content: "";
-  top: 30%;
-  right: -90%;
-  display: block;
-  width: 100%;
-  height: 200px;
-  background-image: url(/img/pet-amico.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-@media screen and (max-width: 767px) {
-  .welcome__recommendation-image4:after {
-    height: 100px;
-    top: 20%;
-    right: 0;
-  }
-}
-
-.welcome__recommendation-image5 {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  z-index: 10;
-}
-
-@media screen and (max-width: 767px) {
-  .welcome__recommendation-image5 {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.welcome__recommendation-image5:before {
-  content: "";
-  top: 10%;
-  left: 20%;
-  width: 100%;
-  display: block;
-}
-
-.welcome__recommendation-image5:after {
-  position: absolute;
-  content: "";
-  top: 30%;
-  left: -250%;
-  display: block;
-  width: 100%;
-  height: 200px;
-  background-image: url(/img/Grandma-amico.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-@media screen and (max-width: 767px) {
-  .welcome__recommendation-image5:after {
-    height: 100px;
-    top: 10%;
-    left: 0;
   }
 }
 
 .welcome__recommendation-accent {
   position: absolute;
   content: url(/img/back.png);
-  background: no-repeat center center/contain;
+  background: no-repeat center center / contain;
   top: 10%;
   transform: translateY(50%);
   right: 50%;
@@ -3326,4 +2995,4 @@ item
   right: 100px;
   padding: 0.8em 0.8em;
 }
-
+/*# sourceMappingURL=app.css.map */
