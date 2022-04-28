@@ -156,7 +156,7 @@
                 <!-- 送信 -->
                 <div class="create-form_sent-area-wrapper wow fadeInDown">
                     <input type="submit" value="投稿する" class="btn" id="js-submit" >
-                    <input type="submit" value="戻る" class="create-form_back btn" id="" >
+                    <a class="create-form_back btn" href="{{ route('article.index') }}">戻る</a>
                 </div>
             </form>
         </div>
