@@ -160,7 +160,7 @@
                 <!-- 送信 -->
                 <div class="edit-form_sent-area-wrapper wow fadeInDown">
                     <input type="submit" value="変更する" class="btn" id="js-submit" >
-                    <input type="submit" value="戻る" class="edit-form_back btn" id="" >
+                    <a class="edit-form_back btn" href="{{ route('article.index') }}"></a>
                 </div>
             </form>
         </div>
