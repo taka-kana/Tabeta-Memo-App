@@ -108,17 +108,19 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
-    $now = date_format(Carbon::now(), 'YmdHis');
-    $file = $request->file('image');
-    $name = $file->getClientOriginalName();
-    $tmpFile = $now . '_' . $name;
-    $tmpPath = storage_path('app/public/items/') . $tmpFile;
-    $image = Image::make($file)
+    if($request['image']) {
+        $now = date_format(Carbon::now(), 'YmdHis');
+        $file = $request->file('image');
+        $name = $file->getClientOriginalName();
+        $tmpFile = $now . '_' . $name;
+        $tmpPath = storage_path('app/public/items/') . $tmpFile;
+        $image = Image::make($file)
         ->resize(500, null, function($constraint) {
-        $constraint->aspectRatio();
-       })->save($tmpPath);
-    $path = Storage::disk('s3')->putFile('images', $tmpPath, 'public');
-    Storage::disk('local')->delete('items/' . $tmpFile);
+            $constraint->aspectRatio();
+        })->save($tmpPath);
+        $path = Storage::disk('s3')->putFile('images', $tmpPath, 'public');
+        Storage::disk('local')->delete('items/' . $tmpFile);
+    }
 
     //キーワード処理
     preg_match_all('/([a-zA-Z0-9０-９ぁ-んァ-ヶー一-龠]+)/u', $request->keywords, $match);
