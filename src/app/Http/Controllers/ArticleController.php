@@ -108,7 +108,7 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
-    if(request['image']) {
+    if($request['image']) {
         $now = date_format(Carbon::now(), 'YmdHis');
         $file = $request->file('image');
         $name = $file->getClientOriginalName();
