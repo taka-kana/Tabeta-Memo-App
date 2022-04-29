@@ -108,7 +108,7 @@ public function getCreate(Request $request)
 public function postCreate(ArticleRequest $request)
 {
     //imageの保存処理
-    if($request['image']) {
+    if(request['image']) {
         $now = date_format(Carbon::now(), 'YmdHis');
         $file = $request->file('image');
         $name = $file->getClientOriginalName();
@@ -120,6 +120,8 @@ public function postCreate(ArticleRequest $request)
         })->save($tmpPath);
         $path = Storage::disk('s3')->putFile('images', $tmpPath, 'public');
         Storage::disk('local')->delete('items/' . $tmpFile);
+    }else{
+        $path = ("");
     }
 
     //キーワード処理
