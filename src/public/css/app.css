@@ -1719,8 +1719,6 @@ a {
   margin-bottom: 50px;
 }
 
-/*以下form部分*/
-
 /*==================================================================
 #〜area-wrapper部分
 ==================================================================*/
@@ -2340,6 +2338,7 @@ item
 @media screen and (max-width: 767px) {
   .name-datetime-wrapper {
     width: 280px;
+    display: block;
   }
 }
 
