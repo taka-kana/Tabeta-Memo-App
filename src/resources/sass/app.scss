@@ -1410,7 +1410,6 @@ margin-top: 129px;
     margin-bottom: 50px;
   }
   
-  /*以下form部分*/
   /*==================================================================
   #〜area-wrapper部分
   ==================================================================*/
@@ -1917,6 +1916,7 @@ item
     justify-content: space-around;
     @include mq (sp) {
       width: 280px;
+      display: block;
     }
   }
 
