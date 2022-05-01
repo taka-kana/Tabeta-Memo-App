@@ -65,6 +65,7 @@ public function search(Request $request)
             $query->where('keyword_id', $keyword)
                    ->where('release', '公開する')->get();
         }else{
+            $query->where('release', '公開する');
             return view('articles.search',[
                 'categoryId' => $categoryId,
                 'searchWord' => $searchWord,
@@ -79,7 +80,6 @@ public function search(Request $request)
         }
         if(empty($keyword) && empty($category)){
             $query->where('release', '公開する');
-            
             return view('articles.search',[
                 'categoryId' => $categoryId,
                 'searchWord' => $searchWord,
