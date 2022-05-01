@@ -78,6 +78,8 @@ public function search(Request $request)
             ->where('release', '公開する');
         }
         if(empty($keyword) && empty($category)){
+            $query->where('release', '公開する');
+            
             return view('articles.search',[
                 'categoryId' => $categoryId,
                 'searchWord' => $searchWord,
