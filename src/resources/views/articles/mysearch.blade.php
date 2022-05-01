@@ -42,7 +42,6 @@
 @if(!empty($articles))
 <section class="article">
     <div class="container">
-        <p class="article_count wow fadeInDown">全{{ $articles->count() }}件</p>
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             @if ($article->user_id === Auth::id())

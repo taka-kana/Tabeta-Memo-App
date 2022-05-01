@@ -63,9 +63,8 @@ public function search(Request $request)
             $keyword = $keyword->id;
             $query = Article::query();
             $query->where('keyword_id', $keyword)
-                   ->where('release', '公開する')->get();
+                   ->get();
         }else{
-            $query->where('release', '公開する');
             return view('articles.search',[
                 'categoryId' => $categoryId,
                 'searchWord' => $searchWord,
@@ -75,19 +74,17 @@ public function search(Request $request)
     }
         if(isset($categoryId))
         {
-            $query->where('category_id', $categoryId)
-            ->where('release', '公開する');
+            $query->where('category_id', $categoryId);
         }
         if(empty($keyword) && empty($category)){
-            $query->where('release', '公開する');
             return view('articles.search',[
                 'categoryId' => $categoryId,
                 'searchWord' => $searchWord,
                 'categories' => $categories,
             ]);
         }
-    $articles = $query->get();
-    $articles = $query->orderBy('category_id', 'asc')->paginate(6);
+    $articles = $query->where('release', '公開する')
+                ->orderBy('category_id', 'asc')->paginate(6);
     return view('articles.search',[
         'articles' => $articles,
         'categoryId' => $categoryId,
