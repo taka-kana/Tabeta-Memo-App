@@ -42,7 +42,6 @@
 @if(!empty($articles))
 <section class="article">
     <div class="container">
-        <div class="article_count wow fadeInDown">全{{ $articles->count() }}件</div>
         <div class="article-container_1 wow fadeInDown">
             @foreach ($articles as $article)
             <!-- 記事始まり -->
