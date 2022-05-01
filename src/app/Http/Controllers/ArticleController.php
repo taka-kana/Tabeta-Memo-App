@@ -54,7 +54,7 @@ public function search(Request $request)
     $categoryId = $request->input('categoryId');
     $category = new Category;
     $categories = $category->getLists();
-    $articles = Article::where('release', '公開する');
+    
     $query = Article::query();
     if(!empty($request->get('searchWord')))
     {
@@ -82,8 +82,9 @@ public function search(Request $request)
                 'categories' => $categories,
             ]);
         }
-    $articles = $query->get();
-    $articles = $query->orderBy('category_id', 'asc')->paginate(6);
+    $articles = $query->get()
+            -> Article::where('release', '公開する')
+            -> $query->orderBy('category_id', 'asc')->paginate(6);
     return view('articles.search',[
         'articles' => $articles,
         'categoryId' => $categoryId,
