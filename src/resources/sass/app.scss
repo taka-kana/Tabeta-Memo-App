@@ -1923,21 +1923,23 @@ item
   .show_article-username-wrapper {
     display: flex;
     font-size: 18px;
-    border-bottom: $sub-color 5px solid;
-
     @include mq (sp) {
       font-size:13px;
       margin-right: auto;
-      width: 140px;
+      width: 200px;
     }
   }
+.show_article-username-title,.show_article-username,.date-time-title,.date-time-name {
+  border-bottom: $sub-color 5px solid;
+}
+
 
   .datetime-wrapper {
     display: flex;
     margin-top: 1px;
-    border-bottom: $sub-color 3.5px solid;
     @include mq (sp) {
       font-size: 11px;
+      margin-top: 5px;
     }
   }
 
