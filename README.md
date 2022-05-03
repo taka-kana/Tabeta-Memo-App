@@ -92,16 +92,18 @@
 #### ログイン画面では登録したメールアドレスと、パスワードを入力する事により登録済みのユーザーでログインすることができます。
 <br>
 
-<img src="https://user-images.githubusercontent.com/88753764/166153742-29162fb3-fa10-4a8d-abe1-c8c2b5c32040.png" width="400px" height="auto" >  　　　　<img src="https://user-images.githubusercontent.com/88753764/166153737-10de7166-e2c5-4303-bcab-81ec6755eb97.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166153742-29162fb3-fa10-4a8d-abe1-c8c2b5c32040.png" width="500px" height="auto" ><img src="https://user-images.githubusercontent.com/88753764/166153737-10de7166-e2c5-4303-bcab-81ec6755eb97.png" width="500px" height="auto" >
 
 #### ログインするとヘッダーにユーザー名が表示されます。
 
-<img src="https://user-images.githubusercontent.com/88753764/166175345-9ca8ba75-fd27-49af-a2ed-aa75f55f555c.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166175345-9ca8ba75-fd27-49af-a2ed-aa75f55f555c.png" width="900px" height="auto" >
 
 ### みんなの記録画面（投稿一覧画面）
-#### **ヘッダー**
 #### ・自身や他のユーザーが投稿したメモが表示されます。
 #### ・このページで表示されるメモは公開設定をしているメモのみです。
+<br>
+
+#### **ヘッダー**
 #### ・ヘッダーのロゴをクリックする事によりmy-memoに遷移することができます。
 #### ・ヘッダーよりmemo投稿ページに遷移することができます。
 #### ・ヘッダーのメニューボタンを押すとメニューが展開されmy-memo・ユーザー情報ページへの遷移、ログアウトをすることができます。
@@ -117,34 +119,34 @@
 #### ・ヘッダー分だけ下部へスクロールすると画面右下にtoTopボタンが出現し、クリックするとページ上部へ遷移します。
 #### ・下部のページネーションにより次ページに遷移することができます。
 
-<img src="https://user-images.githubusercontent.com/88753764/166152251-a0183c7c-b859-42ff-9381-73bd352954f4.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166152251-a0183c7c-b859-42ff-9381-73bd352954f4.png" width="500px" height="auto" >
 <br>
 
 ### Memo投稿
-#### ・レシピ名、画像、メモ、カテゴリー名、食材キーワード、我が家のレビュー、完食度、公開・非公開の入力・項目選択を行うことで投稿することができます。
-#### ・画像は未入力でも投稿することができます。未入力の場合はみんなの記録、My-memo、記事詳細画面で「NO IMAGE」の画像が表示されます。
+#### ・レシピ名、メモ、カテゴリー名、食材キーワード、我が家のレビュー、完食度、公開・非公開の入力・項目選択を行うことで投稿することができます。
+#### ・画像は未入力でも投稿することができます。未入力の場合はみんなの記録、My-memo、記事詳細画面での画像はアプリで用意されている「NO IMAGE」の画像が表示されます。
 #### ・公開・非公開設定では、非公開に設定するとみんなの記録に表示されなくなります。
 
-<img src="https://user-images.githubusercontent.com/88753764/166152821-453e9fea-ecc5-4204-b3a9-ab4d539ff28d.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166152821-453e9fea-ecc5-4204-b3a9-ab4d539ff28d.png" width="500px" height="auto" >
 
 ### My-memo
 
-#### ・現在ログインされているユーザーが投稿したメモ一覧が表示されます。
+#### ・現在ログインしているユーザーが投稿したメモ一覧が表示されます。
 #### ・みんなの投稿とは異なり投稿日時も表示されます。
-<img src="https://user-images.githubusercontent.com/88753764/166255253-e0db2afe-7c2f-4fa0-9b76-1ce1683ccb00.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166255253-e0db2afe-7c2f-4fa0-9b76-1ce1683ccb00.png" width="500px" height="auto" >
 
 ### ユーザー情報
 
 #### ユーザー名、メールアドレスを確認することができます。
 
-<img src="https://user-images.githubusercontent.com/88753764/166391013-3cfcfe3e-c6d0-4981-b6f6-effe57e2fa1b.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166391013-3cfcfe3e-c6d0-4981-b6f6-effe57e2fa1b.png" width="500px" height="auto" >
 
 ### ユーザー情報変更
 
 #### ユーザー名、メールアドレスを変更することができます。
 #### ゲストユーザーは内容を変更することができません。
 
-<img src="https://user-images.githubusercontent.com/88753764/166391165-031a5eb4-56cf-4d67-88b3-750d3c86d0b4.png" width="400px" height="auto" >
+<img src="https://user-images.githubusercontent.com/88753764/166391165-031a5eb4-56cf-4d67-88b3-750d3c86d0b4.png" width="500px" height="auto" >
 
 ## 今後の改変予定
 ### 現在はCRUD機能中心に実装しています。よりSNS色を強めたり、メモとしての機能を向上させるため下記の追加を考えております。
